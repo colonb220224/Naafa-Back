@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.colonb.naafa.user.UserMapper">
+
+    <resultMap id="User" type="com.colonb.naafa.user.entity.User">
+        <result property="seq" column="SEQ"/>
+        <result property="username" column="USERNAME"/>
+        <result property="password" column="PASSWORD"/>
+        <result property="provider" column="PROVIDER"/>
+        <result property="socialId" column="SOCIAL_ID"/>
+        <result property="role" column="ROLE"/>
+    </resultMap>
+
+    <insert id="insertDefaultUser" useGeneratedKeys="true" keyProperty="SEQ" keyColumn="SEQ">
+        INSERT INTO USER (USERNAME, PASSWORD)
+        values (#{username}, #{password})
+    </insert>
+
+    <insert id="insertSocialUser" useGeneratedKeys="true" keyProperty="SEQ" keyColumn="SEQ">
+        INSERT INTO USER (USERNAME, PROVIDER, SOCIAL_ID)
+        values (#{username}, #{provider}, #{socialId})
+    </insert>
+
+    <select id="findBySeq" resultMap="User">
+        SELECT SEQ, USERNAME, PASSWORD, PROVIDER, SOCIAL_ID, ROLE
+        FROM USER
+        WHERE SEQ = #{seq}
+    </select>
+
+    <select id="findByUsername" resultMap="User">
+        SELECT SEQ, USERNAME, PASSWORD, PROVIDER, SOCIAL_ID, ROLE
+        FROM USER
+        WHERE USERNAME = #{username}
+    </select>
+
+    <select id="findByProviderAndSocialId" resultMap="User">
+        SELECT SEQ, USERNAME, PASSWORD, PROVIDER, SOCIAL_ID, ROLE
+        FROM USER
+        WHERE SOCIAL_ID = #{socialId}
+          and PROVIDER = #{provider}
+    </select>
+
+    <select id="existByUsername" resultType="boolean">
+        SELECT EXISTS(SELECT SEQ FROM USER WHERE USERNAME = #{username})
+    </select>
+
+</mapper>
