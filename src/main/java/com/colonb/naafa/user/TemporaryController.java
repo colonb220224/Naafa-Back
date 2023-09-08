@@ -11,7 +11,7 @@ public class TemporaryController {
 
     @RequestMapping("{var}")
     String tempMapping(@PathVariable String var){
-        return "user/"+var;
+        return "user/"  +var;
     }
 
     @RequestMapping("admin/{var}")
