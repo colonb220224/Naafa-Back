@@ -1,11 +1,242 @@
-<!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1 th:text="${username}"></h1>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=360, user-scalable=no">
+    <title>나아파</title>
+    <meta name="keyword" content="나아파">
+    <meta name="description" content="나아파">
+    <meta name="author" content="나아파">   
+    
+    <!-- css -->
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/common.css">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/swiper/css/swiper.css">
 
+    <!-- script -->
+    <script src="./assets/scripts/jquery-3.1.1.min.js"></script>
+    <script src="./assets/scripts/script.js"></script>
+    <script src="./assets/swiper/js/swiper.js"></script>
+    
+</head>
+<body class="suit">
+    <div class="content">
+        <div class="con">
+            <div class="wrap pb-100">
+                <div class="main_con">
+                    <div class="logo">
+                        <img src="./assets/images/logo.png" alt="">
+                    </div>
+                    <div class="search_wrap" onclick="location.href='user/search.html';">
+                        <input type="text" class="search_input" placeholder="증상 또는 병원을 입력해주세요.">
+                        <button type="button">
+                            <img src="./assets/images/search.png" alt="">
+                        </button>
+                    </div>
+                    <!-- <script>
+                        // 모바일 자판 나올때 하단 fixed된 컨텐츠가 검색창 가리는 것 방지
+                        
+                        //키보드가 올라오는 경우
+                        $('.search_input').focus(function(){
+                            $('.focus_hide').hide();
+                        });     
+                        //키보드가 내려가는 경우
+                        $('.search_input').blur(function(){
+                            $('.focus_hide').show();
+                        });
+                    </script> -->
+
+                    <div class="top_banner">
+                        <a href="">
+                            <div class="txt">
+                                <h5>비대면 진료는 나아파에서!</h5>
+                                <p>
+                                    병원 방문 예약 및 비대면 진료보기<br/>
+                                    간편하게 예약하기<i><img src="./assets/images/arrow.png" alt=""></i>
+                                </p>
+                            </div>
+                            <div class="img">
+                                <img src="./assets/images/doctor.png" alt="">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="border8">
+                    </div>
+                    <div class="banner blue">
+                        <a href="">
+                            <div class="sub_tit">
+                                <h5>최근 방문하셨어요  ></h5>
+                            </div>
+                            <div class="banner_con">
+                                <div class="txt">
+                                    <h5>
+                                        미래연세이비인후과의원 
+                                    </h5>
+                                    <ul class="txt_p">
+                                        <li>
+                                            금요일 09:00~16:00
+                                        </li>
+                                        <li>|</li>
+                                        <li>
+                                            이비인후과
+                                        </li>
+                                    </ul>
+                                    <ul class="txt_sm">
+                                        <li>
+                                            <i><img src="./assets/images/i_loca_blue.png" alt=""></i>6Km
+                                        </li>
+                                        <li>|</li>
+                                        <li>
+                                            이비인후과
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="img">
+                                    <img src="./assets/images/icon1.png" alt="">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="border8">
+                    </div>
+                    <div class="banner ">
+                        <a href="">
+                            <div class="sub_tit">
+                                <h5>가까운 병원이 있어요  ></h5>
+                            </div>
+                            <div class="banner_con">
+                                <div class="txt">
+                                    <h5>
+                                        연세 이비인후과의원 
+                                    </h5>
+                                    <ul class="txt_p">
+                                        <li>
+                                            금요일 09:00~16:00
+                                        </li>
+                                        <li>|</li>
+                                        <li>
+                                            이비인후과
+                                        </li>
+                                    </ul>
+                                    <ul class="txt_sm">
+                                        <li>
+                                            <i><img src="./assets/images/i_loca.png" alt=""></i>
+                                            6Km
+                                        </li>
+                                        <li>|</li>
+                                        <li>
+                                            이비인후과
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="img">
+                                    <img src="./assets/images/icon2.png" alt="">
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <!-- 배너 -->
+                <div class="fixed_banner" style="display: none;">
+                    <a href="">
+                        <div class="txt">
+                            <h5>비대면 진료는 나아파에서!</h5>
+                            <p>
+                                병원 방문 예약 및 비대면 진료보기<br/>
+                                간편하게 예약하기<i><img src="./assets/images/arrow.png" alt=""></i>
+                            </p>
+                        </div>
+                        <div class="img">
+                            <img src="./assets/images/doctor.png" alt="">
+                        </div>
+                    </a>
+                </div>
+                <!-- 팝업 리스트 -->
+                <ul class="alert_list">
+                    <li>
+                        <a href="">
+                            <div class="txt">
+                                <p>
+                                    <i><img src="./assets/images/chk2.png" alt=""></i>
+                                    다가오고 있는 예약이 있어요!
+                                </p>
+                            </div>
+                            <div class="num">
+                                7 건
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <div class="txt">
+                                <p>
+                                    <i><img src="./assets/images/chk2.png" alt=""></i>
+                                    다가오고 있는 예약이 있어요!
+                                </p>
+                            </div>
+                            <div class="num">
+                                7 건
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="quick_menu">
+                    <li>
+                        <a href="">
+                            <img src="./assets/images/quick1.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./assets/images/quick2.png" alt="">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="./assets/images/quick3.png" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="nav">
+                <li class="on">
+                    <a href="./index.html">
+                        <i>
+                            <img src="./assets/images/nav1.png" alt="">
+                        </i>
+                        <p>병원검색</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="user/reserv_select.html">
+                        <i>
+                            <img src="./assets/images/nav2.png" alt="">
+                        </i>
+                        <p>진료예약</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="user/cs.html">
+                        <i>
+                            <img src="./assets/images/nav3.png" alt="">
+                        </i>
+                        <p>비대면 상담예약</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="user/my.html">
+                        <i>
+                            <img src="./assets/images/nav4.png" alt="">
+                        </i>
+                        <p>마이페이지</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    
+    
 </body>
 </html>

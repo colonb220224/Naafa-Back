@@ -1,0 +1,557 @@
+#admin_review_header {
+	.main-menu {
+		.item {
+			&:nth-of-type(4) {
+				background-color: #234397;
+				color: #fff;
+			}
+		}
+	}
+}
+
+#admin_review {
+	width: 85%;
+	position: fixed;
+	top: 0;
+	bottom: 0; /* 화면 하단까지 영역을 확장 */
+	right: 0;
+	background-color: #e7e7e7;
+	overflow-y: auto; /* 스크롤이 내용을 넘어갈 경우 스크롤 생성 */
+
+	.inner {
+		height: 100vh;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+
+		.title {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 20px;
+
+			h2 {
+				font: bold 25px/1 "Noto Sans";
+			}
+
+			button {
+				background-color: #234397;
+				border-radius: 50px;
+				padding: 7px 25px;
+				border: none;
+				cursor: pointer;
+
+				a {
+					color: #fff;
+				}
+			}
+		}
+
+		.box01 {
+			background-color: #fff;
+			border-radius: 10px;
+			padding: 20px 30px;
+			margin-bottom: 10px;
+
+			ul {
+				display: flex;
+				width: 40%;
+				justify-content: space-between;
+				align-items: center;
+
+				li {
+					font: normal 14px/1 "Noto Sans";
+					text-align: center;
+
+					span {
+						font: bold 14px/1 "Noto Sans";
+					}
+				}
+			}
+		}
+
+		.box02 {
+			background-color: #fff;
+			border-radius: 10px;
+			padding: 20px 30px;
+			display: flex;
+			flex-direction: column;
+			gap: 20px;
+
+			.status,
+			.sort,
+			.search {
+				display: flex;
+				align-items: center;
+
+				span {
+					margin-right: 20px;
+					font: bold 13px/2 "Noto Sans";
+					width: 100px;
+					height: 100%;
+					text-align: left;
+				}
+
+				.buttons {
+					display: flex;
+					align-items: center;
+					gap: 10px;
+
+					button {
+						border-radius: 20px;
+						padding: 5px 20px;
+						border: 1px solid #333;
+						cursor: pointer;
+
+						&:nth-of-type(3) {
+							background-color: #333;
+							color: #fff;
+						}
+					}
+				}
+
+				input {
+					border: 1px solid #333;
+					padding: 5px 30px;
+					border-radius: 20px;
+					margin-right: 10px;
+				}
+			}
+
+			.status {
+				.buttons {
+					button {
+						background-color: #fff;
+					}
+				}
+			}
+
+			.sort {
+				.buttons {
+					button {
+						border: none;
+					}
+				}
+
+				input {
+					border-radius: 5px;
+					background-color: #f0f0f0;
+					border: none;
+					margin-left: 10px;
+				}
+			}
+
+			.search {
+				select {
+					border-radius: 20px;
+					padding: 5px 20px;
+					margin-right: 10px;
+				}
+
+				.buttons {
+					button {
+						background-color: #333;
+						color: #fff;
+					}
+				}
+			}
+		}
+
+		.box03 {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			font: normal 13px/1 "Noto Sans";
+			margin-top: 40px;
+
+			.left {
+				height: 100%;
+				display: flex;
+				align-items: center;
+
+				.margin {
+					margin-right: 20px;
+
+					.bold {
+						font: bold 13px/1 "Noto Sans";
+					}
+				}
+
+				button {
+					background-color: #fff;
+					border: none;
+					border-radius: 5px;
+					margin-right: 10px;
+					cursor: pointer;
+					height: 100%;
+					padding: 5px 15px;
+
+					&:last-child {
+						margin-right: 0px;
+					}
+
+					&:hover {
+						border: 1px solid #333;
+					}
+				}
+			}
+
+			.right {
+				height: 100%;
+				display: flex;
+				align-items: center;
+				gap: 10px;
+
+				select,
+				button {
+					background-color: #fff;
+					border: none;
+					border-radius: 5px;
+					cursor: pointer;
+					height: 100%;
+					padding: 5px 15px;
+				}
+
+				button {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+				}
+			}
+		}
+
+		.box04 {
+			background-color: #fff;
+			border-radius: 10px;
+			margin-top: 15px;
+			border-radius: 10px;
+			width: 100%;
+
+			table {
+				width: 100%;
+
+				thead {
+					background-color: #234397;
+					color: #fff;
+					width: 100%;
+					height: 40px;
+					font: bold 13px/40px "Noto Sans";
+					text-align: center;
+				}
+
+				tbody {
+					background-color: #fff;
+					color: #333;
+					width: 100%;
+					font: normal 13px/40px "Noto Sans";
+					text-align: center;
+
+					tr {
+						td {
+							button {
+								background-color: #fff;
+								border: 1px solid #333;
+								border-radius: 10px;
+								padding: 6px 10px;
+								cursor: pointer;
+								font: normal 11px/1 "Noto Sans";
+							}
+
+							.answer {
+								background-color: #234397;
+								color: #fff;
+								border: 1px solid #234397;
+							}
+
+							a {
+								text-decoration: underline;
+								color: #0047ff;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		.pagination {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			margin-top: 100px;
+			margin-top: 25px;
+
+			a {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font: 12px/1 "Nanum Gothic";
+				color: #333;
+				transition: 0.3s;
+				padding: 5px;
+
+				&:hover {
+					color: #111;
+					font-weight: bold;
+				}
+
+				span {
+					margin: 0 20px;
+					background-color: #333;
+					border-radius: 50%;
+					color: #fff;
+				}
+
+				.bold {
+					margin: 0px;
+					background-color: transparent;
+					border-radius: none;
+					color: #333;
+					font: 800 13px/1 "Nanum Gothic";
+				}
+			}
+
+			.numbers {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 20px;
+				text-align: center;
+			}
+		}
+
+		.admin__review {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			background: rgba(0, 0, 0, 0.7) fixed;
+			z-index: 9;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			.admin__review__inner {
+				width: 600px;
+				background-color: #fff;
+
+				.top {
+					background-color: #333;
+					color: #fff;
+					text-align: center;
+					width: 100%;
+					height: 60px;
+					font: 800 18px/60px "Noto Sans";
+				}
+
+				.middle {
+					background-color: #fff;
+					padding: 20px 50px;
+					display: flex;
+					flex-direction: column;
+					gap: 20px;
+
+					p {
+						font: 800 16px/1 "Noto Sans";
+					}
+
+					input {
+						width: 100%;
+						height: 150px;
+						border-radius: 10px;
+						background-color: #e7e7e7;
+						border: 1px solid #333;
+					}
+
+					.line {
+						width: 100%;
+						height: 1px;
+						border: 1px dashed #333;
+						margin-top: 20px;
+						margin-bottom: 20px;
+					}
+
+					span {
+						font: 400 14px/1 "Noto Sans";
+					}
+				}
+
+				.bottom {
+					background-color: #fff;
+					padding: 0px 50px;
+					display: flex;
+					flex-direction: column;
+					gap: 30px;
+
+					p {
+						font: 800 16px/1 "Noto Sans";
+					}
+
+					input {
+						width: 100%;
+						height: 150px;
+						border-radius: 10px;
+						background-color: #fff;
+						border: 1px solid #333;
+						position: relative;
+					}
+
+					span {
+						position: relative;
+						color: #c8c8c8;
+						left: 420px;
+						bottom: 65px;
+						font: 400 14px/1 "Noto Sans";
+					}
+				}
+
+				.admin__review__buttons {
+					display: flex;
+					gap: 20px;
+					align-items: center;
+					justify-content: center;
+					margin-bottom: 30px;
+					margin-top: -30px;
+
+					button {
+						border: 1px solid #252525;
+						cursor: pointer;
+						font: 600 14px/1 "Noto Sans";
+						padding: 13px 25px;
+						background-color: var(--primary-color);
+						border-radius: 5px;
+						border: none;
+
+						a {
+							color: #fff;
+						}
+					}
+				}
+			}
+		}
+
+		.admin__review__cancel {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			background: rgba(0, 0, 0, 0.7) fixed;
+			z-index: 9;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			.admin__review__cancel__inner {
+				width: 600px;
+				background-color: #fff;
+
+				.top {
+					background-color: #333;
+					color: #fff;
+					text-align: center;
+					width: 100%;
+					height: 60px;
+					font: 800 18px/60px "Noto Sans";
+				}
+
+				.middle {
+					background-color: #fff;
+					padding: 50px 80px;
+
+					p {
+						font: 800 18px/2 "Noto Sans";
+						text-align: center;
+					}
+				}
+
+				.bottom {
+					background-color: #fff;
+					width: 100%;
+					padding: 50px 80px;
+					display: flex;
+					justify-content: center;
+					gap: 20px;
+					align-items: center;
+					margin-top: -40px;
+
+					button {
+						border: 1px solid var(--primary-color);
+						cursor: pointer;
+						font: 600 16px/1 "Noto Sans";
+						padding: 13px 30px;
+						background-color: var(--primary-color);
+						border-radius: 5px;
+						border: none;
+						color: #fff;
+
+						&:first-child {
+							background-color: #fff;
+							border: 1px solid #333;
+							color: #333;
+						}
+					}
+				}
+			}
+		}
+
+		.admin__review__confirm {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			background: rgba(0, 0, 0, 0.7) fixed;
+			z-index: 9;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			.admin__review__confirm__inner {
+				width: 600px;
+				background-color: #fff;
+
+				.top {
+					background-color: #333;
+					color: #fff;
+					text-align: center;
+					width: 100%;
+					height: 60px;
+					font: 800 18px/60px "Noto Sans";
+				}
+
+				.middle {
+					background-color: #fff;
+					padding: 50px 80px;
+
+					p {
+						font: 800 18px/2 "Noto Sans";
+						text-align: center;
+					}
+				}
+
+				.bottom {
+					background-color: #fff;
+					width: 100%;
+					padding: 50px 80px;
+					display: flex;
+					justify-content: center;
+					gap: 20px;
+					align-items: center;
+					margin-top: -40px;
+
+					button {
+						border: 1px solid var(--primary-color);
+						cursor: pointer;
+						font: 600 16px/1 "Noto Sans";
+						padding: 13px 30px;
+						background-color: var(--primary-color);
+						border-radius: 5px;
+						border: none;
+						color: #fff;
+					}
+				}
+			}
+		}
+	}
+}

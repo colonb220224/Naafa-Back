@@ -1,0 +1,223 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=360, user-scalable=no">
+    <title>나아파</title>
+    <meta name="keyword" content="나아파">
+    <meta name="description" content="나아파">
+    <meta name="author" content="나아파">   
+    
+    <!-- css -->
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/common.css">
+    <link rel="stylesheet" href="./assets/css/sub.css">
+    <link rel="stylesheet" href="./assets/swiper/css/swiper.css">
+
+    <!-- script -->
+    <script src="./assets/scripts/jquery-3.1.1.min.js"></script>
+    <script src="./assets/scripts/script.js"></script>
+    <script src="./assets/swiper/js/swiper.js"></script>
+    
+</head>
+<body class="suit">
+    <div class="content">
+        <header>
+            <div class="wrap">
+                <div class="header_left">
+                    <div class="prev">
+                        <a href="#">
+                            <img src="./assets/images/prev.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="header_center">
+                    <div class="txt">
+                        <h5></h5>
+                    </div>
+                </div>
+                <div class="header_right">
+                </div>
+            </div>
+        </header>
+        <div class="con">
+            <!-- 아래 픽스 영역을 위해 margin 값 -->
+            <div class="wrap ">
+                <div class="intro_title">
+                    <div class="txt">
+                        <h2>개인정보 등록</h2>
+                        <p>
+                            간편한 사용을 위해 개인정보를 <br/>
+                            우선 등록 부탁드립니다.                       
+                        </p>
+                    </div>
+                    <div class="img" style="margin-right: 14px;">
+                        <img src="./assets/images/personal_info.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="personal_info " style="background: #F5F5F5;">
+                <div class="wrap pb-100">
+                    <div class="person_box">
+                        <input type="radio" name="person" id="person1">
+                        <label for="person1">
+                            <div class="top_info">
+                                <div class="user">
+                                    <i></i>
+                                    <h5>홍길동</h5>
+                                    <div class="state sky">
+                                        예약가능
+                                    </div>
+                                    <div class="state red">
+                                        세부정보 작성필요
+                                    </div>
+                                </div>
+                                <div class="arrow">
+
+                                    <img src="./assets/images/info_arrow.png" alt="">
+
+                                </div>
+                            </div>
+                            <div class="bottom_info">
+                                <h5>881103 - 1******</h5>
+                                <p>(주민등록번호는 자체 저장 되지 않습니다)</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="person_box">
+                        <input type="radio" name="person" id="person2">
+                        <label for="person2">
+                            <div class="top_info">
+                                <div class="user">
+                                    <i></i>
+                                    <h5>홍길동</h5>
+                                    <div class="state sky">
+                                        예약가능
+                                    </div>
+                                    <div class="state red">
+                                        세부정보 작성필요
+                                    </div>
+                                </div>
+                                <div class="arrow">
+
+                                    <img src="./assets/images/info_arrow.png" alt="">
+
+                                </div>
+                            </div>
+                            <div class="bottom_info">
+                                <h5>881103 - 1******</h5>
+                                <p>(주민등록번호는 자체 저장 되지 않습니다)</p>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="add_family">
+                        <button type="button" class="modal_step_open" modal_step="Member">
+                            가족 구성원 추가
+                            <i>
+                                <img src="./assets/images/plus.png" alt="">
+                            </i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="btn_wrap" style="background: #F5F5F5;">
+                <!-- personal_info2.html으로 이동 -->
+                <button type="submit" onclick="location.href='./personal_info2.html';">비대면 상담 예약하기</button>
+            </div>
+        </div>
+        <footer>
+
+        </footer>
+
+            
+    </div>
+    <!-- modal -->
+    <!-- class="modal_step_open" modal_step="Member" -->
+    
+    <div class="modal modal modal_step modal_stepMember bottom_position hidden">
+        <div class="modal_overlay">
+        </div>
+        <div class="modal_content modal_bottom scrollbar">
+            <div class="layoutCont">  
+                <div class="modalContWrap">
+                    <div class="modal_close cancerButton">
+                        <img src="./assets/images/modal_close.png" alt="모달 닫기버튼">
+                    </div>                      
+                    <div class="modal_head">
+                        회원 정보 추가
+                    </div>
+                    <div class="modal_con scrollbar" style="height: calc(95% - 73px);">
+                        <div class="wrap">
+                            <div class="input_wrap">
+                                <h5>회원명</h5>
+                                <input type="text">
+                            </div>
+                            <div class="input_wrap">
+                                <h5>휴대폰번호</h5>
+                                <div class="input_func">
+                                    <a href="#">휴대폰 본인 인증하기</a>
+                                </div>
+                            </div>
+                            <div class="input_wrap">
+                                <h5>주민등록 앞 7자리</h5>
+                                <div class="input_func">
+                                    <input type="text" placeholder="숫자만 입력">
+                                    <span style="margin: 0 12px;">-</span>
+                                    <input type="text" style="width: 35px;">
+                                    <span style="margin-left: 12px; flex: none; letter-spacing: 2px;">* * * * * *</span>
+                                </div>
+                            </div>
+                            <div class="input_wrap" style="margin-bottom: 40px;">
+                                <h5>본인과의 관계</h5>
+                                <input type="text">
+                            </div>
+                        </div>
+                        <div class="border8"></div>
+                        <div class="wrap">
+                            <div class="term_wrap checkbox_group">
+                                <div class="term_top">
+                                    <input type="checkbox" name="" id="check_all">
+                                    <label for="check_all" class="check_style2">전체동의</label>
+                                </div>
+                                <ul class="term_bottom">
+                                    <li>
+                                        <div class="chk">
+                                            <input type="checkbox" name="" id="agree1" class="normal">
+                                            <label for="agree1" class="check_style1">
+                                                <p>
+                                                    <span class="red">(필수)</span> 구성원 등록시, 등록하는 인원의 위임을 받았습니다.
+                                                </p>
+                                            </label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="chk">
+                                            <input type="checkbox" name="" id="agree2" class="normal">
+                                            <label for="agree2" class="check_style1">
+                                                <p>
+                                                    <span class="red">(필수)</span> 등록 인원 동의 없이 무단으로 대리 처방을 
+                                                    받을시, 법적 처벌을 받을 수 있음에 동의 합니다.   
+                                                </p>                                             
+                                            </label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>  
+                            <div class="btns">
+                                <button type="submit">저장</button>
+                            </div>                               
+                        </div>                  
+                    </div>
+
+                </div>
+                <!-- <div class="modal_btn flex">
+                    <button class="cancerButton " type="button">확인</button>
+                    <button class="cancerButton " type="button">확인</button>                        
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

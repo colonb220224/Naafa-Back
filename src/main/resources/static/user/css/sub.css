@@ -1,0 +1,1758 @@
+
+
+/* .content .con{
+    padding-top: 50px;
+} */
+.content .con .intro_title{
+    margin-top: 37px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.content .con .intro_title .txt h2{
+    font-size: 28px;
+    font-weight: 700;
+}
+.content .con .intro_title .txt h4{
+    font-size: 22px;
+    font-weight: 700;
+}
+.content .con .intro_title .txt h5{
+    font-size: 20px;
+    font-weight: 700;
+}
+.content .con .intro_title .txt p{
+    font-size: 14px;
+    color: #999999;
+    margin-top: 18px;
+}
+.content .con .term_wrap{
+    margin-top: 115px;
+}
+
+.term_wrap .term_top input + label{
+    font-weight: 700;
+    color: #666666;
+    border-bottom: 1px solid #EEEEEE;
+    padding-bottom: 16px;
+}
+.term_wrap ul.term_bottom{
+    padding-right: 20px;
+    padding-top: 30px;
+}
+.term_wrap ul.term_bottom li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.term_wrap ul.term_bottom li:nth-child(n + 2){
+    margin-top: 24px;
+}
+.term_wrap ul.term_bottom li .chk input + label{
+    font-size: 15px;
+    color: #666666;
+    font-weight: 500;
+}
+.term_wrap ul.term_bottom li .chk input + label span{
+    color: #999;
+}
+.term_wrap ul.term_bottom li .chk + a{
+    font-size: 13px;
+    color: #999999;
+}
+
+/* 회원가입 cs.html */
+
+.content .con .cs_chat {
+    margin-top: 34px;
+}
+.content .con .cs_chat .cs:nth-child(n + 2){
+    margin-top: 48px;
+}
+.content .con .cs_chat .cs {
+    display: flex;
+}
+.content .con .cs_chat .cs .img{
+    width: 36px;
+    height: 36px;
+    border-radius: 100%;
+}
+.content .con .cs_chat .cs .txt{
+    background: #F2F3F7;
+    border-radius: 0px 14px 14px 14px;
+    padding: 14px 16px;
+    box-sizing: border-box;
+    margin-left: 12px;
+}
+.content .con .cs_chat .cs .txt p{
+    font-size: 15px;
+}
+.content .con .cs_chat .cs .txt p.grey{
+    font-size: 14px;
+    color: #9EA6AC;
+    margin-top: 12px;
+}
+.content .con .cs_chat .user{
+    display: flex;
+    justify-content: right;
+    margin-top: 20px;
+}
+.content .con .cs_chat .user .txt{
+    background: #3983A0;
+    color: #fff;
+    border-radius: 14px 0px 14px 14px;
+    padding: 14px 16px;
+    box-sizing: border-box;
+    margin-left: 12px;
+    width: fit-content;
+}
+.content .con .cs_chat .user .txt p{
+    font-size: 15px;
+}
+
+.progress_bar progress {
+    appearance: none;
+    height: 3px;
+    width: 100%;
+}
+.progress_bar progress::-webkit-progress-bar {
+    background:#fff;
+}
+.progress_bar progress::-webkit-progress-value {
+    background: #3983A0;
+
+}
+
+/* // 회원가입 cs.html */
+
+/* 가입완료 sign_complete.html */
+.content .con .sign_complete{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100% - 100px);
+}
+.content .con .sign_complete h3{
+    margin-top: 40px;
+    font-weight: 700;
+    font-size: 22px;
+    
+}
+.content .con .sign_complete p{
+    margin-top: 20px;
+    color: #666666;
+    font-size: 14px;
+}
+/* // 가입완료 sign_complete.html */
+
+/* 병원검색 search.html */
+.content .con .recom {
+    padding: 30px 0;
+    border-top: 1px solid #eee;
+    margin-top: 10px;
+}
+.content .con .recom .tit{
+    font-weight: 700;
+}
+.content .con .recom ul.recom_list{
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.content .con .recom ul.recom_list li{
+    margin-top: 12px;
+    margin-right: 10px;
+}
+.content .con .recom ul.recom_list li a{
+    padding: 8px 10px;
+    background: #F2F3F7;
+    border-radius: 6px;
+    display: block;
+}
+.content .con .recent {
+    padding: 30px 0;
+    border-top: 1px solid #eee;
+}
+.content .con .recent .tit{
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.content .con .recent .tit button{
+    color: #999;
+    text-decoration: underline;
+    font-size: 13px;
+}
+.content .con .recent ul.recent_list{
+    margin-top: 30px;
+}
+.content .con .recent ul.recent_list li{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.content .con .recent ul.recent_list li:nth-child(n + 2){
+    margin-top: 24px;
+}
+.content .con .recent ul.recent_list li .txt{
+    font-size: 14px;
+    font-weight: 500;
+}
+.content .con .recent ul.recent_list li .recent_right{
+    display: flex;
+    align-items: center;
+}
+.content .con .recent ul.recent_list li .recent_right .date{
+    font-size: 13px;
+    color: #999;
+}
+.content .con .recent ul.recent_list li .recent_right button{
+    margin-left: 18px;
+}
+.content .con ul.search_detail{
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+}
+.content .con ul.search_detail li button{
+    display: flex;
+    align-items: center;
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    border-radius: 6px; 
+    padding: 10px 15px;   
+    font-size: 14px;
+}
+.content .con ul.search_detail li button.grey{
+    background: #F2F3F7;
+}
+.content .con ul.search_detail li:nth-child(n + 2){
+    margin-left: 8px;
+}
+.content .con ul.search_detail li .img{
+    margin-right: 7.6px;
+}
+.content .con ul.search_detail li i{
+    margin-left: 5px;
+}
+
+
+.content .con .related{
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #eee;
+    height: 42px;
+}
+.content .con .related .related_head{
+    flex: none;
+    padding-left: 20px;
+    padding-right: 10px;
+    border-right: 1px solid #eee;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    font-size: 14px;
+    color: #999999;
+}
+.content .con .related .related_con{
+    width: 100%;
+    overflow-x: scroll;
+}
+.content .con .related .related_con ul{
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding-left: 20px;
+    padding-top: 2px;
+}
+.content .con .related .related_con ul li{
+    flex: none;
+}
+.content .con .related .related_con ul li a{
+    font-size: 14px;
+}
+.content .con .related .related_con ul li:nth-child(n + 2){
+    padding-left: 30px;
+}
+.content .con .related .related_con ul li:last-child{
+    padding-right: 20px;
+}
+.content .con .hospital_head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    height: 48px;
+    padding: 0 20px;
+}
+.content .con .hospital_head h5{
+    color: #999;
+    font-size: 14px;
+}
+.content .con .hospital_head h5 span{
+    font-weight: 700;
+}
+.content .con .hospital_head .option{
+    display: flex;
+    align-items: center;
+}
+.content .con .hospital_head .option select{
+    width: 55px;
+    background:url('../images/select_arrow.png') no-repeat right 0px center;
+    border: none;
+    margin-left: 4px;
+    color: #666;
+    font-weight: 500;
+}
+
+
+.content .con ul.hospital_list li{
+    padding: 30px 20px;
+}
+.content .con ul.hospital_list li:nth-child(n + 2){
+    border-top: 1px solid #eee;
+}
+.content .con ul.hospital_list li:last-child{
+    border-bottom: 1px solid #eee;
+}
+.content .con .tags{
+    display: flex;
+    align-items: center;
+}
+.content .con .tags .tag{
+    padding: 4px 7px;
+    font-size: 12px;
+    border: 1px solid;
+    border-radius: 4px;
+    font-weight: 600;
+}
+.content .con .tags .tag.blue{
+    color: #3983A0;
+    border: 1px solid #3983A0;
+}
+.content .con .tags .tag.sky{
+    color: #5FB1F8;
+    border: 1px solid #5FB1F8;
+}
+.content .con .tags .tag.green{
+    color: #43AE97;
+    border: 1px solid #43AE97;
+}
+.content .con .tags .tag:nth-child(n + 2){
+    margin-left: 4px;
+}
+.content .con ul.hospital_list li a > h3{
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 12px;
+}
+.content .con ul.hospital_list li a > h4{
+    font-size: 16px;
+    font-weight: 700;
+}
+.content .con ul.hospital_list li a .star{
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+    margin-bottom: 16px;
+}
+.content .con ul.hospital_list li a .star i{
+    margin-right: 5px;
+}
+.content .con ul.hospital_list li a .star p{
+    font-weight: 700;
+    font-size: 14px;
+}
+.content .con ul.hospital_list li a span{
+    font-weight: 500;
+    color: #999999;
+}
+.content .con ul.hospital_list li a .info{
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+.content .con ul.hospital_list li a .info:nth-child(n + 2){
+    margin-top: 12px;
+}
+.content .con ul.hospital_list li a .info .line{
+    width: 1px;
+    height: 14px;
+    background: #ddd;
+    margin: 0 6px;
+}
+.content .con .popup{
+    position: fixed;
+    bottom: 97px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 320px;
+    background: #5F6267;
+    padding: 15px 18px;
+    box-sizing: border-box;
+    border-radius: 8px;
+}
+.content .con .popup a{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #fff;
+}
+.content .con .popup a .left{
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+}
+.content .con .popup a .left .img{
+    margin-right: 12px;
+}
+.content .con .popup a .right button{
+    padding: 7px 10px;
+    font-size: 13px;
+    background-color: #9194A0;
+    color: #fff;
+    border-radius: 4px;
+}
+
+/* // 병원검색 search.html */
+
+/* 병원 상세페이지 hospital.html */
+.swiper-pagination{
+    color: #999;
+    background: #0000009a;
+    width: fit-content !important;
+    left: 50% !important;
+    transform: translateX(-50%) !important;
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-size: 12px;
+}
+.swiper-pagination .swiper-pagination-current{
+    color: #fff;
+}
+.content .con .hospital_info{
+    padding: 30px 0;
+}
+.content .con .hospital_info .info_head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.content .con .hospital_info .info_head .state{
+    display: flex;
+    align-items: center;
+}
+.content .con .hospital_info .info_head .state i{
+    width: 6px;
+    height: 6px;
+    border-radius: 100%;
+    display: block;
+    margin-right: 5px;
+}
+.content .con .hospital_info .info_head .state i.sky{
+    background: #5FB1F8;
+}
+.content .con .hospital_info .tit h2{
+    font-size: 22px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+.content .con .hospital_info ul.info_list{
+    margin-top: 22px;
+    font-size: 14px;
+}
+.content .con .hospital_info ul.info_list li{
+    display: flex;
+    align-items: center;
+}
+.content .con .hospital_info ul.info_list li:nth-child(n + 2){
+    margin-top: 12px;
+}
+.content .con .hospital_info ul.info_list li i{
+    margin-right: 9px;
+}
+.btns{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 16px 0 56px;
+}
+.btns a{
+    width: 100%;
+    display: block;
+    border: 1px solid #DEDFE0;
+    background: #f2f3f7;
+    font-size: 15px;
+    height: 46px;
+    padding: 12.5px 0px;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+.btns a:nth-child(n + 2){
+    margin-left: 7px;
+}
+.btns a:last-child{
+    color: #fff;
+    background: #3983A0;
+    border: 1px solid #3983A0;
+}
+.btns a + button{
+    margin-left: 7px;
+}
+.btns button{
+    width: 100%;
+    display: block;
+    border: 1px solid #DEDFE0;
+    background: #f2f3f7;
+    font-size: 15px;
+    height: 46px;
+    padding: 12.5px 0px;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+.btns button:last-child{
+    color: #fff;
+    background: #3983A0;
+    border: 1px slid #3983A0;
+
+}
+.content .con .hospital_slide .visu_slide{
+    overflow: hidden;
+    position: relative;
+}
+.content .con .hospital_slide .visu_slide .swiper-wrapper{
+    height: 220px;
+}
+
+.content .con .hospital_tab{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.content .con .hospital_tab li{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    cursor: pointer;
+    box-sizing: border-box;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+}
+.content .con .hospital_tab li.current{
+    border-bottom: 1px solid #3983A0;
+    color: #0000009a;
+    font-weight: 700;
+}
+.content .con .tab_con{
+    padding: 30px 0 20px;
+}
+.content .con .tab_con .hospital_intro h5{
+    font-size: 13px;
+    color: #999;
+}
+.content .con .tab_con .hospital_intro h2{
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 20px;
+}
+.content .con .tab_con .hospital_intro p{
+    margin-top: 20px;
+    color: #666;
+    font-size: 14px;
+}
+/* 탭창 */
+
+.content .con .tab_con .sub_tit{
+    margin-bottom: 20px;
+}
+.content .con .tab_con .sub_tit h5{
+    font-size: 18px;
+    font-weight: 700;
+}
+.content .con .tab_con .sub_tit p{
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    margin-top: 12px;
+}
+.content .con .tab_con .sub_tit p i.sky{
+    width: 6px;
+    height: 6px;
+    background: #5FB1F8;
+    display: inline-block;
+    border-radius: 100%;
+    margin-right: 5px;
+}
+.content .con .tab-content{
+	display: none;
+}
+
+.content .con .tab-content.current{
+	display: inherit;
+}
+
+.content .con .tab_con .hospital_treat .time_info1{
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 15px 20px;
+    background: #F9F9F9;
+}
+.content .con .tab_con .hospital_treat .time_info1 .info{
+    display: flex;
+    align-items: center;
+}
+.content .con .tab_con .hospital_treat .time_info1 .info h5{
+    width: 80px;
+    font-weight: 700;
+}
+.content .con .tab_con .hospital_treat .time_info1 .info:nth-child(n + 2){
+    margin-top: 12px;   
+}
+.content .con .tab_con .hospital_review.ptb-30:last-child{
+    padding-bottom: 0;
+}
+
+.content .con .tab_con .hospital_treat .time_info2{
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px 0;
+}
+.content .con .tab_con .hospital_treat .time_info2 .info h5{
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+.content .con .tab_con .hospital_treat .time_info2 .info p{
+    font-size: 14px;
+}
+.content .con .tab_con .hospital_treat .time_info2 .info.blue{
+    color: #5FB1F8;
+}
+.content .con .tab_con .hospital_treat .time_info2 .info.red{
+    color: #EB4747;
+}
+.content .con .tab_con .statistic .sub_tit{
+    text-align: center;
+}
+.content .con .tab_con .statistic .sub_tit h5{
+    font-size: 16px;
+}
+.content .con .tab_con .statistic .sub_tit h5 span{
+    color: #EB4747;    
+}
+.content .con .tab_con .statistic .stat_info{
+    background: #f9f9f9;
+    border: 1px solid #eeeeee;
+    padding: 20px;
+    font-size: 14px;
+    border-radius: 8px;
+}
+.content .con .tab_con .statistic .stat_info .info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.content .con .tab_con .statistic .stat_info .info:nth-child(n + 2){
+    margin-top: 14px;
+}
+.content .con .tab_con .statistic .stat_info .info p{
+    display: flex;
+    align-items: center;
+}
+.content .con .tab_con .statistic .stat_info .info p i{
+    margin-right: 10px;
+}
+.content .con .tab_con .statistic .stat_info .info.red p{
+    color: #999999;
+}
+.content .con .tab_con .statistic .stat_info .info.red span{
+    color: #EB4747;
+}
+.content .con .tab_con .location .addr_info{
+    display: flex;
+    justify-content: space-between;
+}
+.content .con .tab_con .location .addr_info .txt{
+    font-size: 14px;
+}
+.content .con .tab_con .location .addr_info .copy_btn button{
+    background: #F2F3F7;
+    padding: 6px 8px;
+     border-radius: 4px;
+}
+.content .con .tab_con .location .img{
+    width: 100%;
+    height: 140px;
+    border-radius: 8px;
+    border: 1px solid #DDDDDD;
+    margin-top: 20px;
+    position: relative;
+}
+.content .con .tab_con .location .parking{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+.content .con .tab_con .location .parking .tit{
+    color: #EB4747;
+    font-weight: 700;
+    flex: none;
+    margin-right: 28px;
+    font-size: 13px;
+    display: flex;
+}
+.content .con .tab_con .location .parking .tit i{
+    margin-right: 6px;
+    position: relative;
+}
+.content .con .tab_con .location .parking .txt{
+    font-size: 14px;
+}
+.content .con .tab_con .hospital_subject ul.subject_list{
+    display: flex;
+    align-items: center;
+}
+.content .con .tab_con .hospital_subject ul.subject_list li{
+    background: #F5F5F5;
+    padding: 8px 10px;
+    border-radius: 6px;
+    font-size: 14px;
+}
+.content .con .tab_con .hospital_subject ul.subject_list li:nth-child(n + 2){
+    margin-left: 6px;
+}
+.content .con .tab_con .hospital_item .item_box{
+    border: 1px solid #ddd;
+    padding: 19px;
+    border-radius: 8px;
+}
+.content .con .tab_con .hospital_review .certi{
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #4C6963;
+    border: 1px solid #43AE97;
+    background: #f6fbfa;
+    border-radius: 8px;
+    padding: 11px 17px;
+    margin-bottom: 27px;
+}
+.content .con .tab_con .hospital_review .certi i{
+    margin-right: 6px;
+}
+.content .con .tab_con .hospital_review .score{
+    display: flex;
+    align-items: center;
+}
+.content .con .tab_con .hospital_review .score .star_box{
+    display: flex;
+    align-items: center;
+}
+.content .con .tab_con .hospital_review .score .star_num{
+    font-size: 16px;
+    font-weight: 800;
+    margin-left: 6px;
+}
+.content .con .tab_con .hospital_review ul.txt_list{
+    display: flex;
+    align-items: center;
+    margin-top: 18px;
+    margin-bottom: 20px;
+}
+.content .con .tab_con .hospital_review ul.txt_list li{
+    color: #999999;
+}
+.content .con .tab_con .hospital_review ul.txt_list li:nth-child(2n){
+    color: #ddd;
+    margin: 0 8px;
+}
+.content .con .tab_con .hospital_review ul.txt_list li span.red{
+    color: #EB4747;
+}
+.content .con .tab_con .hospital_review .review_txt p{
+    font-size: 15px;
+}
+.content .con .tab_con .hospital_review .stat_info {
+    background: #f9f9f9;
+    border: 1px solid #eeeeee;
+    padding: 13px 20px;
+    font-size: 14px;
+    border-radius: 8px;
+    margin-top: 26px;
+}
+.content .con .tab_con .hospital_review .stat_info .info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+/* // 병원 상세페이지 hospital.html */
+
+/* reserv */
+.content .con .tab_con .reserv_tab ul.reserv_list > li{
+    background: #fff;
+    border-radius: 14px;
+    background: #FFF;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.10);
+    padding: 26px 20px 20px;
+}
+.content .con .tab_con .reserv_tab ul.reserv_list > li .head{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.content .con .tab_con .reserv_tab ul.reserv_list > li .head h4{
+    color: #333;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: -0.4px;
+}
+.content .con .tab_con .reserv_tab ul.reserv_list > li .head ul.func{
+    display: flex;
+    align-items: center;
+}
+.content .con .tab_con .reserv_tab ul.reserv_list > li:nth-child(n + 2){
+    margin-top: 16px;
+}
+.content .con .tab_con .reserv_tab ul.reserv_list > li .head ul.func > li:nth-child(n + 2){
+    margin-left: 11.5px;
+}
+.content .con .tab_con .reserv_tab ul.reserv_list > li .head ul.func > li.like input + label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 19px;
+    height: 17px;
+    background: url(../images/like_off.png);
+    cursor: pointer;
+}
+.content .con .tab_con .reserv_tab ul.reserv_list > li .head ul.func > li.like input:checked + label{
+    background: url(../images/like_on.png);
+}
+.content .con .tab_con .reserv_tab ul.reserv_list > li .head ul.func > li.option{
+    position: relative;
+}
+.content .con .tab_con .reserv_tab ul.reserv_list > li .head ul.func > li.option button{
+    width: 19px;
+}
+.content .con .tab_con .reserv_tab ul.reserv_list > li .head ul.func > li.option .func_list {
+    position: absolute;
+    left: -120px;
+    top: 0;
+    z-index: 1;
+    background: #fff;
+    border-radius: 12px;
+    background: #FFF;
+    box-shadow: 1px 2px 8px 0px rgba(0, 0, 0, 0.18);    
+    width: 103px;
+    padding: 0 10px;
+    box-sizing: border-box;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+}
+.content .con .tab_con .reserv_tab ul.reserv_list > li .head ul.func > li.option > button.on + .func_list{
+    opacity: 1;
+    visibility: visible;
+}
+.content .con .tab_con .reserv_tab ul.reserv_list > li .head ul.func > li.option .func_list > .func a{
+    padding: 10px 0;
+    display: inline-block;
+    font-size: 14px;
+}
+.content .con .tab_con .reserv_tab ul.reserv_list > li .head ul.func > li.option .func_list > .func:nth-child(n + 2){
+    border-top: 1px solid #eee;
+}
+.content .con .tab_con .reserv_tab ul.reserv_list > li ul.date {
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+}
+.content .con .tab_con .reserv_tab ul.reserv_list > li ul.date > li{
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+.content .con .tab_con .reserv_tab ul.reserv_list > li ul.date > li i{
+    margin-right: 4px;
+}
+.content .con .tab_con .reserv_tab ul.reserv_list > li ul.date > li:nth-child(n + 2){
+    margin-left: 11px;
+}
+.content .con .tab_con .reserv_tab ul.reserv_list > li ul.list{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 8px;
+    margin-top: 20px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #eee;
+}
+.content .con .tab_con .reserv_tab ul.reserv_list > li ul.list > li{
+    width: 100%;
+}
+.content .con .tab_con .reserv_tab ul.reserv_list > li ul.list > li a{
+    height: 38px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 999px;
+    background: #F5F5F5;    
+}
+.content .con .tab_con .reserv_tab ul.reserv_list > li .bottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 14px;
+}
+.content .con .tab_con .reserv_tab ul.reserv_list > li .bottom .num_chk{
+    font-size: 13px;
+    color: #999;
+}
+.content .con .tab_con .reserv_tab ul.reserv_list > li .bottom .num_chk span{
+    color: #333;
+    font-weight: 600;
+}
+
+/* // reserv */
+/* 예약 선택페이지 reserv_select.html */
+.content .con .reserv_select{
+    margin-top: 37px;
+}
+.content .con .reserv_select .title{
+    text-align: center;
+}
+.content .con .reserv_select .title h5{
+    font-size: 28px;
+    font-weight: 700;
+}
+.content .con .reserv_select .title p{
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 14px;
+    color: #666666;
+}
+.content .con .reserv_select ul.select_list{
+    margin-top: 50px;
+}
+.content .con .reserv_select ul.select_list li:nth-child(n + 2){
+    margin-top: 16px;
+}
+.content .con .reserv_select ul.select_list li a{ 
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 120px;
+    padding: 0 30px;
+    background: #fff;
+    box-shadow: 0px 2px 14px 0px #00000029;
+    border-radius: 10px;
+}
+.content .con .reserv_select ul.select_list li a .txt h5{
+    font-size: 24px;
+    font-weight: 700;
+}
+.content .con .reserv_select ul.select_list li a .txt p{
+    color: #666666;
+    font-size: 14px;
+    margin-top: 12px;
+}
+.content .con .reserv_select ul.select_list li a .txt small{
+    color: #999;
+    font-size: 13px;
+    margin-top: 11px;
+    display: block;
+    letter-spacing: -0.26px;
+}
+.content .con .reserv_select.house_visit{
+    margin-top: 120px;
+}
+.content .con .reserv_select.house_visit ul.select_list li .img{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+.input_wrap textarea{
+    width: 100%;
+    border: none;
+    resize: none;
+    border-radius: 4px;
+    background: #F2F3F7;    
+    padding: 20px;
+}
+.content .con .symptom .input_wrap{
+    margin-top: 28px;
+    margin-bottom: 30px;
+}
+.content .con .symptom ul.pic_list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 12px;
+}
+.content .con .symptom ul.pic_list li{
+    border-radius: 4px;
+    border: 1px solid #DDD;
+    background: #FFF;
+    width: 69px;
+    height: 69px;
+    position: relative;
+}
+/* .content .con .symptom ul.pic_list li:nth-child(3n){
+    margin-right: 0;
+} */
+.content .con .symptom ul.pic_list li input{
+    display: none;
+}
+.content .con .symptom ul.pic_list li input + label{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+
+}
+.content .con .symptom ul.pic_list li .del{
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    background: transparent;
+}
+.content .con .symptom ul.pic_list li input + label p{
+    margin-top: 9.6px;
+    font-size: 12px;
+    font-weight: 500;
+}
+/* .content .con .symptom ul.pic_list li:nth-child(n + 4){ 
+    margin-top: 15px;
+} */
+.content .con .reserv_select3 .intro_title{
+    margin-bottom: 28px;
+}
+.content .con .reserv_select3 .intro_title .txt p{
+    margin-top: 12px;
+}
+.content .con .reserv_select3 .reserv_choose{
+    padding: 30px 0;
+    padding-left: 20px;
+}
+.content .con .reserv_select3 .reserv_choose .tit{
+    display: flex;
+    align-items: center;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+.content .con .reserv_select3 .reserv_choose .tit i{
+    margin-right: 8px;
+}
+.content .con .reserv_select3 .reserv_choose .tit h5{ 
+    font-size: 20px;
+    font-weight: 700;
+}
+.content .con .reserv_select3 .reserv_choose ul.date_list{
+    display: flex;
+    overflow-x: scroll;
+    padding-right: 20px;
+    padding-top: 28px;
+    padding-bottom: 5px;
+}
+.content .con .reserv_select3 .reserv_choose ul.date_list li input + label{
+    text-align: center;
+    display: inline-block;
+}
+.content .con .reserv_select3 .reserv_choose ul.date_list li:nth-child(n + 2) input + label{
+    margin-left: 10px;
+}
+.content .con .reserv_select3 .reserv_choose ul.date_list li input + label .day{
+    color: #BBB;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.042px;
+}
+.content .con .reserv_select3 .reserv_choose ul.date_list li input + label .days{
+    width: 39px;
+    height: 39px;
+    flex-shrink: 0;
+    border-radius: 39px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 11px;
+    margin-bottom: 10px;
+}
+.content .con .reserv_select3 .reserv_choose ul.date_list li input:checked + label .days{
+    background: #3983A0;    
+    color: #fff;
+}
+.content .con .reserv_select3 .reserv_choose ul.date_list li input + label .today{
+    color: #3983A0;
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.036px;
+    display: none;
+}
+.content .con .reserv_select3 .reserv_choose ul.date_list li input:checked + label .today{
+    display: block;
+}
+.content .con .reserv_select3 .reserv_choose .time_select{
+    margin-top: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+}
+.content .con .reserv_select3 .reserv_choose .time_select > h5{
+    font-size: 15px;
+}
+.content .con .reserv_select3 .reserv_choose .time_select ul{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 8px;
+    text-align: center;
+    margin-top: 12px;
+}
+.content .con .reserv_select3 .reserv_choose .time_select ul li input + label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 36px;
+    border-radius: 2px;
+    border: 1px solid #3983A0;
+    background: #F3F5F9;
+    color: #3983A0;
+}
+.content .con .reserv_select3 .reserv_choose .time_select ul li input:checked + label{
+    background: #3983A0;
+    color: #fff;
+}
+.content .con .reserv_select3 .reserv_choose .time_select ul li input:disabled + label{
+    border-radius: 2px;
+    border: 1px solid #DDD;
+    background: #F9F9F9;
+    color: #BBBBBB;
+}
+.content .con .reserv_select3 .reserv_choose ul.select_info{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-top: 18px;
+    margin-right: 20px;
+}
+.content .con .reserv_select3 .reserv_choose ul.select_info li{
+    display: flex;
+    align-items: center;
+}
+.content .con .reserv_select3 .reserv_choose ul.select_info li:nth-child(n + 2){
+    margin-left: 14px;
+}
+
+.content .con .reserv_select3 .reserv_choose ul.select_info li i{
+    border-radius: 2px;
+    border: 1px solid #DDD;
+    background: #F9F9F9;    
+    width: 12px;
+    height: 12px;
+    box-sizing: border-box;
+    display: block;
+    
+}
+.content .con .reserv_select3 .reserv_choose ul.select_info li.select i{
+    background: #3983A0;
+    border: 1px solid #3983A0;
+}
+.content .con .reserv_select3 .reserv_choose ul.select_info li p{
+    margin-left: 6px;
+    font-size: 14px;
+}
+
+
+/* // 예약 선택페이지 reserv_select.html */
+
+/* 개인정보 등록 personal_info.html */
+
+.content .con .personal_info{
+    min-height: calc(100% - 310px);
+    margin-top: 36px;
+    padding-top: 24px;
+}
+
+.content .con .personal_info .person_box:nth-child(n + 2){
+    margin-top: 12px;
+}
+.content .con .personal_info .person_box input + label{
+    display: inline-block;
+    width: 100%;
+    padding: 20px;
+    border-radius: 10px;
+    border: 1px solid #DDD;
+    background: #FFF;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.06);
+    box-sizing: border-box;
+}
+.content .con .personal_info .person_box input + label .top_info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.content .con .personal_info .person_box input + label .top_info .user{
+    display: flex;
+    align-items: center;
+}
+.content .con .personal_info .person_box input + label .top_info .user i{
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background: url(../images/check2_off.png);
+    background-size: cover;
+    transition: .3s;
+}
+.content .con .personal_info .person_box input:checked + label .top_info .user i{
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    background: url(../images/check2_on.png);
+    background-size: cover;
+}
+.content .con .personal_info .person_box input + label .top_info .user h5{
+    margin-left: 10px;
+    line-height: 1;
+}
+.content .con .personal_info .person_box input + label .top_info .user .state{
+    margin-left: 6px;
+    color: #5FB1F8;
+    font-size: 10px;
+    font-weight: 600;
+    line-height: 100%;
+    letter-spacing: 0.03px;
+    padding: 4px 6px 3px;
+    border-radius: 2px;
+    border: 1px solid #5FB1F8;
+    background: #FFF;    
+    box-sizing: border-box;
+}
+.content .con .personal_info .person_box input + label .top_info .user .state.sky{
+    border: 1px solid #5FB1F8;
+    color: #5FB1F8;
+}
+.content .con .personal_info .person_box input + label .top_info .user .state.red{
+    border: 1px solid #EB4747;
+    color: #EB4747;
+}
+.content .con .personal_info .person_box input:checked + label .top_info .arrow{
+    filter: brightness(0);
+    transform: rotate(180deg);
+}
+.content .con .personal_info .person_box input + label .bottom_info{
+    display: none;
+    margin-top: 15px;
+}
+.content .con .personal_info .person_box input:checked + label .bottom_info{
+    display: block;
+}
+.content .con .personal_info .person_box input + label .bottom_info h5{
+    font-size: 20px;
+    letter-spacing: 0.8px;
+}
+.content .con .personal_info .person_box input + label .bottom_info p{
+    color: #999;
+    font-size: 12px;
+    letter-spacing: -0.24px;
+    margin-top: 10px;
+}
+.content .con .personal_info .add_family{
+    margin-top: 26px;
+}
+.content .con .personal_info .add_family button{
+    border-radius: 6px;
+    border: 1px solid #DDD;
+    background: #FFF;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.06);
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+.content .con .personal_info .add_family button i{
+    margin-left: 3px;
+}
+.content .con .medi_select{
+    padding-top: 37px;
+}
+.content .con .medi_select .tit h5{
+    font-weight: 700;
+}
+.content .con .medi_select ul.select_list{
+    padding-top: 16px;
+    padding-bottom: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+.content .con .medi_select ul.select_list li input + label{
+    width: 100%;
+    border-radius: 4px;
+    border: 1px solid #F5F6FA;
+    background: #F5F6FA;
+    height: 80px;
+    box-sizing: border-box;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content .con .medi_select ul.select_list li input + label p{
+    margin-top: 10px;
+}
+.content .con .medi_select ul.select_list li input + label .chk{
+    width: 24px;
+    height: 24px;
+    background: url(../images/check2_off.png);
+    background-size: cover;
+    display: none;
+}
+.content .con .medi_select ul.select_list li input + label .type{
+    /* display: flex;
+    align-items: center; */
+}
+.content .con .medi_select ul.select_list li input + label .type i{
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+}
+.content .con .medi_select ul.select_list li input:checked + label{
+    border: 1px solid #3983A0;
+    background: #fff; 
+}
+.content .con .medi_select ul.select_list li input:checked + label p{
+    font-weight: 700;
+    color: #3983A0;
+}
+
+.content .con .medi_select ul.select_list li input:checked + label .type i img{
+    filter: invert(40%) sepia(68%) saturate(384%) hue-rotate(151deg) brightness(75%) contrast(90%);
+
+}
+.content .con .medi_select ul.select_list li input:checked + label .chk{
+    background: url(../images/check2_on.png);
+}
+.content .con .result_page{
+    padding-top: 110px;
+    text-align: center;
+}
+.content .con .result_page .img{
+    margin-bottom: 40px;
+}
+.content .con .result_page .txt h5{
+    font-size: 22px;
+    font-weight: 700;
+}
+.content .con .result_page .txt p{
+    margin-top: 20px;
+    line-height: 1.6;
+    color: #666;
+}
+.content .con .result_page .txt p span{
+    color: #EB4747;
+}
+.content .con .result_page .btn{
+    margin-top: 40px;
+}
+.content .con .result_page .btn a{
+    border-radius: 6px;
+    border: 1px solid #3983A0;
+    background: #FFF;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.06);
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    margin: 0 auto;
+    color: #3983A0;
+    font-weight: 700;
+}
+.content .con .result_page .btn a i{
+    margin-left: 4px;
+}
+.content .con .my .login_before{
+    margin-bottom: 44px;
+}
+.content .con .my .login_before a h3{
+    font-size: 26px;
+    font-weight: 700;
+}
+.content .con .my .login_after{
+    margin-bottom: 32px;
+}
+.content .con .my .login_after a {
+    display: flex;
+    align-items: center;
+}
+.content .con .my .login_after a h5{
+    font-size: 18px;
+    font-weight: 800;
+}
+.content .con .my .login_after a .user_img{
+    width: 51px;
+    height: 51px;
+    border-radius: 51px;
+    border: 1px solid #CCC;    
+    margin-right: 14px;
+}
+.content .con .my .login_after a h5{
+    display: flex;
+    align-items: center;
+}
+.content .con .my .login_after a h5 i{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+.content .con .my .my_box h5{
+    color: #999;
+    font-size: 13px;
+    font-weight: 500;
+}
+.content .con .my .my_box.first{
+    border: none;
+    padding-top: 0;
+}
+.content .con .my .my_box {
+    border-top: 1px solid #eee;
+    padding: 30px 0;
+}
+.content .con .my .my_box ul li{
+    margin-top: 30px;
+}
+.content .con .my .my_box ul li a{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 700;
+}
+.content .con .my .logout{
+    text-align: center;
+    margin-top: 5px;
+}
+.content .con .my .logout button{
+    color: #BBB;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%;
+    border-radius: 4px;
+    border: 1px solid #CCC;
+    background: #FFF;    
+    padding: 6px 8px;
+}
+.content .con .edit_member .withdrawal_btn{
+    text-align: right;
+    margin-top: 33px;
+}
+.content .con .edit_member .withdrawal_btn button{
+    color: #BBB;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%;
+    border-radius: 4px;
+    border: 1px solid #CCC;
+    background: #FFF;    
+    padding: 6px 8px;
+    box-sizing: border-box;
+}
+/* // 개인정보 등록 personal_info.html */
+
+.content .con .edit_member .term_wrap{
+    margin-top: 29px;
+}
+.content .con .edit_member .form{
+    margin-bottom: 30px;
+}
+.content .con .edit_member .btns{
+    margin-top: 36px;
+    margin-bottom: 0;
+}
+.input_wrap{
+    margin-top: 28px;
+}
+.input_wrap h5{
+    color: #333;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%;
+    margin-bottom: 14px;
+}
+.input_wrap input{
+    height: 44px;
+    border-radius: 4px;
+    background: #F2F3F7;    
+    border: none;
+    padding: 0 14px;
+    width: 100%;
+}
+.input_wrap input::placeholder,
+.input_wrap textarea::placeholder{
+    color: #BBBBBB;
+}
+.input_wrap select{
+    height: 44px;
+    border-radius: 4px;
+    background:url('../images/select_arrow2.png') #F2F3F7 no-repeat right 20px center;
+    border: none;
+    padding: 0 14px;
+    width: 100%;
+}
+.input_wrap .input_func{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+}
+.input_wrap .input_func a{
+    display: inline-block;
+    width: 110px;
+    height: 44px;
+    line-height: 44px;
+    border-radius: 4px;
+    border: 1px solid #3983A0;
+    color: #3983A0;
+    background: #FFF;   
+    font-size: 14px;
+    text-align: center;
+    margin-left: 8px;
+    box-sizing: border-box;
+    flex: none;
+}
+
+
+
+
+.content .con .member_page{
+    text-align: center;
+}
+.content .con .member_page .img{
+    margin-bottom: 40px;
+    padding-top: 67px;
+}
+.content .con .member_page .txt h5{
+    font-size: 22px;
+    font-weight: 700;
+}
+.content .con .member_page .txt p{
+    margin-top: 20px;
+    line-height: 1.6;
+    color: #999;
+}
+.content .con .member_page .txt p span{
+    color: #EB4747;
+}
+.content .con .member_page .btn{
+    margin-top: 40px;
+}
+.content .con .member_page .btn a{
+    border-radius: 6px;
+    border: 1px solid #3983A0;
+    background: #FFF;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.06);
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    margin: 0 auto;
+    color: #3983A0;
+    font-weight: 700;
+}
+.content .con .member_page .btn button{
+    border-radius: 6px;
+    border: 1px solid #3983A0;
+    background: #FFF;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.06);
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    margin: 0 auto;
+    color: #3983A0;
+    font-weight: 700;
+}
+.content .con .member_page .btn a i{
+    margin-left: 4px;
+}
+.content .con .member_page .my_member{
+    text-align: left;
+}
+.content .con .member_page .my_member .member_head{
+    margin-top: 28px;
+    padding-bottom: 14px;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 1px solid #333;
+}
+.content .con .member_page .my_member .member_con{
+    padding: 15px 14px;
+    margin-top: 14px;
+    border-radius: 4px;
+    background: #F8F8F8;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.content .con .member_page .my_member .member_con ul.btn{
+    display: flex;
+    align-items: center;
+    margin-top: 0;
+}
+.content .con .member_page .my_member .member_con ul.btn li:nth-child(n + 2){
+    margin-left: 8px;
+}
+.content .con .member_page .my_member .member_con ul.btn li a{
+    font-size: 14px;
+    font-weight: 500;
+}
+.content .con .board ul.board_list{
+    border-top: 1px solid #333;
+    margin-top: 20px;
+}
+.content .con .board ul.board_list li{
+    border-bottom: 1px solid #eee;
+}
+.content .con .board ul.board_list li a{
+    width: 100%;
+    padding: 20px 0;
+    box-sizing: border-box;
+    display: inline-block;
+}
+.content .con .board ul.board_list li a h5{
+    color: #3983A0;
+    font-size: 12px;
+    font-weight: 500;
+}
+.content .con .board ul.board_list li a h4{
+    color: #333;
+    font-weight: 500;
+    padding: 11px 0 17px;
+}
+.content .con .board ul.board_list li a p{
+    color: #999;
+    font-size: 13px;
+    font-weight: 400;
+}
+.content .con .board .board_detail{
+    border-top: 1px solid #333;
+    margin-top: 20px;
+    padding-top: 28px;
+}
+.content .con .board .board_detail p{
+    color: #666;
+    font-size: 14px;
+
+}
+
+
+
+.content .con .board .img{
+    margin-bottom: 18px;
+    padding-top: 51px;
+    text-align: center;
+}
+.content .con .board .txt h5{
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+}
+.content .con .board .txt p{
+    margin-top: 20px;
+    line-height: 1.6;
+    color: #999;
+    text-align: center;
+}
+.content .con .board .txt p span{
+    color: #EB4747;
+}
+.content .con .board .btn{
+    margin-top: 40px;
+}
+.content .con .board .btn a{
+    border-radius: 6px;
+    border: 1px solid #3983A0;
+    background: #FFF;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.06);
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    margin: 0 auto;
+    color: #3983A0;
+    font-weight: 700;
+    font-size: 14px;
+}
+.content .con .board .btn button{
+    border-radius: 6px;
+    border: 1px solid #3983A0;
+    background: #FFF;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.06);
+    padding: 8px 20px;
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    margin: 0 auto;
+    color: #3983A0;
+    font-weight: 700;
+    font-size: 14px;
+}
+.content .intro{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    transition: .3s;
+      /* 애니메이션 이름 */
+    animation-name: ani1;
+    animation-duration:2s;
+    animation-duration: leaner;
+    /* animation-iteration-count:3; */
+    animation-direction:alternate;
+    animation-fill-mode: forwards;
+}
+.content .intro p{
+    margin-top: 23px;
+    color: #3983A0;
+    text-align: center;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 100%;
+    letter-spacing: 0.045px;    
+}
+
+@keyframes ani1 {
+    0% {
+    opacity: 0;
+    }
+    100% {
+    opacity: 1;
+    }
+}

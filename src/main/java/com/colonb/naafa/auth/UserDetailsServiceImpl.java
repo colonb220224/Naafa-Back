@@ -24,4 +24,8 @@ public class UserDetailsServiceImpl implements UserDetailsService {
         }
         return new UserDetailsImpl(data.get());
     }
+
+    public UserDetails loadUserByUserEntity(User user){
+        return new UserDetailsImpl(user);
+    }
 }

@@ -1,0 +1,201 @@
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=360, user-scalable=no">
+    <title>나아파</title>
+    <meta name="keyword" content="나아파">
+    <meta name="description" content="나아파">
+    <meta name="author" content="나아파">   
+    
+    <!-- css -->
+    <link rel="stylesheet" href="./assets/css/reset.css">
+    <link rel="stylesheet" href="./assets/css/common.css">
+    <link rel="stylesheet" href="./assets/css/sub.css">
+    <link rel="stylesheet" href="./assets/swiper/css/swiper.css">
+
+    <!-- script -->
+    <script src="./assets/scripts/jquery-3.1.1.min.js"></script>
+    <script src="./assets/scripts/script.js"></script>
+    <script src="./assets/swiper/js/swiper.js"></script>
+    
+</head>
+<body class="suit">
+    <div class="content">
+        <header>
+            <div class="wrap">
+                <div class="header_left">
+                    <div class="prev">
+                        <a href="#">
+                            <img src="./assets/images/prev.png" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="header_center">
+                    <div class="txt">
+                        <h5>증상 입력</h5>
+                    </div>
+                </div>
+                <div class="header_right">
+                </div>
+            </div>
+        </header>
+        <div class="con">
+            <div class="wrap pb-200">
+                <div class="symptom">
+                    <div class="intro_title">
+                        <div class="txt">
+                            <h4>증상 입력 </h4>
+                            <p style="margin-top: 12px;">
+                                현재 불편하신 부븐의 증살을 입력해주세요.                  
+                            </p>
+                        </div>
+                    </div>
+                    <div class="input_wrap">
+                        <textarea name="" id="" placeholder="증상을 자세히 입력해 주세요.(필수)" style="height: 182px;"></textarea>
+                    </div>
+                    <ul class="pic_list">
+                        <li>
+                            <input type="file" id="file">
+                            <label for="file">
+                                <div class="img">
+                                    <img src="./assets/images/pic.png" alt="">
+                                </div>
+                                <p>사진 1/5</p>
+                            </label>
+                        </li>
+                        <li style="background: url(./assets/images/symp.png) no-repeat center; background-size: cover;">
+                            <button type="button" class="del">
+                                <img src="./assets/images/del.png" alt="">
+                            </button>
+                        </li>
+                        <li style="background: url(./assets/images/symp.png) no-repeat center; background-size: cover;">
+                            <button type="button" class="del">
+                                <img src="./assets/images/del.png" alt="">
+                            </button>
+                        </li>
+                        <li style="background: url(./assets/images/symp.png) no-repeat center; background-size: cover;">
+                            <button type="button" class="del">
+                                <img src="./assets/images/del.png" alt="">
+                            </button>
+                        </li>
+                        <li style="background: url(./assets/images/symp.png) no-repeat center; background-size: cover;">
+                            <button type="button" class="del">
+                                <img src="./assets/images/del.png" alt="">
+                            </button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <ul class="nav">
+                <li>
+                    <a href="../index.html">
+                        <i>
+                            <img src="./assets/images/nav1.png" alt="">
+                        </i>
+                        <p>병원검색</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="./reserv_select.html">
+                        <i>
+                            <img src="./assets/images/nav2.png" alt="">
+                        </i>
+                        <p>진료예약</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="./cs.html">
+                        <i>
+                            <img src="./assets/images/nav3.png" alt="">
+                        </i>
+                        <p>비대면 상담예약</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="./my.html">
+                        <i>
+                            <img src="./assets/images/nav4.png" alt="">
+                        </i>
+                        <p>마이페이지</p>
+                    </a>
+                </li>
+            </ul>
+            <div class="btn_wrap">
+                <!-- button 비활성화시 disabled 속성 추가 -->
+                <button type="button" class="modal_step_open" modal_step="Member">다음</button>
+            </div>
+        </div>
+        <footer>
+
+        </footer>
+    </div>
+
+    <!-- modal -->
+    <!-- class="modal_step_open" modal_step="Member" -->
+    
+    <div class="modal modal modal_step modal_stepMember bottom_position hidden">
+        <div class="modal_overlay">
+        </div>
+        <div class="modal_content modal_bottom scrollbar">
+            <div class="layoutCont">  
+                <div class="modalContWrap">
+                    <!-- <div class="modal_close cancerButton">
+                        <img src="./assets/images/modal_close.png" alt="모달 닫기버튼">
+                    </div> -->
+                    <div class="modal_head" style="text-align: left;">
+                        <i><img src="./assets/images/chk3.png" alt=""></i>최종 예약 확인
+                    </div>
+                    <div class="modal_con scrollbar" >
+                        <div class="wrap">
+                            <div class="info_box">
+                                <div class="info">
+                                    <ul>
+                                        <li>
+                                            <h5>병원</h5>
+                                            <p>연세이비인후과</p>
+                                        </li>
+                                        <li>
+                                            <h5>일정</h5>
+                                            <p>2023.4.9(일) <span class="red">오후 12:00</span></p>
+                                        </li>
+                                        <li>
+                                            <h5>이름</h5>
+                                            <p>홍길동</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="info">
+                                    <ul>
+                                        <li>
+                                            <h5>진료방식</h5>
+                                            <p>방문예약</p>
+                                        </li>
+                                        <li>
+                                            <h5>진료항목</h5>
+                                            <p>감기</p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="btns">
+                                <a href="#none" class="cancerButton">취소</a>
+                                <!-- 예약 완료시 reserv_complete.html로 이동 -->
+                                <!-- 결제 수단 등록 필요시 regi_payment.html로 이동 -->
+                                <!-- 초진 예약불가시 regi_deny.html로 이동 -->
+                                <a href="./reserv_complete.html" style="width: 212px; flex: none;">병원 최종 예약</a>
+                            </div>    
+                        </div>
+                    </div>
+
+                </div>
+                <!-- <div class="modal_btn flex">
+                    <button class="cancerButton " type="button">확인</button>
+                    <button class="cancerButton " type="button">확인</button>                        
+                </div> -->
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>

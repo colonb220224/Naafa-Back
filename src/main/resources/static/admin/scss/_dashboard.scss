@@ -1,0 +1,122 @@
+#dashboard_product_header {
+	.main-menu {
+		.item {
+			&:nth-of-type(1) {
+				background-color: #234397;
+				color: #fff;
+			}
+		}
+	}
+}
+
+#dashboard {
+	width: 85%;
+	position: fixed;
+	top: 0;
+	right: 0;
+	background-color: #e7e7e7;
+	bottom: 0; /* 화면 하단까지 영역을 확장 */
+	overflow-y: auto; /* 스크롤이 내용을 넘어갈 경우 스크롤 생성 */
+
+	.inner {
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		padding: 50px 0px;
+		gap: 50px;
+
+		.txt__box {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			margin-bottom: 20px;
+
+			h3 {
+				font: bold 20px/1 "Noto Sans";
+			}
+
+			.input__box {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				gap: 10px;
+
+				button {
+					background-color: var(--primary-color);
+					border: none;
+					color: #fff;
+					border-radius: 20px;
+					padding: 7px 20px;
+					font: 400 13px/1 "Noto Sans";
+					cursor: pointer;
+
+					&:first-child {
+						background-color: #fff;
+						color: #333;
+					}
+
+					&:nth-of-type(2) {
+						margin-right: 12px;
+					}
+
+					&:last-child {
+						padding: 7px 17px;
+					}
+				}
+
+				input {
+					border-radius: 5px;
+					border: none;
+					padding: 5px 15px;
+					cursor: pointer;
+				}
+
+				span {
+					font: 400 13px/1 "Noto Sans";
+				}
+			}
+		}
+
+		.chart-wrap {
+			display: flex;
+			justify-content: space-between;
+			align-content: center;
+			background-color: #fff;
+			border-radius: 15px;
+
+			.chart-inner {
+				width: 80%;
+				height: 500px;
+				margin: 0 auto;
+				padding: 50px;
+			}
+
+			.chart__txt {
+				width: 20%;
+				padding: 20px;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				gap: 20px;
+				padding: 30px 10px;
+
+				div {
+					background-color: #000a25;
+					text-align: center;
+					margin: 0 auto;
+					width: 120px;
+					height: 80px;
+					font: 400 14px/50px "Noto Sans";
+					color: #fff;
+					border-radius: 5px;
+
+					p {
+						color: #fff;
+						font: 800 20px/1px "Noto Sans";
+					}
+				}
+			}
+		}
+	}
+}
