@@ -20,6 +20,7 @@ import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Base64;
 import java.util.Date;
+import java.util.Objects;
 
 
 @RequiredArgsConstructor
@@ -65,6 +66,9 @@ public class JwtTokenProvider {
 
     public String resolveTokenFromCookie(HttpServletRequest request) {
         Cookie[] cookies = request.getCookies();
+        if (Objects.isNull(cookies)){
+            return null;
+        }
         for (Cookie cookie : cookies){
             if (cookie.getName().equals("JWT")){
                 return cookie.getValue();
