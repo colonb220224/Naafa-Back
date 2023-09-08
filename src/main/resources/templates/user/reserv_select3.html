@@ -1,24 +1,8 @@
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=360, user-scalable=no">
-    <title>나아파</title>
-    <meta name="keyword" content="나아파">
-    <meta name="description" content="나아파">
-    <meta name="author" content="나아파">   
-    
-    <!-- css -->
-    <link rel="stylesheet" href="./assets/css/reset.css">
-    <link rel="stylesheet" href="./assets/css/common.css">
-    <link rel="stylesheet" href="./assets/css/sub.css">
-    <link rel="stylesheet" href="./assets/swiper/css/swiper.css">
 
-    <!-- script -->
-    <script src="./assets/scripts/jquery-3.1.1.min.js"></script>
-    <script src="./assets/scripts/script.js"></script>
-    <script src="./assets/swiper/js/swiper.js"></script>
-    
+    <th:block th:include="common/library_header"></th:block>
+
 </head>
 <body class="suit">
     <div class="content">
@@ -27,7 +11,7 @@
                 <div class="header_left">
                     <div class="prev">
                         <a href="#">
-                            <img src="./assets/images/prev.png" alt="">
+                            <img src="./user/images/prev.png" alt="">
                         </a>
                     </div>
                 </div>
@@ -57,7 +41,7 @@
                 <div class="reserv_choose">
                     <div class="tit">
                         <i>
-                            <img src="./assets/images/date.png" alt="">
+                            <img src="./user/images/date.png" alt="">
                         </i>
                         <h5>4.9(일)</h5>
                     </div>
@@ -181,7 +165,7 @@
                 <div class="reserv_choose pb-200">
                     <div class="tit">
                         <i>
-                            <img src="./assets/images/time_select.png" alt="">
+                            <img src="./user/images/time_select.png" alt="">
                         </i>
                         <h5>시간선택</h5>
                     </div>
@@ -317,33 +301,33 @@
             </div>
             <ul class="nav">
                 <li>
-                    <a href="../index.html">
+                    <a href="../">
                         <i>
-                            <img src="./assets/images/nav1.png" alt="">
+                            <img src="./user/images/nav1.png" alt="">
                         </i>
                         <p>병원검색</p>
                     </a>
                 </li>
                 <li class="on">
-                    <a href="./reserv_select.html">
+                    <a href="./reserv_select">
                         <i>
-                            <img src="./assets/images/nav2.png" alt="">
+                            <img src="./user/images/nav2.png" alt="">
                         </i>
                         <p>진료예약</p>
                     </a>
                 </li>
                 <li>
-                    <a href="./cs.html">
+                    <a href="./cs">
                         <i>
-                            <img src="./assets/images/nav3.png" alt="">
+                            <img src="./user/images/nav3.png" alt="">
                         </i>
                         <p>비대면 상담예약</p>
                     </a>
                 </li>
                 <li>
-                    <a href="./my.html">
+                    <a href="./my">
                         <i>
-                            <img src="./assets/images/nav4.png" alt="">
+                            <img src="./user/images/nav4.png" alt="">
                         </i>
                         <p>마이페이지</p>
                     </a>
@@ -351,10 +335,10 @@
             </ul>
             <div class="btn_wrap">
                 <!-- button 비활성화시 disabled 속성 추가 -->
-                <!-- reserv_select4.html로 이동 -->
-                <!-- 결제 수단 등록 필요시 regi_payment.html로 이동 -->
-                <!-- 초진 예약불가시 regi_deny.html로 이동 -->
-                <button type="button" onclick="location.href='./reserv_select4.html';">다음</button>
+                <!-- reserv_select4로 이동 -->
+                <!-- 결제 수단 등록 필요시 regi_payment로 이동 -->
+                <!-- 초진 예약불가시 regi_deny로 이동 -->
+                <button type="button" onclick="location.href='./reserv_select4';">다음</button>
             </div>
         </div>
         <footer>

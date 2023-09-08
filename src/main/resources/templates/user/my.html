@@ -1,24 +1,8 @@
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=360, user-scalable=no">
-    <title>나아파</title>
-    <meta name="keyword" content="나아파">
-    <meta name="description" content="나아파">
-    <meta name="author" content="나아파">   
-    
-    <!-- css -->
-    <link rel="stylesheet" href="./assets/css/reset.css">
-    <link rel="stylesheet" href="./assets/css/common.css">
-    <link rel="stylesheet" href="./assets/css/sub.css">
-    <link rel="stylesheet" href="./assets/swiper/css/swiper.css">
 
-    <!-- script -->
-    <script src="./assets/scripts/jquery-3.1.1.min.js"></script>
-    <script src="./assets/scripts/script.js"></script>
-    <script src="./assets/swiper/js/swiper.js"></script>
-    
+    <th:block th:include="common/library_header"></th:block>
+
 </head>
 <body class="suit">
     <div class="content">
@@ -28,17 +12,17 @@
                     <!-- 로그인전 -->
                     <div class="login_before">
                         <a href="">
-                            <h3>Login <i><img src="./assets/images/login_before.png" alt=""></i></h3>
+                            <h3>Login <i><img src="./user/images/login_before.png" alt=""></i></h3>
                         </a>
                     </div>
                     <!-- // 로그인전 -->
                     <!-- 로그인후 -->
                     <div class="login_after">
                         <a href="">
-                            <div class="user_img" style="background: url(./assets/images/user_img.png) no-repeat center; background-size: cover;">
+                            <div class="user_img" style="background: url(./user/images/user_img.png) no-repeat center; background-size: cover;">
 
                             </div>
-                            <h5>bice@naver.com <i><img src="./assets/images/login_after.png" alt=""></i></h5>
+                            <h5>bice@naver.com <i><img src="./user/images/login_after.png" alt=""></i></h5>
                         </a>
                     </div>
                     <!-- // 로그인후 -->
@@ -50,19 +34,19 @@
                             <li>
                                 <a href="">
                                     <p>결제 관리</p>
-                                    <i><img src="./assets/images/my_arrow.png" alt=""></i>
+                                    <i><img src="./user/images/my_arrow.png" alt=""></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="">
                                     <p>리뷰 관리</p>
-                                    <i><img src="./assets/images/my_arrow.png" alt=""></i>
+                                    <i><img src="./user/images/my_arrow.png" alt=""></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="./reserv.html">
+                                <a href="./reserv">
                                     <p>예약 관리</p>
-                                    <i><img src="./assets/images/my_arrow.png" alt=""></i>
+                                    <i><img src="./user/images/my_arrow.png" alt=""></i>
                                 </a>
                             </li>
                         </ul>
@@ -73,15 +57,15 @@
                         </h5>
                         <ul>
                             <li>
-                                <a href="./my_edit_member.html">
+                                <a href="./my_edit_member">
                                     <p>회원정보 수정</p>
-                                    <i><img src="./assets/images/my_arrow.png" alt=""></i>
+                                    <i><img src="./user/images/my_arrow.png" alt=""></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="./my_add_member.html">
+                                <a href="./my_add_member">
                                     <p>구성원 관리</p>
-                                    <i><img src="./assets/images/my_arrow.png" alt=""></i>
+                                    <i><img src="./user/images/my_arrow.png" alt=""></i>
                                 </a>
                             </li>
                         </ul>
@@ -92,15 +76,15 @@
                         </h5>
                         <ul>
                             <li>
-                                <a href="./notice.html">
+                                <a href="./notice">
                                     <p>공지사항</p>
-                                    <i><img src="./assets/images/my_arrow.png" alt=""></i>
+                                    <i><img src="./user/images/my_arrow.png" alt=""></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="./inquiry.html">
+                                <a href="./inquiry">
                                     <p>1:1 문의</p>
-                                    <i><img src="./assets/images/my_arrow.png" alt=""></i>
+                                    <i><img src="./user/images/my_arrow.png" alt=""></i>
                                 </a>
                             </li>
                         </ul>
@@ -112,33 +96,33 @@
             </div>
             <ul class="nav">
                 <li>
-                    <a href="../index.html">
+                    <a href="../">
                         <i>
-                            <img src="./assets/images/nav1.png" alt="">
+                            <img src="./user/images/nav1.png" alt="">
                         </i>
                         <p>병원검색</p>
                     </a>
                 </li>
                 <li>
-                    <a href="./reserv_select.html">
+                    <a href="./reserv_select">
                         <i>
-                            <img src="./assets/images/nav2.png" alt="">
+                            <img src="./user/images/nav2.png" alt="">
                         </i>
                         <p>진료예약</p>
                     </a>
                 </li>
                 <li>
-                    <a href="./cs.html">
+                    <a href="./cs">
                         <i>
-                            <img src="./assets/images/nav3.png" alt="">
+                            <img src="./user/images/nav3.png" alt="">
                         </i>
                         <p>비대면 상담예약</p>
                     </a>
                 </li>
                 <li class="on">
-                    <a href="./my.html">
+                    <a href="./my">
                         <i>
-                            <img src="./assets/images/nav4.png" alt="">
+                            <img src="./user/images/nav4.png" alt="">
                         </i>
                         <p>마이페이지</p>
                     </a>

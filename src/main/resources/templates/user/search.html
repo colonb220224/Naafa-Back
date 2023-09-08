@@ -1,24 +1,8 @@
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=360, user-scalable=no">
-    <title>나아파</title>
-    <meta name="keyword" content="나아파">
-    <meta name="description" content="나아파">
-    <meta name="author" content="나아파">   
-    
-    <!-- css -->
-    <link rel="stylesheet" href="./assets/css/reset.css">
-    <link rel="stylesheet" href="./assets/css/common.css">
-    <link rel="stylesheet" href="./assets/css/sub.css">
-    <link rel="stylesheet" href="./assets/swiper/css/swiper.css">
 
-    <!-- script -->
-    <script src="./assets/scripts/jquery-3.1.1.min.js"></script>
-    <script src="./assets/scripts/script.js"></script>
-    <script src="./assets/swiper/js/swiper.js"></script>
-    
+    <th:block th:include="common/library_header"></th:block>
+
 </head>
 <body class="suit">
     <div class="content">
@@ -39,7 +23,7 @@
                 <div class="header_left">
                     <div class="prev">
                         <a href="#">
-                            <img src="./assets/images/prev.png" alt="">
+                            <img src="./user/images/prev.png" alt="">
                         </a>
                     </div>
                 </div>
@@ -50,8 +34,8 @@
                 </div>
                 <div class="header_right">
                     <div class="btn">
-                        <button type="button" onclick=" location.href='./search_hospital.html';">
-                            <img src="./assets/images/search.png" alt="검색 버튼">
+                        <button type="button" onclick=" location.href='./search_hospital';">
+                            <img src="./user/images/search.png" alt="검색 버튼">
                         </button>
                     </div>
                 </div>
@@ -62,15 +46,15 @@
                 <ul class="search_detail">
                     <li>
                         <button class="grey">
-                            <div class="img"><img src="./assets/images/cal.png" alt=""></div>
+                            <div class="img"><img src="./user/images/cal.png" alt=""></div>
                             <p>23.03.31(금)</p>
                         </button>
                     </li>
                     <li>
                         <button>
-                            <div class="img"><img src="./assets/images/target.png" alt=""></div>
+                            <div class="img"><img src="./user/images/target.png" alt=""></div>
                             <p>신사동</p>
-                            <i><img src="./assets/images/select_arrow.png" alt=""></i>
+                            <i><img src="./user/images/select_arrow.png" alt=""></i>
                         </button>
                     </li>
                 </ul>
@@ -102,7 +86,7 @@
                                     03.10
                                 </div>
                                 <button>
-                                    <img src="./assets/images/close_grey.png" alt="">
+                                    <img src="./user/images/close_grey.png" alt="">
                                 </button>
                             </div>
                         </li>
@@ -115,7 +99,7 @@
                                     03.10
                                 </div>
                                 <button>
-                                    <img src="./assets/images/close_grey.png" alt="">
+                                    <img src="./user/images/close_grey.png" alt="">
                                 </button>
                             </div>
                         </li>
@@ -128,7 +112,7 @@
                                     03.10
                                 </div>
                                 <button>
-                                    <img src="./assets/images/close_grey.png" alt="">
+                                    <img src="./user/images/close_grey.png" alt="">
                                 </button>
                             </div>
                         </li>
@@ -137,33 +121,33 @@
             </div>
             <ul class="nav">
                 <li class="on">
-                    <a href="../index.html">
+                    <a href="../">
                         <i>
-                            <img src="./assets/images/nav1.png" alt="">
+                            <img src="./user/images/nav1.png" alt="">
                         </i>
                         <p>병원검색</p>
                     </a>
                 </li>
                 <li>
-                    <a href="./reserv_select.html">
+                    <a href="./reserv_select">
                         <i>
-                            <img src="./assets/images/nav2.png" alt="">
+                            <img src="./user/images/nav2.png" alt="">
                         </i>
                         <p>진료예약</p>
                     </a>
                 </li>
                 <li>
-                    <a href="./cs.html">
+                    <a href="./cs">
                         <i>
-                            <img src="./assets/images/nav3.png" alt="">
+                            <img src="./user/images/nav3.png" alt="">
                         </i>
                         <p>비대면 상담예약</p>
                     </a>
                 </li>
                 <li>
-                    <a href="./my.html">
+                    <a href="./my">
                         <i>
-                            <img src="./assets/images/nav4.png" alt="">
+                            <img src="./user/images/nav4.png" alt="">
                         </i>
                         <p>마이페이지</p>
                     </a>
