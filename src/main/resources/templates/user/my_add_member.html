@@ -11,7 +11,7 @@
                 <div class="header_left">
                     <div class="prev">
                         <a href="#">
-                            <img src="./user/images/prev.png" alt="">
+                            <img th:src="@{/user/images/prev.png}" alt="">
                         </a>
                     </div>
                 </div>
@@ -54,9 +54,9 @@
 
                     <div class="img">
                         <!-- 구성원이 하나도 없는 경우 아래 이미지 노출 -->
-                        <img src="./user/images/add_grey.png" alt="">
+                        <img th:src="@{/user/images/add_grey.png}" alt="">
                         <!-- 구성원이 한명이라도 있는 경우 아래 이미지 노출 -->
-                        <img src="./user/images/add.png" alt="">
+                        <img th:src="@{/user/images/add.png}" alt="">
                     </div>
                     <div class="txt">
                         <p>
@@ -66,7 +66,7 @@
                     <div class="btn">
                         <button type="button" class="modal_step_open" modal_step="Member">
                             구성원 추가
-                            <i><img src="./user/images/plus_blue.png" alt=""></i>
+                            <i><img th:src="@{/user/images/plus_blue.png}" alt=""></i>
                         </button>
                     </div>
                 </div>
@@ -75,7 +75,7 @@
                 <li>
                     <a href="../">
                         <i>
-                            <img src="./user/images/nav1.png" alt="">
+                            <img th:src="@{/user/images/nav1.png}" alt="">
                         </i>
                         <p>병원검색</p>
                     </a>
@@ -83,7 +83,7 @@
                 <li>
                     <a href="./reserv_select">
                         <i>
-                            <img src="./user/images/nav2.png" alt="">
+                            <img th:src="@{/user/images/nav2.png}" alt="">
                         </i>
                         <p>진료예약</p>
                     </a>
@@ -91,7 +91,7 @@
                 <li>
                     <a href="./cs">
                         <i>
-                            <img src="./user/images/nav3.png" alt="">
+                            <img th:src="@{/user/images/nav3.png}" alt="">
                         </i>
                         <p>비대면 상담예약</p>
                     </a>
@@ -99,7 +99,7 @@
                 <li class="on">
                     <a href="./my">
                         <i>
-                            <img src="./user/images/nav4.png" alt="">
+                            <img th:src="@{/user/images/nav4.png}" alt="">
                         </i>
                         <p>마이페이지</p>
                     </a>
@@ -121,7 +121,7 @@
             <div class="layoutCont">  
                 <div class="modalContWrap">
                     <div class="modal_close cancerButton">
-                        <img src="./user/images/modal_close.png" alt="모달 닫기버튼">
+                        <img th:src="@{/user/images/modal_close.png}" alt="모달 닫기버튼">
                     </div>                      
                     <div class="modal_head">
                         회원 정보 추가

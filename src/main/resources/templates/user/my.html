@@ -12,7 +12,7 @@
                     <!-- 로그인전 -->
                     <div class="login_before">
                         <a href="">
-                            <h3>Login <i><img src="./user/images/login_before.png" alt=""></i></h3>
+                            <h3>Login <i><img th:src="@{/user/images/login_before.png}" alt=""></i></h3>
                         </a>
                     </div>
                     <!-- // 로그인전 -->
@@ -22,7 +22,7 @@
                             <div class="user_img" style="background: url(./user/images/user_img.png) no-repeat center; background-size: cover;">
 
                             </div>
-                            <h5>bice@naver.com <i><img src="./user/images/login_after.png" alt=""></i></h5>
+                            <h5>bice@naver.com <i><img th:src="@{/user/images/login_after.png}" alt=""></i></h5>
                         </a>
                     </div>
                     <!-- // 로그인후 -->
@@ -34,19 +34,19 @@
                             <li>
                                 <a href="">
                                     <p>결제 관리</p>
-                                    <i><img src="./user/images/my_arrow.png" alt=""></i>
+                                    <i><img th:src="@{/user/images/my_arrow.png}" alt=""></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="">
                                     <p>리뷰 관리</p>
-                                    <i><img src="./user/images/my_arrow.png" alt=""></i>
+                                    <i><img th:src="@{/user/images/my_arrow.png}" alt=""></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="./reserv">
                                     <p>예약 관리</p>
-                                    <i><img src="./user/images/my_arrow.png" alt=""></i>
+                                    <i><img th:src="@{/user/images/my_arrow.png}" alt=""></i>
                                 </a>
                             </li>
                         </ul>
@@ -59,13 +59,13 @@
                             <li>
                                 <a href="./my_edit_member">
                                     <p>회원정보 수정</p>
-                                    <i><img src="./user/images/my_arrow.png" alt=""></i>
+                                    <i><img th:src="@{/user/images/my_arrow.png}" alt=""></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="./my_add_member">
                                     <p>구성원 관리</p>
-                                    <i><img src="./user/images/my_arrow.png" alt=""></i>
+                                    <i><img th:src="@{/user/images/my_arrow.png}" alt=""></i>
                                 </a>
                             </li>
                         </ul>
@@ -78,13 +78,13 @@
                             <li>
                                 <a href="./notice">
                                     <p>공지사항</p>
-                                    <i><img src="./user/images/my_arrow.png" alt=""></i>
+                                    <i><img th:src="@{/user/images/my_arrow.png}" alt=""></i>
                                 </a>
                             </li>
                             <li>
                                 <a href="./inquiry">
                                     <p>1:1 문의</p>
-                                    <i><img src="./user/images/my_arrow.png" alt=""></i>
+                                    <i><img th:src="@{/user/images/my_arrow.png}" alt=""></i>
                                 </a>
                             </li>
                         </ul>
@@ -98,7 +98,7 @@
                 <li>
                     <a href="../">
                         <i>
-                            <img src="./user/images/nav1.png" alt="">
+                            <img th:src="@{/user/images/nav1.png}" alt="">
                         </i>
                         <p>병원검색</p>
                     </a>
@@ -106,7 +106,7 @@
                 <li>
                     <a href="./reserv_select">
                         <i>
-                            <img src="./user/images/nav2.png" alt="">
+                            <img th:src="@{/user/images/nav2.png}" alt="">
                         </i>
                         <p>진료예약</p>
                     </a>
@@ -114,7 +114,7 @@
                 <li>
                     <a href="./cs">
                         <i>
-                            <img src="./user/images/nav3.png" alt="">
+                            <img th:src="@{/user/images/nav3.png}" alt="">
                         </i>
                         <p>비대면 상담예약</p>
                     </a>
@@ -122,7 +122,7 @@
                 <li class="on">
                     <a href="./my">
                         <i>
-                            <img src="./user/images/nav4.png" alt="">
+                            <img th:src="@{/user/images/nav4.png}" alt="">
                         </i>
                         <p>마이페이지</p>
                     </a>
