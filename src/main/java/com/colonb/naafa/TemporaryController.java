@@ -1,4 +1,4 @@
-package com.colonb.naafa.user;
+package com.colonb.naafa;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
