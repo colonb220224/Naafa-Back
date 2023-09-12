@@ -20,13 +20,7 @@ public class UserController {
         Result res = userService.patientList(userDetails);
         return ResponseEntity.status(res.status()).body(res);
     }
-
-    @GetMapping("/patient/view/{seq}")
-    public ResponseEntity<Result> patientView(@PathVariable long seq,
-                                              @AuthenticationPrincipal UserDetailsImpl userDetails) {
-        Result res = userService.patientView(seq, userDetails);
-        return ResponseEntity.status(res.status()).body(res);
-    }
+    
 
     @PostMapping("/patient/add")
     public ResponseEntity<Result> patientAdd(@RequestBody PatientDto req,
