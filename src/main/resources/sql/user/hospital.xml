@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.colonb.naafa.hospital.HospitalMapper">
+
+<!--    <resultMap id="User" type="com.colonb.naafa.user.entity.User">-->
+<!--        <result property="seq" column="SEQ"/>-->
+<!--        <result property="username" column="USERNAME"/>-->
+<!--        <result property="password" column="PASSWORD"/>-->
+<!--        <result property="provider" column="PROVIDER"/>-->
+<!--        <result property="socialId" column="SOCIAL_ID"/>-->
+<!--        <result property="role" column="ROLE"/>-->
+<!--    </resultMap>-->
+
+</mapper>
