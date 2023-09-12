@@ -77,6 +77,8 @@ public class UserService {
         userMapper.insertUserCreatedAt(mappedReq);
         mappedReq.put("role", HospitalRole.PATIENT);
         userMapper.insertUserRole(mappedReq);
+        mappedReq.put("status", AccountStatus.NORMAL);
+        userMapper.insertUserStatus(mappedReq);
         return new Result(HttpStatus.OK,true);
     }
 

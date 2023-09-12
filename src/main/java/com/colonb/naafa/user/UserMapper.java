@@ -10,6 +10,7 @@ import java.util.Optional;
 
 @Mapper
 public interface UserMapper {
+    int insertUserStatus(HashMap<String,Object> param);
     int insertUserRole(HashMap<String,Object> param);
     int insertUserMarketing(HashMap<String,Object> param);
     int insertUserCreatedAt(HashMap<String,Object> param);
