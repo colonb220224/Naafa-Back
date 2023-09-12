@@ -118,6 +118,7 @@ public class UserService {
             return new Result("이미 존재하는 이메일입니다.",HttpStatus.BAD_REQUEST,false);
         }
         HashMap<String, Object> mappedReq = HashMapConverter.convert(req);
+        mappedReq.replace("password",passwordEncoder.encode(mappedReq.get("password").toString()));
         userMapper.insertDefaultUser(mappedReq);
         userMapper.insertUserMarketing(mappedReq);
         userMapper.insertUserCreatedAt(mappedReq);
