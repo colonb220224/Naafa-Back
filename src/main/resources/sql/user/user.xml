@@ -78,15 +78,15 @@
         SELECT EXISTS(SELECT SEQ FROM PATIENT_INFO WHERE USER = #{user} AND RELATE = 'SELF')
     </select>
 
-    <select id="findAccountStatusByUser" resultType="String">
+    <select id="findAccountStatusByUser" resultMap="AccountStatus">
         SELECT STATUS
         FROM USER_STATUS
         WHERE USER = #{user}
     </select>
 
-<!--    <resultMap id="AccountStatus" type="com.colonb.naafa.user.enums.AccountStatus">-->
-<!--        <result property="accountStatus" column="STATUS" typeHandler="com.colonb.naafa.mybatis.AccountStatusHandler"/>-->
-<!--    </resultMap>-->
+    <resultMap id="AccountStatus" type="com.colonb.naafa.user.enums.AccountStatus">
+        <result property="accountStatus" column="STATUS" typeHandler="com.colonb.naafa.mybatis.AccountStatusHandler"/>
+    </resultMap>
 
 
 </mapper>
