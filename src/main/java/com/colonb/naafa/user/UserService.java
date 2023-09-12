@@ -99,7 +99,7 @@ public class UserService {
         if (user.getProvider() != SocialProvider.DEFAULT) {
             return new Result("소셜로그인을 사용해주세요.", HttpStatus.BAD_REQUEST, false);
         }
-        if (passwordEncoder.matches(req.getPassword(), user.getPassword())) {
+        if (!passwordEncoder.matches(req.getPassword(), user.getPassword())) {
             return new Result("잘못된 이메일 혹은 패스워드입니다.", HttpStatus.BAD_REQUEST, false);
         }
         AccountStatus status = userMapper.findAccountStatusByUser(user.getSeq());
