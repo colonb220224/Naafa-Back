@@ -29,7 +29,8 @@ public class UserService {
     private final HashMapConverter hashMapConverter;
   
     private final JwtTokenProvider jwtTokenProvider;
-  
+
+    @Transactional
     public String patientAdd(PatientDto req, UserDetailsImpl userDetails) {
 
         // 본인 인증 안 되어있는 경우 구성원 추가 불가
