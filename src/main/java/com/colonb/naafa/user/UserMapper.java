@@ -11,6 +11,7 @@ import java.util.Optional;
 
 @Mapper
 public interface UserMapper {
+    int insertAdminRole(HashMap<String,Object> param);
     int insertUserStatus(HashMap<String,Object> param);
     int insertUserRole(HashMap<String,Object> param);
     int insertUserMarketing(HashMap<String,Object> param);

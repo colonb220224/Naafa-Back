@@ -14,6 +14,11 @@
         <result property="role" column="ROLE"/>
     </resultMap>
 
+    <insert id="insertAdminRole">
+        INSERT INTO ADMIN_ROLE_DETAILS (USER, ADMIN_ROLE)
+        values (#{seq}, #{adminRole})
+    </insert>
+
     <insert id="insertUserStatus">
         INSERT INTO USER_STATUS (USER, STATUS)
         values (#{seq}, #{status})
