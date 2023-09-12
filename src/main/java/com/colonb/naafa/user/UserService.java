@@ -19,6 +19,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -29,17 +30,62 @@ public class UserService {
     private final JwtTokenProvider jwtTokenProvider;
     private final PasswordEncoder passwordEncoder;
 
+    public Result patientList(UserDetailsImpl userDetails) {
+        List<HashMap<String, Object>> result  = userMapper.findPatientByUser(userDetails.getUser().getSeq());
+        return new Result(HttpStatus.OK, result, true);
+    }
+
     @Transactional
     public Result patientAdd(PatientDto req, UserDetailsImpl userDetails) throws Exception {
         if (req.getRelate() != PatientRelate.SELF) {
-            if (userMapper.existSelfPatientByUser(userDetails.getUser().getSeq())) {
+            if (!userMapper.existSelfPatientByUser(userDetails.getUser().getSeq())) {
                 return new Result("본인 세부 정보를 먼저 작성해야 합니다.", HttpStatus.BAD_REQUEST, false);
+            }
+        }
+        if(req.getRelate() == PatientRelate.SELF){
+            if(userMapper.existSelfPatientByUser(userDetails.getUser().getSeq())){
+                return new Result("본인은 이미 등록되어 있습니다.", HttpStatus.BAD_REQUEST, false);
             }
         }
         req.encryptSocialNumber();
         HashMap<String, Object> param = HashMapConverter.convert(req);
         param.put("user", userDetails.getUser().getSeq());
         userMapper.insertPatient(param);
+        return new Result(HttpStatus.OK, true);
+    }
+
+    @Transactional
+    public Result patientModify(long seq, PatientDto req, UserDetailsImpl userDetails) {
+        Optional<HashMap<String, Object>> data = userMapper.findPatientBySeq(seq);
+        if(!data.isPresent()){
+            return new Result("존재 하지 않는 seq 입니다.", HttpStatus.BAD_REQUEST, false);
+        }
+        if(Long.parseLong(data.get().get("USER").toString()) != userDetails.getUser().getSeq()){
+            return new Result("본인의 구성원만 수정 가능합니다.", HttpStatus.BAD_REQUEST, false);
+        }
+        if(data.get().get("RELATE").toString().equals("SELF") && !(req.getRelate() == PatientRelate.SELF)){
+            return new Result("본인의 관계는 수정할 수 없습니다.", HttpStatus.BAD_REQUEST, false);
+        }
+        HashMap<String, Object> param = HashMapConverter.convert(req);
+        param.put("seq", seq);
+        // TODO socialNumber 암호화 예정
+        userMapper.updatePatient(param);
+        return new Result(HttpStatus.OK, true);
+    }
+
+    @Transactional
+    public Result patientRemove(long seq, UserDetailsImpl userDetails) {
+        Optional<HashMap<String, Object>> data = userMapper.findPatientBySeq(seq);
+        if(!data.isPresent()){
+            return new Result("존재 하지 않는 seq 입니다.", HttpStatus.BAD_REQUEST, false);
+        }
+        if(Long.parseLong(data.get().get("USER").toString()) != userDetails.getUser().getSeq()){
+            return new Result("본인의 구성원만 삭제 가능합니다.", HttpStatus.BAD_REQUEST, false);
+        }
+        if (data.get().get("RELATE").toString().equals("SELF")) {
+            return new Result("본인은 삭제하실 수 없습니다.", HttpStatus.BAD_REQUEST, false);
+        }
+        userMapper.deletePatient(seq);
         return new Result(HttpStatus.OK, true);
     }
 
