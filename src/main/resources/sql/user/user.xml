@@ -71,7 +71,17 @@
         SELECT *
         FROM PATIENT_INFO
         WHERE user = #{user}
-            and RELATE = 'SELF'
+          and RELATE = 'SELF'
+    </select>
+
+    <select id="existSelfPatientByUser" resultType="boolean">
+        SELECT EXISTS(SELECT SEQ FROM PATIENT_INFO WHERE USER = #{user} AND RELATE = 'SELF')
+    </select>
+
+    <select id="findAccountStatusByUser" resultType="String">
+        SELECT STATUS
+        FROM USER_STATUS
+        WHERE USER = #{user}
     </select>
 
 </mapper>

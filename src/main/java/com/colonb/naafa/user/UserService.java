@@ -1,23 +1,23 @@
 package com.colonb.naafa.user;
 
 import com.colonb.naafa.auth.UserDetailsImpl;
-import com.colonb.naafa.user.dto.PatientDto;
-import com.colonb.naafa.user.enums.PatientRelate;
 import com.colonb.naafa.auth.oauth2.jwt.JwtTokenProvider;
+import com.colonb.naafa.result.Result;
 import com.colonb.naafa.user.dto.LoginDto;
+import com.colonb.naafa.user.dto.PatientDto;
 import com.colonb.naafa.user.dto.RegisterDto;
 import com.colonb.naafa.user.entity.User;
+import com.colonb.naafa.user.enums.AccountStatus;
 import com.colonb.naafa.user.enums.HospitalRole;
-import com.colonb.naafa.user.enums.UserRole;
+import com.colonb.naafa.user.enums.PatientRelate;
+import com.colonb.naafa.user.enums.SocialProvider;
 import com.colonb.naafa.util.HashMapConverter;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import javax.swing.text.StyleContext;
-import java.io.IOException;
-import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.Optional;
+
 import java.util.HashMap;
 import java.util.Optional;
 
@@ -25,87 +25,58 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class UserService {
     private final UserMapper userMapper;
-  
-    private final HashMapConverter hashMapConverter;
-  
-    private final JwtTokenProvider jwtTokenProvider;
-  
-    public String patientAdd(PatientDto req, UserDetailsImpl userDetails) {
 
-        // 본인 인증 안 되어있는 경우 구성원 추가 불가
-        if(!req.getRelate().equals(PatientRelate.SELF)){
-            Optional<HashMap<String, Object>> data = userMapper.findPatientByUser(userDetails.getUser().getSeq());
-            if(!data.isPresent()){
-                return "본인인증을 먼저 진행 후 구성원을 추가해 주세요.";
+    private final JwtTokenProvider jwtTokenProvider;
+    private final BCryptPasswordEncoder passwordEncoder;
+
+    public Result patientAdd(PatientDto req, UserDetailsImpl userDetails) {
+        if (req.getRelate() != PatientRelate.SELF) {
+            if (userMapper.existSelfPatientByUser(userDetails.getUser().getSeq())) {
+                return new Result("본인 세부 정보를 먼저 작성해야 합니다.", HttpStatus.BAD_REQUEST, false);
             }
         }
-
-        HashMap<String, Object> param = hashMapConverter.convert(req);
+        HashMap<String, Object> param = HashMapConverter.convert(req);
         param.put("user", userDetails.getUser().getSeq());
         // TODO socialNumber 암호화 예정
-        if(userMapper.insertPatient(param) != 1){
-            throw new RuntimeException("구성원 추가에 실패하였습니다.");
-        }
-        return "구성원 추가에 성공하였습니다.";
+        userMapper.insertPatient(param);
+        return new Result(HttpStatus.OK, true);
     }
 
     @Transactional
-    public HashMap<String, Object> login(LoginDto req) {
-        Optional<User> user = userMapper.findByUsername(req.getUsername());
-        if (!user.isPresent()) {
-            HashMap<String, Object> res = new HashMap<>();
-            res.put("msg", "존재하지 않는 이메일입니다");
-            return res;
+    public Result login(LoginDto req) {
+        Optional<User> optionalUser = userMapper.findByUsername(req.getUsername());
+        if (!optionalUser.isPresent()) {
+            return new Result("잘못된 이메일 혹은 패스워드입니다.", HttpStatus.BAD_REQUEST, false);
         }
-
-        if(!user.get().getPassword().equals(req.getPassword())){
-            HashMap<String, Object> res = new HashMap<>();
-            res.put("msg", "비밀번호를 잘못 입력하셨습니다.");
-            return res;
+        User user = optionalUser.get();
+        if (user.getProvider() != SocialProvider.DEFAULT) {
+            return new Result("소셜로그인을 사용해주세요.", HttpStatus.BAD_REQUEST, false);
         }
-
-        HashMap<String, Object> data = new HashMap<>();
-        data.put("jwt", jwtTokenProvider.createToken(user.get()));
-        return data;
+        if (passwordEncoder.matches(req.getPassword(), user.getPassword())) {
+            return new Result("잘못된 이메일 혹은 패스워드입니다.", HttpStatus.BAD_REQUEST, false);
+        }
+        AccountStatus status = userMapper.findAccountStatusByUser(user.getSeq());
+        if (status == AccountStatus.DORMANT) {
+            return new Result("휴면 회원입니다.", HttpStatus.BAD_REQUEST, false);
+        }
+        if (status == AccountStatus.WITHDRAWAL) {
+            return new Result("탈퇴한 회원입니다.", HttpStatus.BAD_REQUEST, false);
+        }
+        return new Result(HttpStatus.OK, jwtTokenProvider.createToken(user), true);
     }
 
     @Transactional
-    public HashMap<String, Object> register(RegisterDto req) {
-
+    public Result register(RegisterDto req) {
         if (userMapper.findByUsername(req.getUsername()).isPresent()) {
-            HashMap<String, Object> res = new HashMap<>();
-            res.put("msg", "해당 유저는 이미 가입된 유저입니다.");
-            return res;
+            return new Result("이미 존재하는 이메일입니다.",HttpStatus.BAD_REQUEST,false);
         }
-
-        HashMap<String, Object> mappedReq = hashMapConverter.convert(req);
-
-        if (userMapper.insertDefaultUser(mappedReq) != 1){
-            HashMap<String, Object> res = new HashMap<>();
-            res.put("msg", "회원가입 중 오류가 발생하였습니다.");
-            return res;
-        }
-
-        if (userMapper.insertUserMarketing(mappedReq) != 1){
-            HashMap<String, Object> res = new HashMap<>();
-            res.put("msg", "회원가입 중 오류가 발생하였습니다.");
-            return res;
-        }
-
-        if (userMapper.insertUserCreatedAt(mappedReq) != 1){
-            HashMap<String, Object> res = new HashMap<>();
-            res.put("msg", "회원가입 중 오류가 발생하였습니다.");
-            return res;
-        }
-
+        HashMap<String, Object> mappedReq = HashMapConverter.convert(req);
+        userMapper.insertDefaultUser(mappedReq);
+        userMapper.insertUserMarketing(mappedReq);
+        userMapper.insertUserCreatedAt(mappedReq);
         mappedReq.put("role", HospitalRole.PATIENT);
-        if (userMapper.insertUserRole(mappedReq) != 1){
-            HashMap<String, Object> res = new HashMap<>();
-            res.put("msg", "회원가입 중 오류가 발생하였습니다.");
-            return res;
-        }
-
-        return mappedReq;
+        userMapper.insertUserRole(mappedReq);
+        return new Result(HttpStatus.OK,true);
     }
 
 }
