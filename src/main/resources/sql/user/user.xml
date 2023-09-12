@@ -14,9 +14,24 @@
         <result property="role" column="ROLE"/>
     </resultMap>
 
-    <insert id="insertDefaultUser" useGeneratedKeys="true" keyProperty="SEQ" keyColumn="SEQ">
-        INSERT INTO USER (USERNAME, PASSWORD)
-        values (#{username}, #{password})
+    <insert id="insertUserRole">
+        INSERT INTO USER_ROLE_DETAILS (USER, USER_ROLE)
+        values (#{seq}, #{role})
+    </insert>
+
+    <insert id="insertUserMarketing">
+        INSERT INTO USER_TERMS_AGREEMENT (USER, MARKETING)
+        values (#{seq}, #{marketing})
+    </insert>
+
+    <insert id="insertUserCreatedAt">
+        INSERT INTO USER_JOIN_INFO (USER)
+        values (#{seq})
+    </insert>
+
+    <insert id="insertDefaultUser" useGeneratedKeys="true" keyProperty="seq" keyColumn="seq">
+        INSERT INTO USER (USERNAME, PASSWORD, PHONE)
+        values (#{username}, #{password}, #{phone})
     </insert>
 
     <insert id="insertSocialUser" useGeneratedKeys="true" keyProperty="SEQ" keyColumn="SEQ">

@@ -9,6 +9,9 @@ import java.util.Optional;
 
 @Mapper
 public interface UserMapper {
+    int insertUserRole(HashMap<String,Object> param);
+    int insertUserMarketing(HashMap<String,Object> param);
+    int insertUserCreatedAt(HashMap<String,Object> param);
     int insertDefaultUser(HashMap<String,Object> param);
     int insertSocialUser(HashMap<String,Object> param);
     Optional<User> findByUsername(String username);
