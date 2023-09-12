@@ -10,12 +10,15 @@ public class HospitalDefaultDto {
     private String name;
     private String address;
     private String contact;
-//    private String coordinate;
+    private String coordinate;
     // 병원장 정보
     private String chiefName;
     private String licenseNumber;
     private Gender gender;
-    private ChiefCategory cheifCategory;
-
+    private ChiefCategory chiefCategory;
+    // 관리자 정보
+    private String username;
+    private String password;
+    private String phone;
 
 }

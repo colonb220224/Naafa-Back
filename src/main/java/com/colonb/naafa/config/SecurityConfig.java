@@ -50,6 +50,7 @@ public class SecurityConfig {
         http.headers().frameOptions().disable();
         http.authorizeRequests()
                 .antMatchers("/").permitAll() // 루트 경로에 대한 접근 허용
+                .antMatchers("/admin").hasAnyRole("ROLE_ADMIN") // 어드민 경로에 대한 접근 허용
                 .and()
                         .addFilterBefore(new JwtFilterChain(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class);
         http.oauth2Login()

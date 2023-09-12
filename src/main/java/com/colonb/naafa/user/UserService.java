@@ -114,7 +114,7 @@ public class UserService {
 
     @Transactional
     public Result register(RegisterDto req) {
-        if (userMapper.findByUsername(req.getUsername()).isPresent()) {
+        if (userMapper.existByUsername(req.getUsername())) {
             return new Result("이미 존재하는 이메일입니다.",HttpStatus.BAD_REQUEST,false);
         }
         HashMap<String, Object> mappedReq = HashMapConverter.convert(req);
