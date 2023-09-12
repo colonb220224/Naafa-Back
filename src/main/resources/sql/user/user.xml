@@ -76,7 +76,12 @@
         SELECT *
         FROM PATIENT_INFO
         WHERE user = #{user}
-          and RELATE = 'SELF'
+    </select>
+
+    <select id="findPatientBySeq" resultType="HashMap">
+        SELECT *
+        FROM PATIENT_INFO
+        WHERE SEQ = #{seq}
     </select>
 
     <select id="existSelfPatientByUser" resultType="boolean">
@@ -92,6 +97,20 @@
     <resultMap id="AccountStatus" type="com.colonb.naafa.user.enums.AccountStatus">
         <result property="accountStatus" column="STATUS" typeHandler="com.colonb.naafa.mybatis.AccountStatusHandler"/>
     </resultMap>
+
+    <delete id="deletePatient">
+        DELETE
+        FROM PATIENT_INFO
+        WHERE SEQ = #{seq}
+    </delete>
+
+    <update id="updatePatient">
+        UPDATE PATIENT_INFO
+        SET    NAME = #{name},
+               SOCIAL_NUMBER = #{socialNumber},
+               RELATE = #{relate}
+        WHERE SEQ = #{seq}
+    </update>
 
 
 </mapper>
