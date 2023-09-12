@@ -6,6 +6,7 @@ import com.colonb.naafa.user.enums.SocialProvider;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Optional;
 
 @Mapper
@@ -20,8 +21,12 @@ public interface UserMapper {
     Optional<User> findByProviderAndSocialId(SocialProvider provider, String socialId);
     boolean existByUsername(String username);
     int insertPatient(HashMap<String, Object> data);
-    Optional<HashMap<String, Object>> findPatientByUser(long user);
+    Optional<HashMap<String, Object>> findPatientBySeq(long seq);
 
     boolean existSelfPatientByUser(long user);
     AccountStatus findAccountStatusByUser(long user);
+    int deletePatient(long seq);
+    int updatePatient(HashMap<String, Object> param);
+
+    List<HashMap<String, Object>> findPatientByUser(long user);
 }
