@@ -29,6 +29,7 @@ public class UserService {
     private final JwtTokenProvider jwtTokenProvider;
     private final BCryptPasswordEncoder passwordEncoder;
 
+    @Transactional
     public Result patientAdd(PatientDto req, UserDetailsImpl userDetails) {
         if (req.getRelate() != PatientRelate.SELF) {
             if (userMapper.existSelfPatientByUser(userDetails.getUser().getSeq())) {
