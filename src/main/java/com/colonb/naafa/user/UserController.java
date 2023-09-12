@@ -10,8 +10,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
-@RestController("user")
+@RestController
 @RequiredArgsConstructor
+@RequestMapping("user")
 public class UserController {
     private final UserService userService;
 
@@ -20,7 +21,7 @@ public class UserController {
         Result res = userService.patientList(userDetails);
         return ResponseEntity.status(res.status()).body(res);
     }
-    
+
 
     @PostMapping("/patient/add")
     public ResponseEntity<Result> patientAdd(@RequestBody PatientDto req,
