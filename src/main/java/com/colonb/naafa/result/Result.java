@@ -1,9 +1,8 @@
 package com.colonb.naafa.result;
 
-import lombok.Getter;
 import org.springframework.http.HttpStatus;
 
-@Getter
+
 public class Result {
     private final String message;
     private final HttpStatus status;
@@ -62,6 +61,6 @@ public class Result {
     }
 
     public HttpStatus status() {
-        return this.status();
+        return this.status;
     }
 }

@@ -14,7 +14,7 @@ import com.colonb.naafa.user.enums.SocialProvider;
 import com.colonb.naafa.util.HashMapConverter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,7 +27,7 @@ public class UserService {
     private final UserMapper userMapper;
 
     private final JwtTokenProvider jwtTokenProvider;
-    private final BCryptPasswordEncoder passwordEncoder;
+    private final PasswordEncoder passwordEncoder;
 
     @Transactional
     public Result patientAdd(PatientDto req, UserDetailsImpl userDetails) {
