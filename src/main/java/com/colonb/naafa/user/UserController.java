@@ -19,7 +19,7 @@ public class UserController {
 
     @PostMapping("/patient/add")
     public ResponseEntity<Result> patientAdd(@RequestBody PatientDto req,
-                                             @AuthenticationPrincipal UserDetailsImpl userDetails) {
+                                             @AuthenticationPrincipal UserDetailsImpl userDetails) throws Exception {
         Result res = userService.patientAdd(req, userDetails);
         return ResponseEntity.status(res.status()).body(res);
     }

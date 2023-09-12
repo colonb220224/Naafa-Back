@@ -30,15 +30,15 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
 
     @Transactional
-    public Result patientAdd(PatientDto req, UserDetailsImpl userDetails) {
+    public Result patientAdd(PatientDto req, UserDetailsImpl userDetails) throws Exception {
         if (req.getRelate() != PatientRelate.SELF) {
             if (userMapper.existSelfPatientByUser(userDetails.getUser().getSeq())) {
                 return new Result("본인 세부 정보를 먼저 작성해야 합니다.", HttpStatus.BAD_REQUEST, false);
             }
         }
+        req.encryptSocialNumber();
         HashMap<String, Object> param = HashMapConverter.convert(req);
         param.put("user", userDetails.getUser().getSeq());
-        // TODO socialNumber 암호화 예정
         userMapper.insertPatient(param);
         return new Result(HttpStatus.OK, true);
     }
