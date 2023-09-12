@@ -18,4 +18,6 @@ public interface UserMapper {
     Optional<User> findBySeq(long seq);
     Optional<User> findByProviderAndSocialId(SocialProvider provider, String socialId);
     boolean existByUsername(String username);
+    int insertPatient(HashMap<String, Object> data);
+    Optional<HashMap<String, Object>> findPatientByUser(long user);
 }

@@ -62,4 +62,16 @@
         SELECT EXISTS(SELECT SEQ FROM USER WHERE USERNAME = #{username})
     </select>
 
+    <insert id="insertPatient">
+        INSERT INTO PATIENT_INFO (NAME, SOCIAL_NUMBER, RELATE, USER)
+        values (#{name}, #{socialNumber}, #{relate}, #{user})
+    </insert>
+
+    <select id="findPatientByUser" resultType="HashMap">
+        SELECT *
+        FROM PATIENT_INFO
+        WHERE user = #{user}
+            and RELATE = 'SELF'
+    </select>
+
 </mapper>
