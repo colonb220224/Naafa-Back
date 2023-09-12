@@ -27,18 +27,19 @@ public class UserController {
 
     @PostMapping("/patient/add")
     public ResponseEntity<String> patientAdd(@RequestBody PatientDto req,
-                                            @AuthenticationPrincipal UserDetailsImpl userDetails){
+                                             @AuthenticationPrincipal UserDetailsImpl userDetails) {
 
         return new ResponseEntity<>(userService.patientAdd(req, userDetails), HttpStatus.OK);
-      
+    }
+
     @PostMapping("login")
-    public ResponseEntity<HashMap<String, Object>> login(@RequestBody LoginDto req) {
+    public ResponseEntity<HashMap<String, Object>> login (@RequestBody LoginDto req){
 
         return new ResponseEntity<>(userService.login(req), HttpStatus.OK);
     }
 
     @PostMapping("register")
-    public ResponseEntity<HashMap<String, Object>> register(@RequestBody RegisterDto req) {
+    public ResponseEntity<HashMap<String, Object>> register (@RequestBody RegisterDto req){
 
         return new ResponseEntity<>(userService.register(req), HttpStatus.OK);
     }
