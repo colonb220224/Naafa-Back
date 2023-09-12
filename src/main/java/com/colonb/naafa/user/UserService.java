@@ -79,7 +79,7 @@ public class UserService {
         userMapper.insertUserRole(mappedReq);
         mappedReq.put("status", AccountStatus.NORMAL);
         userMapper.insertUserStatus(mappedReq);
-        return new Result(HttpStatus.OK,true);
+        return new Result(HttpStatus.OK, true);
     }
 
 }
