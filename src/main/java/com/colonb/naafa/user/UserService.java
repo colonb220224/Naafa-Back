@@ -55,7 +55,7 @@ public class UserService {
     }
 
     @Transactional
-    public Result patientModify(long seq, PatientDto req, UserDetailsImpl userDetails) {
+    public Result patientModify(long seq, PatientDto req, UserDetailsImpl userDetails) throws Exception {
         Optional<HashMap<String, Object>> data = userMapper.findPatientBySeq(seq);
         if(!data.isPresent()){
             return new Result("존재 하지 않는 seq 입니다.", HttpStatus.BAD_REQUEST, false);
@@ -66,9 +66,9 @@ public class UserService {
         if(data.get().get("RELATE").toString().equals("SELF") && !(req.getRelate() == PatientRelate.SELF)){
             return new Result("본인의 관계는 수정할 수 없습니다.", HttpStatus.BAD_REQUEST, false);
         }
+        req.encryptSocialNumber();
         HashMap<String, Object> param = HashMapConverter.convert(req);
         param.put("seq", seq);
-        // TODO socialNumber 암호화 예정
         userMapper.updatePatient(param);
         return new Result(HttpStatus.OK, true);
     }

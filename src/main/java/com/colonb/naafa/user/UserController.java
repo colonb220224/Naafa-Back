@@ -10,6 +10,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("user")
@@ -24,7 +26,7 @@ public class UserController {
 
 
     @PostMapping("/patient/add")
-    public ResponseEntity<Result> patientAdd(@RequestBody PatientDto req,
+    public ResponseEntity<Result> patientAdd(@RequestBody @Valid PatientDto req,
                                              @AuthenticationPrincipal UserDetailsImpl userDetails) throws Exception {
         Result res = userService.patientAdd(req, userDetails);
         return ResponseEntity.status(res.status()).body(res);
@@ -32,8 +34,8 @@ public class UserController {
 
     @PostMapping("/patient/modify/{seq}")
     public ResponseEntity<Result> patientModify(@PathVariable long seq,
-                                                @RequestBody PatientDto req,
-                                                @AuthenticationPrincipal UserDetailsImpl userDetails) {
+                                                @RequestBody @Valid PatientDto req,
+                                                @AuthenticationPrincipal UserDetailsImpl userDetails) throws Exception {
         Result res = userService.patientModify(seq, req, userDetails);
         return ResponseEntity.status(res.status()).body(res);
     }
