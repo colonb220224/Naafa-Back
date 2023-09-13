@@ -6,8 +6,10 @@ import com.colonb.naafa.user.dto.LoginDto;
 import com.colonb.naafa.user.dto.PatientDto;
 import com.colonb.naafa.user.dto.RegisterDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -27,15 +29,23 @@ public class UserController {
 
     @PostMapping("/patient/add")
     public ResponseEntity<Result> patientAdd(@RequestBody @Valid PatientDto req,
+                                             BindingResult bindingResul,
                                              @AuthenticationPrincipal UserDetailsImpl userDetails) throws Exception {
+        if (bindingResul.hasErrors()) {
+            return new ResponseEntity<>(new Result(bindingResul.getAllErrors().get(0).getDefaultMessage(), HttpStatus.BAD_REQUEST , false), HttpStatus.BAD_REQUEST);
+        }
         Result res = userService.patientAdd(req, userDetails);
         return ResponseEntity.status(res.status()).body(res);
     }
 
     @PostMapping("/patient/modify/{seq}")
-    public ResponseEntity<Result> patientModify(@PathVariable long seq,
-                                                @RequestBody @Valid PatientDto req,
+    public ResponseEntity<Result> patientModify(@RequestBody @Valid PatientDto req,
+                                                BindingResult bindingResul,
+                                                @PathVariable long seq,
                                                 @AuthenticationPrincipal UserDetailsImpl userDetails) throws Exception {
+        if (bindingResul.hasErrors()) {
+            return new ResponseEntity<>(new Result(bindingResul.getAllErrors().get(0).getDefaultMessage(), HttpStatus.BAD_REQUEST , false), HttpStatus.BAD_REQUEST);
+        }
         Result res = userService.patientModify(seq, req, userDetails);
         return ResponseEntity.status(res.status()).body(res);
     }

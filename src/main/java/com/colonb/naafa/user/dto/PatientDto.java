@@ -5,6 +5,7 @@ import com.colonb.naafa.util.AES256Encrypt;
 import lombok.Getter;
 
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Getter
 public class PatientDto {
@@ -15,7 +16,7 @@ public class PatientDto {
     @NotBlank(message = "주민등록번호가 누락되었습니다.")
     private String socialNumber;
 
-    @NotBlank(message = "본인과의 관계가 누락되었습니다.")
+    @NotNull(message = "본인과의 관계가 누락되었습니다.")
     private PatientRelate relate;
 
     public void encryptSocialNumber() throws Exception {
