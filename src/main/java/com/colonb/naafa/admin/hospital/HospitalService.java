@@ -29,7 +29,6 @@ public class HospitalService {
         mappedReq.put("role", UserRole.ROLE_USER);
         userMapper.insertDefaultUser(mappedReq);
         // todo 소속팀/직급/회원분류(운영관리 기획서 6p)에 대한 테이블 및 기획이 필요
-//        userMapper.insertUserMarketing(mappedReq);
         userMapper.insertUserCreatedAt(mappedReq);
         mappedReq.put("userRole", HospitalRole.HOSPITAL_MASTER);
         userMapper.insertUserRoleDetails(mappedReq);
