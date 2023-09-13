@@ -6,9 +6,13 @@ import com.colonb.naafa.user.dto.LoginDto;
 import com.colonb.naafa.user.dto.PatientDto;
 import com.colonb.naafa.user.dto.RegisterDto;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 
 @RestController
 @RequiredArgsConstructor
@@ -46,13 +50,19 @@ public class UserController {
     }
 
     @PostMapping("login")
-    public ResponseEntity<Result> login(@RequestBody LoginDto req) {
+    public ResponseEntity<Result> login(@RequestBody @Valid LoginDto req, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return new ResponseEntity<>(new Result(bindingResult.getAllErrors().get(0).getDefaultMessage(), HttpStatus.BAD_REQUEST, false), HttpStatus.BAD_REQUEST);
+        }
         Result res = userService.login(req);
         return ResponseEntity.status(res.status()).body(res);
     }
 
     @PostMapping("register")
-    public ResponseEntity<Result> register(@RequestBody RegisterDto req) {
+    public ResponseEntity<Result> register(@RequestBody @Valid RegisterDto req, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return new ResponseEntity<>(new Result(bindingResult.getAllErrors().get(0).getDefaultMessage(), HttpStatus.BAD_REQUEST, false), HttpStatus.BAD_REQUEST);
+        }
         Result res = userService.register(req);
         return ResponseEntity.status(res.status()).body(res);
     }

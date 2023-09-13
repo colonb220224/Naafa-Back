@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.colonb.naafa.admin.hospital.HospitalMapper">
+
+<!--    <resultMap id="User" type="com.colonb.naafa.user.entity.User">-->
+<!--        <result property="seq" column="SEQ"/>-->
+<!--        <result property="username" column="USERNAME"/>-->
+<!--        <result property="password" column="PASSWORD"/>-->
+<!--        <result property="provider" column="PROVIDER"/>-->
+<!--        <result property="socialId" column="SOCIAL_ID"/>-->
+<!--        <result property="role" column="ROLE"/>-->
+<!--    </resultMap>-->
+
+
+    <update id="updateHospitalInfo">
+        UPDATE HOSPITAL_INFO
+        SET  INFO_SIMPLE = #{simple}
+          ,  INFO_DETAILS = #{details}
+          ,  INFO_PARKING = #{parking}
+        WHERE HOSPITAL = #{hospital}
+    </update>
+
+    <update id="updateUserHospitalHost">
+        UPDATE USER_HOSPITAL_RELATE
+        SET    USER = #{user}
+        WHERE HOSPITAL = #{hospital}
+    </update>
+
+<!--    <update id="updateHospitalChief">-->
+<!--        UPDATE HOSPITAL_CHIEF-->
+<!--        SET    NAME = #{name}-->
+<!--          ,  ADDRESS = #{address}-->
+<!--        WHERE SEQ = #{seq}-->
+<!--    </update>-->
+
+    <update id="updateHospital">
+        UPDATE HOSPITAL
+        SET    NAME = #{name}
+          ,  ADDRESS = #{address}
+          ,  COORDINATE = POINT(${coordinate})
+          ,  CONTACT = #{contact}
+          ,  USER = #{user}
+        WHERE SEQ = #{hospital}
+    </update>
+
+    <insert id="insertHospitalInfo">
+        INSERT INTO HOSPITAL_INFO (HOSPITAL, INFO_SIMPLE, INFO_DETAILS, INFO_PARKING)
+        values (#{HOSPITAL}, #{simple}, #{details}, #{parking})
+    </insert>
+
+    <insert id="insertUserHospitalHost">
+        INSERT INTO USER_HOSPITAL_RELATE (USER, HOSPITAL, HOST)
+        values (#{seq}, #{HOSPITAL}, true)
+    </insert>
+
+    <insert id="insertHospitalChief">
+        INSERT INTO HOSPITAL_CHIEF (CHIEF_NAME, LICENSE_NUMBER, CHIEF_CATEGORY, SEX)
+        values (#{chiefName}, #{licenseNumber}, #{chiefCategory}, #{gender})
+    </insert>
+
+    <insert id="insertHospital" useGeneratedKeys="true" keyProperty="HOSPITAL" keyColumn="SEQ">
+        INSERT INTO HOSPITAL (NAME, ADDRESS, COORDINATE, CONTACT, USER)
+        values (#{name}, #{address}, POINT(${coordinate}), #{contact}, #{seq})
+    </insert>
+
+</mapper>
