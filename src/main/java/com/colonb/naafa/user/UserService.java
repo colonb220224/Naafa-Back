@@ -7,10 +7,7 @@ import com.colonb.naafa.user.dto.LoginDto;
 import com.colonb.naafa.user.dto.PatientDto;
 import com.colonb.naafa.user.dto.RegisterDto;
 import com.colonb.naafa.user.entity.User;
-import com.colonb.naafa.user.enums.AccountStatus;
-import com.colonb.naafa.user.enums.HospitalRole;
-import com.colonb.naafa.user.enums.PatientRelate;
-import com.colonb.naafa.user.enums.SocialProvider;
+import com.colonb.naafa.user.enums.*;
 import com.colonb.naafa.util.HashMapConverter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -118,11 +115,12 @@ public class UserService {
             return new Result("이미 존재하는 이메일입니다.",HttpStatus.BAD_REQUEST,false);
         }
         HashMap<String, Object> mappedReq = HashMapConverter.convert(req);
+        mappedReq.put("role", UserRole.ROLE_USER);
         userMapper.insertDefaultUser(mappedReq);
         userMapper.insertUserMarketing(mappedReq);
         userMapper.insertUserCreatedAt(mappedReq);
-        mappedReq.put("role", HospitalRole.PATIENT);
-        userMapper.insertUserRole(mappedReq);
+        mappedReq.put("userRole", HospitalRole.PATIENT);
+        userMapper.insertUserRoleDetails(mappedReq);
         mappedReq.put("status", AccountStatus.NORMAL);
         userMapper.insertUserStatus(mappedReq);
         return new Result(HttpStatus.OK, true);

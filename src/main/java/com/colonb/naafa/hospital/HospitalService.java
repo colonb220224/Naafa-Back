@@ -27,16 +27,15 @@ public class HospitalService {
         }
         // 대표관리자 유저정보 등록
         HashMap<String, Object> mappedReq = HashMapConverter.convert(req);
+        mappedReq.put("role", UserRole.ROLE_ADMIN);
         userMapper.insertDefaultUser(mappedReq);
-        // todo 대표관리자 유저 마케팅 동의에 대한 기획이 없음
+        // todo 대표관리자 유저 마케팅 동의에 대한 기획이 없음, 소속팀/직급/회원분류(운영관리 기획서 6p)에 대한 테이블 및 기획이 필요
 //        userMapper.insertUserMarketing(mappedReq);
         userMapper.insertUserCreatedAt(mappedReq);
-        mappedReq.put("role", HospitalRole.HOSPITAL_MASTER);
-        userMapper.insertUserRole(mappedReq);
+        mappedReq.put("userRole", HospitalRole.HOSPITAL_MASTER);
+        userMapper.insertUserRoleDetails(mappedReq);
         mappedReq.put("status", AccountStatus.NORMAL);
         userMapper.insertUserStatus(mappedReq);
-        mappedReq.put("adminRole", AdminRole.MANAGER);
-        userMapper.insertAdminRole(mappedReq);
         // 병원 테이블 등록
         hospitalMapper.insertHospital(mappedReq);
         // 병원장 테이블 등록

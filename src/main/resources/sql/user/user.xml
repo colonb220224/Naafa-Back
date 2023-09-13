@@ -14,19 +14,14 @@
         <result property="role" column="ROLE"/>
     </resultMap>
 
-    <insert id="insertAdminRole">
-        INSERT INTO ADMIN_ROLE_DETAILS (USER, ADMIN_ROLE)
-        values (#{seq}, #{adminRole})
-    </insert>
-
     <insert id="insertUserStatus">
         INSERT INTO USER_STATUS (USER, STATUS)
         values (#{seq}, #{status})
     </insert>
 
-    <insert id="insertUserRole">
+    <insert id="insertUserRoleDetails">
         INSERT INTO USER_ROLE_DETAILS (USER, USER_ROLE)
-        values (#{seq}, #{role})
+        values (#{seq}, #{userRole})
     </insert>
 
     <insert id="insertUserMarketing">
@@ -40,8 +35,8 @@
     </insert>
 
     <insert id="insertDefaultUser" useGeneratedKeys="true" keyProperty="seq" keyColumn="seq">
-        INSERT INTO USER (USERNAME, PASSWORD, PHONE)
-        values (#{username}, #{password}, #{phone})
+        INSERT INTO USER (USERNAME, PASSWORD, PHONE, ROLE)
+        values (#{username}, #{password}, #{phone}, #{role})
     </insert>
 
     <insert id="insertSocialUser" useGeneratedKeys="true" keyProperty="SEQ" keyColumn="SEQ">
