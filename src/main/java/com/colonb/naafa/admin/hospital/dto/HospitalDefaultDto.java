@@ -4,10 +4,7 @@ import com.colonb.naafa.admin.hospital.enums.ChiefCategory;
 import com.colonb.naafa.admin.hospital.enums.Gender;
 import lombok.Getter;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Pattern;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 @Getter
 public class HospitalDefaultDto {
@@ -25,9 +22,9 @@ public class HospitalDefaultDto {
     private String chiefName;
     @NotBlank(message = "의사면허번호가 누락되었습니다.")
     private String licenseNumber;
-    @NotBlank(message = "원장성별이 누락되었습니다.")
+    @NotNull(message = "원장성별이 누락되었습니다.")
     private Gender gender;
-    @NotBlank(message = "원장의사분류가 누락되었습니다.")
+    @NotNull(message = "원장의사분류가 누락되었습니다.")
     private ChiefCategory chiefCategory;
     // 관리자 정보
     @Email(message = "올바르지 않은 이메일 형식입니다.")
