@@ -7,7 +7,7 @@ import lombok.Getter;
 import javax.validation.constraints.*;
 
 @Getter
-public class HospitalDefaultDto {
+public class HospitalDto {
     // 병원 기본정보
     @NotBlank(message = "병원명이 누락되었습니다.")
     private String name;

@@ -14,6 +14,19 @@
         <result property="role" column="ROLE"/>
     </resultMap>
 
+    <update id="updateDefaultUser">
+        UPDATE USER
+        SET    PASSWORD = #{password},
+               PHONE = #{phone}
+        WHERE SEQ = #{seq}
+    </update>
+
+    <select id="findHospitalByUser" resultType="Integer">
+        SELECT HOSPITAL
+        FROM USER_HOSPITAL_RELATE
+        WHERE USER = #{user}
+    </select>
+
     <insert id="insertUserStatus">
         INSERT INTO USER_STATUS (USER, STATUS)
         values (#{seq}, #{status})
@@ -34,7 +47,7 @@
         values (#{seq})
     </insert>
 
-    <insert id="insertDefaultUser" useGeneratedKeys="true" keyProperty="seq" keyColumn="seq">
+    <insert id="insertDefaultUser" useGeneratedKeys="true" keyProperty="seq" keyColumn="SEQ">
         INSERT INTO USER (USERNAME, PASSWORD, PHONE, ROLE)
         values (#{username}, #{password}, #{phone}, #{role})
     </insert>

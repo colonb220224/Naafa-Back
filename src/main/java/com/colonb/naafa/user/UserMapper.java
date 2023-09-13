@@ -11,6 +11,8 @@ import java.util.Optional;
 
 @Mapper
 public interface UserMapper {
+    int updateDefaultUser(HashMap<String,Object> param);
+    Optional<Integer> findHospitalByUser(long user);
     int insertUserStatus(HashMap<String,Object> param);
     int insertUserRoleDetails(HashMap<String,Object> param);
     int insertUserMarketing(HashMap<String,Object> param);

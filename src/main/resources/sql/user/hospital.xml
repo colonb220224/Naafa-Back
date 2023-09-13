@@ -14,6 +14,38 @@
 <!--        <result property="role" column="ROLE"/>-->
 <!--    </resultMap>-->
 
+
+    <update id="updateHospitalInfo">
+        UPDATE HOSPITAL_INFO
+        SET  INFO_SIMPLE = #{simple}
+          ,  INFO_DETAILS = #{details}
+          ,  INFO_PARKING = #{parking}
+        WHERE HOSPITAL = #{hospital}
+    </update>
+
+    <update id="updateUserHospitalHost">
+        UPDATE USER_HOSPITAL_RELATE
+        SET    USER = #{seq}
+        WHERE HOSPITAL = #{hospital}
+    </update>
+
+<!--    <update id="updateHospitalChief">-->
+<!--        UPDATE HOSPITAL_CHIEF-->
+<!--        SET    NAME = #{name}-->
+<!--          ,  ADDRESS = #{address}-->
+<!--        WHERE SEQ = #{seq}-->
+<!--    </update>-->
+
+    <update id="updateHospital">
+        UPDATE HOSPITAL
+        SET    NAME = #{name}
+          ,  ADDRESS = #{address}
+          ,  COORDINATE = POINT(${coordinate})
+          ,  CONTACT = #{contact}
+          ,  USER = #{seq}
+        WHERE SEQ = #{hospital}
+    </update>
+
     <insert id="insertHospitalInfo">
         INSERT INTO HOSPITAL_INFO (HOSPITAL, INFO_SIMPLE, INFO_DETAILS, INFO_PARKING)
         values (#{HOSPITAL}, #{simple}, #{details}, #{parking})
@@ -31,7 +63,7 @@
 
     <insert id="insertHospital" useGeneratedKeys="true" keyProperty="HOSPITAL" keyColumn="SEQ">
         INSERT INTO HOSPITAL (NAME, ADDRESS, COORDINATE, CONTACT, USER)
-        values (#{name}, #{address}, #{coordinate}, #{contact}, #{seq})
+        values (#{name}, #{address}, POINT(${coordinate}), #{contact}, #{seq})
     </insert>
 
 </mapper>
