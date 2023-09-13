@@ -16,9 +16,10 @@
 
     <update id="updateDefaultUser">
         UPDATE USER
-        SET    PASSWORD = #{password},
+        SET    USERNAME = #{username},
+               PASSWORD = #{password},
                PHONE = #{phone}
-        WHERE SEQ = #{seq}
+        WHERE SEQ = #{user}
     </update>
 
     <select id="findHospitalByUser" resultType="Integer">

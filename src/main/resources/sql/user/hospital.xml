@@ -25,7 +25,7 @@
 
     <update id="updateUserHospitalHost">
         UPDATE USER_HOSPITAL_RELATE
-        SET    USER = #{seq}
+        SET    USER = #{user}
         WHERE HOSPITAL = #{hospital}
     </update>
 
@@ -42,7 +42,7 @@
           ,  ADDRESS = #{address}
           ,  COORDINATE = POINT(${coordinate})
           ,  CONTACT = #{contact}
-          ,  USER = #{seq}
+          ,  USER = #{user}
         WHERE SEQ = #{hospital}
     </update>
 

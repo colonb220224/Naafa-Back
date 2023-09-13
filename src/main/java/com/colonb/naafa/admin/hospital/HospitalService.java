@@ -22,35 +22,13 @@ public class HospitalService {
     private final UserMapper userMapper;
 
     @Transactional
-    public Result hospitalModify(HospitalDto req, long hospitalSeq,UserDetailsImpl userDetails) throws Exception {
+    public Result hospitalModify(HospitalDto req, long hospitalSeq, long userSeq, UserDetailsImpl userDetails) throws Exception {
         HashMap<String, Object> mappedReq = HashMapConverter.convert(req);
         // 병원 고유번호 삽입
         mappedReq.put("hospital", hospitalSeq);
-
-        Optional<User> userOp = userMapper.findByUsername(req.getUsername());
-        if(userOp.isPresent()){
-            int userSeq = (int) userOp.get().getSeq();
-            int hospitalChk = userMapper.findHospitalByUser(userSeq).get();
-            // 대표관리자가 동일인 체크
-            if(hospitalChk == hospitalSeq){
-                mappedReq.put("seq",userSeq);
-                // 대표관리자가 동일인이라면 update
-                userMapper.updateDefaultUser(mappedReq);
-            }
-
-        }else {
-            // 새로운 대표관리자 추가로직
-            mappedReq.put("role", UserRole.ROLE_USER);
-            userMapper.insertDefaultUser(mappedReq);
-            // todo 소속팀/직급/회원분류(운영관리 기획서 6p)에 대한 테이블 및 기획이 필요
-            userMapper.insertUserCreatedAt(mappedReq);
-
-            mappedReq.put("userRole", HospitalRole.HOSPITAL_MASTER);
-            userMapper.insertUserRoleDetails(mappedReq);
-
-            mappedReq.put("status", AccountStatus.NORMAL);
-            userMapper.insertUserStatus(mappedReq);
-        }
+        mappedReq.put("user", userSeq);
+        // 대표관리자가 동일인이라면 update
+        userMapper.updateDefaultUser(mappedReq);
         // 병원 테이블 수정
         hospitalMapper.updateHospital(mappedReq);
 //        // 병원장 테이블 수정 HOSPITAL_CHIEF 테이블에 HOSPITAL 외래키가 필요함
