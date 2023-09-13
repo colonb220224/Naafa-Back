@@ -1,4 +1,4 @@
-package com.colonb.naafa.hospital;
+package com.colonb.naafa.admin.hospital;
 
 import org.apache.ibatis.annotations.Mapper;
 

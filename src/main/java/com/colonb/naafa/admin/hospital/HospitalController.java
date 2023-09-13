@@ -1,10 +1,8 @@
-package com.colonb.naafa.hospital;
+package com.colonb.naafa.admin.hospital;
 
+import com.colonb.naafa.admin.hospital.dto.HospitalDefaultDto;
 import com.colonb.naafa.auth.UserDetailsImpl;
-import com.colonb.naafa.hospital.dto.HospitalDefaultDto;
 import com.colonb.naafa.result.Result;
-import com.colonb.naafa.user.UserService;
-import com.colonb.naafa.user.dto.PatientDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

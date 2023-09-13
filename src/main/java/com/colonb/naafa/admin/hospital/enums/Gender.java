@@ -1,4 +1,4 @@
-package com.colonb.naafa.hospital.enums;
+package com.colonb.naafa.admin.hospital.enums;
 
 import lombok.Getter;
 
