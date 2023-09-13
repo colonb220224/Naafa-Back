@@ -16,21 +16,21 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     private final UserService userService;
 
-    @GetMapping("/patient/list")
+    @GetMapping("auth/patient/list")
     public ResponseEntity<Result> patientList(@AuthenticationPrincipal UserDetailsImpl userDetails) {
         Result res = userService.patientList(userDetails);
         return ResponseEntity.status(res.status()).body(res);
     }
 
 
-    @PostMapping("/patient/add")
+    @PostMapping("auth/patient/add")
     public ResponseEntity<Result> patientAdd(@RequestBody PatientDto req,
                                              @AuthenticationPrincipal UserDetailsImpl userDetails) throws Exception {
         Result res = userService.patientAdd(req, userDetails);
         return ResponseEntity.status(res.status()).body(res);
     }
 
-    @PostMapping("/patient/modify/{seq}")
+    @PostMapping("auth/patient/modify/{seq}")
     public ResponseEntity<Result> patientModify(@PathVariable long seq,
                                                 @RequestBody PatientDto req,
                                                 @AuthenticationPrincipal UserDetailsImpl userDetails) {
@@ -38,7 +38,7 @@ public class UserController {
         return ResponseEntity.status(res.status()).body(res);
     }
 
-    @DeleteMapping("/patient/remove/{seq}")
+    @DeleteMapping("auth/patient/remove/{seq}")
     public ResponseEntity<Result> patientRemove(@PathVariable long seq,
                                                 @AuthenticationPrincipal UserDetailsImpl userDetails) {
         Result res = userService.patientRemove(seq, userDetails);

@@ -4,6 +4,7 @@ import com.colonb.naafa.auth.oauth2.OAuth2ServiceImpl;
 import com.colonb.naafa.auth.oauth2.handler.OAuth2SuccessHandler;
 import com.colonb.naafa.auth.oauth2.jwt.JwtFilterChain;
 import com.colonb.naafa.auth.oauth2.jwt.JwtTokenProvider;
+import com.colonb.naafa.handler.CustomAuthenticationEntryPoint;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -48,10 +49,13 @@ public class SecurityConfig {
         http.csrf().disable()
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS); // 세션정책 고민할 필요있음
         http.headers().frameOptions().disable();
-        http.authorizeRequests()
-                .antMatchers("/").permitAll() // 루트 경로에 대한 접근 허용
+        http
+                .exceptionHandling().authenticationEntryPoint(new CustomAuthenticationEntryPoint())
                 .and()
-                        .addFilterBefore(new JwtFilterChain(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class);
+                .authorizeRequests()
+                .antMatchers("/user/auth/**").authenticated()
+                .and()
+                .addFilterBefore(new JwtFilterChain(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class);
         http.oauth2Login()
                 .userInfoEndpoint().userService(oAuth2UserService)
                 .and()
