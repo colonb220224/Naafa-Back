@@ -14,6 +14,11 @@
 <!--        <result property="role" column="ROLE"/>-->
 <!--    </resultMap>-->
 
+    <insert id="insertHospitalInfo">
+        INSERT INTO HOSPITAL_INFO (HOSPITAL, INFO_SIMPLE, INFO_DETAILS, INFO_PARKING)
+        values (#{HOSPITAL}, #{simple}, #{details}, #{parking})
+    </insert>
+
     <insert id="insertUserHospitalHost">
         INSERT INTO USER_HOSPITAL_RELATE (USER, HOSPITAL, HOST)
         values (#{seq}, #{HOSPITAL}, true)
@@ -26,7 +31,7 @@
 
     <insert id="insertHospital" useGeneratedKeys="true" keyProperty="HOSPITAL" keyColumn="SEQ">
         INSERT INTO HOSPITAL (NAME, ADDRESS, COORDINATE, CONTACT, USER)
-        values (#{name}, #{address}, POINT(10, 10), #{contact}, #{seq})
+        values (#{name}, #{address}, #{coordinate}, #{contact}, #{seq})
     </insert>
 
 </mapper>

@@ -40,6 +40,8 @@ public class HospitalService {
         hospitalMapper.insertHospitalChief(mappedReq);
         // 병원 대표관리자 등록
         hospitalMapper.insertUserHospitalHost(mappedReq);
+        // 병원 INFO 등록
+        hospitalMapper.insertHospitalInfo(mappedReq);
 
         return new Result(HttpStatus.OK, true);
     }

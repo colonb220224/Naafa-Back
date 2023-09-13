@@ -24,7 +24,7 @@ public class HospitalDefaultDto {
     private String licenseNumber;
     @NotNull(message = "원장성별이 누락되었습니다.")
     private Gender gender;
-    @NotNull(message = "원장의사분류가 누락되었습니다.")
+    @NotNull(message = "원장의사분류가 ㅊ")
     private ChiefCategory chiefCategory;
     // 관리자 정보
     @Email(message = "올바르지 않은 이메일 형식입니다.")
@@ -36,5 +36,12 @@ public class HospitalDefaultDto {
     private String password;
     @NotBlank(message = "전화번호는 공백이 될 수 없습니다.")
     private String phone;
+    // 병원 INFO 정보(SIMPLE, DETAILS, PARKING)
+    @NotBlank(message = "병원소개가 누락되었습니다.")
+    private String simple;
+    @NotBlank(message = "병원 상세소개가 누락되었습니다.")
+    private String details;
+    @NotBlank(message = "병원 주차정보가 누락되었습니다.")
+    private String parking;
 
 }
