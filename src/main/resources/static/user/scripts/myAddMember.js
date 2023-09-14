@@ -57,3 +57,26 @@ $(document).on('click', '#patientAdd', (e) =>{
     })
 
 })
+
+/**
+ *  구성원 관리 삭제 버튼 클릭시
+ */
+$(document).on('click', '#patientRemove', () =>{
+
+    axios({
+        method: 'delete',
+        url: '/user/auth/patient/remove/' + $('#seq').val(),
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization' : 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYWVfaHdpQG5hdmVyLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJzb2NpYWxUeXBlIjoiREVGQVVMVCIsImlhdCI6MTY5NDY2NzM2MiwiZXhwIjoxNjk0Njc4MTYyfQ.JTM0hpvyOV4ftLwZqVrL1EecTEuSNf1jezXCrJw49eQ'
+        }
+    }).then((res) => {
+        console.log(res)
+        alert(res.data.message)
+        location.href="/my_add_member";
+    }).catch((error) => {
+        console.log(error);
+        alert(error.response.data.message)
+    })
+
+})

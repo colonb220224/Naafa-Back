@@ -53,6 +53,7 @@ public class UserController {
     @DeleteMapping("auth/patient/remove/{seq}")
     public ResponseEntity<Result> patientRemove(@PathVariable long seq,
                                                 @AuthenticationPrincipal UserDetailsImpl userDetails) {
+        System.out.println("111");
         Result res = userService.patientRemove(seq, userDetails);
         return ResponseEntity.status(res.status()).body(res);
     }
