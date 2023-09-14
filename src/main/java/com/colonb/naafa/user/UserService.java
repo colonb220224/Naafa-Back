@@ -31,7 +31,7 @@ public class UserService {
     private final PasswordEncoder passwordEncoder;
 
     public Result patientList(UserDetailsImpl userDetails) {
-        List<HashMap<String, Object>> result  = userMapper.findPatientByUser(userDetails.getUser().getSeq());
+        List<HashMap<String, Object>> result = userMapper.findPatientByUser(userDetails.getUser().getSeq());
         return new Result(HttpStatus.OK, result, true);
     }
 
@@ -43,8 +43,8 @@ public class UserService {
                 return new Result("본인 세부 정보를 먼저 작성해야 합니다.", HttpStatus.BAD_REQUEST, false);
             }
         }
-        if(req.getRelate() == PatientRelate.SELF){
-            if(userMapper.existSelfPatientByUser(userDetails.getUser().getSeq())){
+        if (req.getRelate() == PatientRelate.SELF) {
+            if (userMapper.existSelfPatientByUser(userDetails.getUser().getSeq())) {
                 return new Result("본인은 이미 등록되어 있습니다.", HttpStatus.BAD_REQUEST, false);
             }
         }
@@ -58,14 +58,17 @@ public class UserService {
     @Transactional
     public Result patientModify(long seq, PatientDto req, UserDetailsImpl userDetails) throws Exception {
         Optional<HashMap<String, Object>> data = userMapper.findPatientBySeq(seq);
-        if(!data.isPresent()){
+        if (!data.isPresent()) {
             return new Result("존재 하지 않는 seq 입니다.", HttpStatus.BAD_REQUEST, false);
         }
-        if(Long.parseLong(data.get().get("USER").toString()) != userDetails.getUser().getSeq()){
+        if (Long.parseLong(data.get().get("USER").toString()) != userDetails.getUser().getSeq()) {
             return new Result("본인의 구성원만 수정 가능합니다.", HttpStatus.BAD_REQUEST, false);
         }
-        if(data.get().get("RELATE").toString().equals("SELF") && !(req.getRelate() == PatientRelate.SELF)){
+        if (data.get().get("RELATE").toString().equals("SELF") && !(req.getRelate() == PatientRelate.SELF)) {
             return new Result("본인의 관계는 수정할 수 없습니다.", HttpStatus.BAD_REQUEST, false);
+        }
+        if (req.getRelate() != PatientRelate.SELF && data.get().get("RELATE").toString().equals("SELF")) {
+            return new Result("구성원을 본인으로 변경 할 수 없습니다.", HttpStatus.BAD_REQUEST, false);
         }
         req.encryptSocialNumber();
         HashMap<String, Object> param = HashMapConverter.convert(req);
@@ -77,10 +80,10 @@ public class UserService {
     @Transactional
     public Result patientRemove(long seq, UserDetailsImpl userDetails) {
         Optional<HashMap<String, Object>> data = userMapper.findPatientBySeq(seq);
-        if(!data.isPresent()){
+        if (!data.isPresent()) {
             return new Result("존재 하지 않는 seq 입니다.", HttpStatus.BAD_REQUEST, false);
         }
-        if(Long.parseLong(data.get().get("USER").toString()) != userDetails.getUser().getSeq()){
+        if (Long.parseLong(data.get().get("USER").toString()) != userDetails.getUser().getSeq()) {
             return new Result("본인의 구성원만 삭제 가능합니다.", HttpStatus.BAD_REQUEST, false);
         }
         if (data.get().get("RELATE").toString().equals("SELF")) {
@@ -116,10 +119,10 @@ public class UserService {
     @Transactional
     public Result register(RegisterDto req) {
         if (userMapper.existByUsername(req.getUsername())) {
-            return new Result("이미 존재하는 이메일입니다.",HttpStatus.BAD_REQUEST,false);
+            return new Result("이미 존재하는 이메일입니다.", HttpStatus.BAD_REQUEST, false);
         }
         HashMap<String, Object> mappedReq = HashMapConverter.convert(req);
-        mappedReq.replace("password",passwordEncoder.encode(mappedReq.get("password").toString()));
+        mappedReq.replace("password", passwordEncoder.encode(mappedReq.get("password").toString()));
         userMapper.insertDefaultUser(mappedReq);
         userMapper.insertUserMarketing(mappedReq);
         userMapper.insertUserCreatedAt(mappedReq);
