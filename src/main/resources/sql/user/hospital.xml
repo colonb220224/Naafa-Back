@@ -14,6 +14,11 @@
 <!--        <result property="role" column="ROLE"/>-->
 <!--    </resultMap>-->
 
+    <select id="findHospitalByUser" resultType="Integer">
+        SELECT USER
+        FROM HOSPITAL
+        WHERE HOSPITAL = #{hospital}
+    </select>
 
     <update id="updateHospitalInfo">
         UPDATE HOSPITAL_INFO
@@ -29,12 +34,14 @@
         WHERE HOSPITAL = #{hospital}
     </update>
 
-<!--    <update id="updateHospitalChief">-->
-<!--        UPDATE HOSPITAL_CHIEF-->
-<!--        SET    NAME = #{name}-->
-<!--          ,  ADDRESS = #{address}-->
-<!--        WHERE SEQ = #{seq}-->
-<!--    </update>-->
+    <update id="updateHospitalChief">
+        UPDATE HOSPITAL_CHIEF
+        SET    CHIEF_NAME = #{chiefName}
+        ,      LICENSE_NUMBER = #{licenseNumber}
+        ,      CHIEF_CATEGORY = #{chiefCategory}
+        ,      SEX = #{gender}
+        WHERE HOSPITAL = #{hospital}
+    </update>
 
     <update id="updateHospital">
         UPDATE HOSPITAL
@@ -57,8 +64,8 @@
     </insert>
 
     <insert id="insertHospitalChief">
-        INSERT INTO HOSPITAL_CHIEF (CHIEF_NAME, LICENSE_NUMBER, CHIEF_CATEGORY, SEX)
-        values (#{chiefName}, #{licenseNumber}, #{chiefCategory}, #{gender})
+        INSERT INTO HOSPITAL_CHIEF (CHIEF_NAME, LICENSE_NUMBER, CHIEF_CATEGORY, SEX, HOSPITAL)
+        values (#{chiefName}, #{licenseNumber}, #{chiefCategory}, #{gender}, #{HOSPITAL})
     </insert>
 
     <insert id="insertHospital" useGeneratedKeys="true" keyProperty="HOSPITAL" keyColumn="SEQ">
