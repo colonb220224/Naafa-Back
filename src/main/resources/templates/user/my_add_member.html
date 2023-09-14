@@ -1,6 +1,5 @@
 <html lang="ko">
 <head>
-
     <th:block th:include="common/library_header"></th:block>
     <script type="module" th:src="@{/user/scripts/myAddMember.js}"></script>
 </head>
@@ -31,38 +30,12 @@
                         <div class="member_head">
                             나의 구성원
                         </div>
-                        <div class="member_con">
-                            <input type="hidden" id="seq" value="35"/>
-                            <div class="txt">
-                                <span>홍길동</span><br/>
-                                <span>900101-*******)</span>
-                            </div>
-                            <ul class="btn">
-                                <li>
-                                    <a href="./my_edit_member">
-                                        수정
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#" id="patientRemove">
-                                        삭제
-                                    </a>
-                                </li>
-                            </ul>
-                        </div> 
-
+                        <div class="item-append">
+                            <!-- 데이터 setHtml -->
+                        </div>
                     </div>
-
-                    <div class="img">
-                        <!-- 구성원이 하나도 없는 경우 아래 이미지 노출 -->
-                        <img th:src="@{/user/images/add_grey.png}" alt="">
-                        <!-- 구성원이 한명이라도 있는 경우 아래 이미지 노출 -->
-                        <img th:src="@{/user/images/add.png}" alt="">
-                    </div>
-                    <div class="txt">
-                        <p>
-                            등록된 구성원이 없습니다                  
-                        </p>
+                    <div class="img-append">
+                        <!-- 구성원 있는지 여부에 따라 img, text 변경 -->
                     </div>
                     <div class="btn">
                         <button type="button" class="modal_step_open" modal_step="Member">

@@ -32,6 +32,7 @@ public class UserService {
 
     public Result patientList(UserDetailsImpl userDetails) {
         List<HashMap<String, Object>> result  = userMapper.findPatientByUser(userDetails.getUser().getSeq());
+        // TODO 주민등록번호 디코딩
         return new Result(HttpStatus.OK, result, true);
     }
 
