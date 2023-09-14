@@ -37,6 +37,7 @@ public class UserService {
 
     @Transactional
     public Result patientAdd(PatientDto req, UserDetailsImpl userDetails) throws Exception {
+        //TODO: UserRoleDetails 에서 Patient 여부 검사
         if (req.getRelate() != PatientRelate.SELF) {
             if (!userMapper.existSelfPatientByUser(userDetails.getUser().getSeq())) {
                 return new Result("본인 세부 정보를 먼저 작성해야 합니다.", HttpStatus.BAD_REQUEST, false);
