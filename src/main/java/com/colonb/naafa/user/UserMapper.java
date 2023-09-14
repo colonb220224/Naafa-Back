@@ -2,6 +2,7 @@ package com.colonb.naafa.user;
 
 import com.colonb.naafa.user.entity.User;
 import com.colonb.naafa.user.enums.AccountStatus;
+import com.colonb.naafa.user.enums.HospitalRole;
 import com.colonb.naafa.user.enums.SocialProvider;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -32,4 +33,6 @@ public interface UserMapper {
     int updatePatient(HashMap<String, Object> param);
 
     List<HashMap<String, Object>> findPatientByUser(long user);
+
+    HospitalRole findHospitalRoleByUser(long user);
 }
