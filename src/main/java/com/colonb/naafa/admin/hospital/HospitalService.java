@@ -1,11 +1,13 @@
 package com.colonb.naafa.admin.hospital;
 
-import com.colonb.naafa.auth.UserDetailsImpl;
 import com.colonb.naafa.admin.hospital.dto.HospitalDto;
+import com.colonb.naafa.auth.UserDetailsImpl;
+import com.colonb.naafa.hospital.HospitalMapper;
 import com.colonb.naafa.result.Result;
 import com.colonb.naafa.user.UserMapper;
-import com.colonb.naafa.user.entity.User;
-import com.colonb.naafa.user.enums.*;
+import com.colonb.naafa.user.enums.AccountStatus;
+import com.colonb.naafa.user.enums.HospitalRole;
+import com.colonb.naafa.user.enums.UserRole;
 import com.colonb.naafa.util.HashMapConverter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -13,7 +15,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor

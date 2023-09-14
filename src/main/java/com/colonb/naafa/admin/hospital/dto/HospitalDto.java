@@ -1,7 +1,7 @@
 package com.colonb.naafa.admin.hospital.dto;
 
-import com.colonb.naafa.admin.hospital.enums.ChiefCategory;
-import com.colonb.naafa.admin.hospital.enums.Gender;
+import com.colonb.naafa.hospital.enums.ChiefCategory;
+import com.colonb.naafa.hospital.enums.Gender;
 import lombok.Getter;
 
 import javax.validation.constraints.*;
