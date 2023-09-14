@@ -130,7 +130,7 @@
                         <div class="wrap">
                             <div class="input_wrap">
                                 <h5>회원명</h5>
-                                <input type="text">
+                                <input type="text" id="name">
                             </div>
                             <div class="input_wrap">
                                 <h5>휴대폰번호</h5>
@@ -141,15 +141,23 @@
                             <div class="input_wrap">
                                 <h5>주민등록 앞 7자리</h5>
                                 <div class="input_func">
-                                    <input type="text" placeholder="숫자만 입력">
+                                    <input type="number" placeholder="숫자만 입력" id="socialNumberFirst">
                                     <span style="margin: 0 12px;">-</span>
-                                    <input type="text" style="width: 35px;">
+                                    <input type="number" style="width: 35px;" id="socialNumberSecond">
                                     <span style="margin-left: 12px; flex: none; letter-spacing: 2px;">* * * * * *</span>
                                 </div>
                             </div>
                             <div class="input_wrap" style="margin-bottom: 40px;">
                                 <h5>본인과의 관계</h5>
-                                <input type="text">
+<!--                                <input type="text" id="relate">--> <!-- input 을 select 로 변경 -->
+                                <select id="relate" name="relate">
+                                    <option value="SELF">본인</option>
+                                    <option value="SPOUSE">배우자</option>
+                                    <option value="DAUGHTER">딸</option>
+                                    <option value="SON">아들</option>
+                                    <option value="FATHER">아버지</option>
+                                    <option value="MOTHER">어머니</option>
+                                </select>
                             </div>
                         </div>
                         <div class="border8"></div>
