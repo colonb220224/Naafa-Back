@@ -52,8 +52,9 @@ $(document).on('click', '#patientAdd', (e) =>{
             'Authorization' : 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYWVfaHdpQG5hdmVyLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJzb2NpYWxUeXBlIjoiREVGQVVMVCIsImlhdCI6MTY5NDY2NzM2MiwiZXhwIjoxNjk0Njc4MTYyfQ.JTM0hpvyOV4ftLwZqVrL1EecTEuSNf1jezXCrJw49eQ'
         }
     }).then((res) => {
-        console.log(res)
         alert(res.data.message)
+        $('.modal').find('input').each(function(){$(this).val('');}); // 모달 input 초기화, 공통으로 뺄지 고민
+        $('.modal').find('select').each(function(){$(this).val('');}); // 모달 select 초기화
         $('.modal').addClass("hidden");
         reload()
     }).catch((error) => {
