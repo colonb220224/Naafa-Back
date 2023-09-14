@@ -7,7 +7,10 @@ import com.colonb.naafa.user.dto.LoginDto;
 import com.colonb.naafa.user.dto.PatientDto;
 import com.colonb.naafa.user.dto.RegisterDto;
 import com.colonb.naafa.user.entity.User;
-import com.colonb.naafa.user.enums.*;
+import com.colonb.naafa.user.enums.AccountStatus;
+import com.colonb.naafa.user.enums.HospitalRole;
+import com.colonb.naafa.user.enums.PatientRelate;
+import com.colonb.naafa.user.enums.SocialProvider;
 import com.colonb.naafa.util.HashMapConverter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -116,7 +119,6 @@ public class UserService {
         }
         HashMap<String, Object> mappedReq = HashMapConverter.convert(req);
         mappedReq.replace("password",passwordEncoder.encode(mappedReq.get("password").toString()));
-        mappedReq.put("role", UserRole.ROLE_USER);
         userMapper.insertDefaultUser(mappedReq);
         userMapper.insertUserMarketing(mappedReq);
         userMapper.insertUserCreatedAt(mappedReq);
