@@ -81,7 +81,7 @@
         SELECT EXISTS(SELECT SEQ FROM USER WHERE USERNAME = #{username})
     </select>
 
-    <insert id="insertPatient">
+    <insert id="insertPatient" useGeneratedKeys="true" keyProperty="seq" keyColumn="SEQ">
         INSERT INTO PATIENT_INFO (NAME, SOCIAL_NUMBER, RELATE, USER)
         values (#{name}, #{socialNumber}, #{relate}, #{user})
     </insert>
