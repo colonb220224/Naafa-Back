@@ -19,7 +19,7 @@ import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class HospitalService {
+public class AdminHospitalService {
     private final HospitalMapper hospitalMapper;
     private final UserMapper userMapper;
 
