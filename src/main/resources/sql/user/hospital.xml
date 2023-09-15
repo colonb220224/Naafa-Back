@@ -14,6 +14,7 @@
 <!--        <result property="role" column="ROLE"/>-->
 <!--    </resultMap>-->
 
+    <!--기획이 완성되지 않아 LIST에서 1개만 추출함-->
     <select id="findHospitalList" resultType="HashMap">
         SELECT SEQ
              , NAME
@@ -23,6 +24,7 @@
              , USER
         FROM HOSPITAL
         ORDER BY SEQ DESC
+        LIMIT 1
     </select>
 
     <select id="findHospitalByUser" resultType="Integer">
