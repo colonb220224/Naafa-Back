@@ -20,7 +20,6 @@ public class HospitalController {
     @GetMapping("list")
     public ResponseEntity<Result> getHospitalList() {
         Result res = hospitalService.getHospitalList();
-        System.out.println(res);
-        return ResponseEntity.status(res.status()).body(res);
+`        return ResponseEntity.status(res.status()).body(res);
     }
 }
