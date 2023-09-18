@@ -86,13 +86,79 @@ $(document).on('click', '#patientRemove', (e) =>{
         console.log(error);
         alert(error.response.data.message)
     })
-
 })
+
 /**
  *  구성원 관리 수정 모달 열기
  */
-$(document).on('click', '#patientModify', (e) =>{
+$(document).on('click', '#patientModifyModal', (e) =>{
     $('.modal_stepMemberModify').removeClass('hidden')
+
+    axios({
+        method: 'get',
+        url: '/user/auth/patient/' + + $(e.target).attr('seq'),
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization' : jwt
+        }
+    }).then((res) => {
+        $('#nameModify').val(res.data.data.NAME)
+        $('#socialNumberFirstModify').val(res.data.data.SOCIAL_NUMBER)
+        $('#relateModify').val(res.data.data.RELATE).prop("selected", true)
+        $('#patientModify').attr('seq', $(e.target).attr('seq'))
+    }).catch((error) => {
+        console.log(error);
+    })
+})
+
+/**
+ *  구성원 관리 수정
+ */
+$(document).on('click', '#patientModify', (e) =>{
+
+    if($('#nameModify').val() == ''){
+        alert('회원명을 입력해주세요.')
+        return;
+    }
+
+    if($('#socialNumberFirstModify').val() == ''){
+        alert('주민등록번호를 입력해주세요.')
+        return;
+    }
+
+    if($('#socialNumberSecondModify').val() == ''){
+        alert('주민등록번호를 입력해주세요.')
+        return;
+    }
+
+    if($('#relateModify').val() == ''){
+        alert('본인과의 관게를 선택해주세요.')
+        return;
+    }
+
+    axios({
+        method: 'post',
+        url: 'user/auth/patient/modify/' + + $(e.target).attr('seq'),
+        data: {
+            "name" : $('#nameModify').val(),
+            "socialNumber" : $('#socialNumberFirstModify').val() + "-" + $('#socialNumberSecondModify').val(),
+            "relate" : $('#relateModify').val()
+        },
+        dataType: 'json',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization' : jwt
+        }
+    }).then((res) => {
+        alert(res.data.message)
+        $('.modal').find('input').each(function(){$(this).val('');}); // 모달 input 초기화, 공통으로 뺄지 고민
+        $('.modal').find('select').each(function(){$(this).val('');}); // 모달 select 초기화
+        $('.modal').addClass("hidden");
+        reload()
+    }).catch((error) => {
+        console.log(error);
+        alert(error.response.data.message)
+    })
 
 })
 
@@ -129,7 +195,7 @@ function drawList(data){
                 </div>
                 <ul class="btn">
                     <li>
-                        <a href="#!" id="patientModify" seq="${data[i].SEQ}">
+                        <a href="#!" id="patientModifyModal" seq="${data[i].SEQ}">
                             수정
                         </a>
                     </li>
