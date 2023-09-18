@@ -1,3 +1,5 @@
+
+const jwt = 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYWVfaHdpQG5hdmVyLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJzb2NpYWxUeXBlIjoiREVGQVVMVCIsImlhdCI6MTY5NTAwMjAwMiwiZXhwIjoxNjk1MDEyODAyfQ.y2BrI8zmpYwDLZjJO47-oO3Gm-7nzkshcdKfeaiI6c8'
 $(document).ready(function(){
     reload()
 })
@@ -49,7 +51,7 @@ $(document).on('click', '#patientAdd', (e) =>{
         dataType: 'json',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization' : 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYWVfaHdpQG5hdmVyLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJzb2NpYWxUeXBlIjoiREVGQVVMVCIsImlhdCI6MTY5NDY2NzM2MiwiZXhwIjoxNjk0Njc4MTYyfQ.JTM0hpvyOV4ftLwZqVrL1EecTEuSNf1jezXCrJw49eQ'
+            'Authorization' : jwt
         }
     }).then((res) => {
         alert(res.data.message)
@@ -74,7 +76,7 @@ $(document).on('click', '#patientRemove', (e) =>{
         url: '/user/auth/patient/remove/' + $(e.target).attr('seq'),
         headers: {
             'Content-Type': 'application/json',
-            'Authorization' : 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYWVfaHdpQG5hdmVyLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJzb2NpYWxUeXBlIjoiREVGQVVMVCIsImlhdCI6MTY5NDY2NzM2MiwiZXhwIjoxNjk0Njc4MTYyfQ.JTM0hpvyOV4ftLwZqVrL1EecTEuSNf1jezXCrJw49eQ'
+            'Authorization' : jwt
         }
     }).then((res) => {
         console.log(res)
@@ -86,6 +88,14 @@ $(document).on('click', '#patientRemove', (e) =>{
     })
 
 })
+/**
+ *  구성원 관리 수정 모달 열기
+ */
+$(document).on('click', '#patientModify', (e) =>{
+    $('.modal_stepMemberModify').removeClass('hidden')
+
+})
+
 
 function reload(){
 
@@ -94,7 +104,7 @@ function reload(){
         url: '/user/auth/patient/list',
         headers: {
             'Content-Type': 'application/json',
-            'Authorization' : 'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzYWVfaHdpQG5hdmVyLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJzb2NpYWxUeXBlIjoiREVGQVVMVCIsImlhdCI6MTY5NDY2NzM2MiwiZXhwIjoxNjk0Njc4MTYyfQ.JTM0hpvyOV4ftLwZqVrL1EecTEuSNf1jezXCrJw49eQ'
+            'Authorization' : jwt
         }
     }).then((res) => {
         if(res.data.success){
@@ -119,12 +129,12 @@ function drawList(data){
                 </div>
                 <ul class="btn">
                     <li>
-                        <a href="./my_edit_member">
+                        <a href="#!" id="patientModify" seq="${data[i].SEQ}">
                             수정
                         </a>
                     </li>
                     <li>
-                        <a href="#" id="patientRemove" seq="${data[i].SEQ}">
+                        <a href="#!" id="patientRemove" seq="${data[i].SEQ}">
                             삭제
                         </a>
                     </li>
