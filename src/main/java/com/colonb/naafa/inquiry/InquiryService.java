@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -25,11 +26,41 @@ public class InquiryService {
     @Transactional
     public Result add(InquiryDto req, UserDetailsImpl userDetails) {
         if(!(userMapper.findHospitalRoleByUser(userDetails.getUser().getSeq()) == HospitalRole.PATIENT)){
-            return new Result("병원 관계자는 문의사항을 남길 수 없습니다.", HttpStatus.BAD_REQUEST, false);
+            return new Result("병원 관계자는 문의 사항을 남길 수 없습니다.", HttpStatus.BAD_REQUEST, false);
         }
         HashMap<String, Object> param = HashMapConverter.convert(req);
         param.put("user", userDetails.getUser().getSeq());
         inquiryMapper.insertInquiry(param);
         return new Result(HttpStatus.OK, true);
     }
+
+    @Transactional
+    public Result modify(long seq, InquiryDto req, UserDetailsImpl userDetails) {
+        Optional<HashMap<String, Object>> data = inquiryMapper.findBySeq(seq);
+        if(!data.isPresent()){
+            return new Result("존재 하지 않는 seq 입니다.", HttpStatus.BAD_REQUEST, false);
+        }
+        if(Long.parseLong(data.get().get("USER").toString()) != userDetails.getUser().getSeq()){
+            return new Result("본인의 문의 사항만 수정 가능합니다.", HttpStatus.BAD_REQUEST, false);
+        }
+        HashMap<String, Object> param = HashMapConverter.convert(req);
+        param.put("seq", seq);
+        inquiryMapper.updateInquiry(param);
+        return new Result(HttpStatus.OK, true);
+    }
+
+
+    @Transactional
+    public Result remove(long seq, UserDetailsImpl userDetails) {
+        Optional<HashMap<String, Object>> data = inquiryMapper.findBySeq(seq);
+        if(!data.isPresent()){
+            return new Result("존재 하지 않는 seq 입니다.", HttpStatus.BAD_REQUEST, false);
+        }
+        if(Long.parseLong(data.get().get("USER").toString()) != userDetails.getUser().getSeq()){
+            return new Result("본인의 문의 사항만 삭제 가능합니다.", HttpStatus.BAD_REQUEST, false);
+        }
+        inquiryMapper.deleteInquiry(seq);
+        return new Result(HttpStatus.OK, true);
+    }
+
 }

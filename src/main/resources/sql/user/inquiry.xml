@@ -10,4 +10,23 @@
         values (#{title}, #{contents}, #{user})
     </insert>
 
+    <select id="findBySeq" resultType="HashMap">
+        SELECT *
+        FROM INQUIRY
+        WHERE SEQ = #{seq}
+    </select>
+
+    <delete id="deleteInquiry">
+        DELETE
+        FROM INQUIRY
+        WHERE SEQ = #{seq}
+    </delete>
+
+    <update id="updateInquiry">
+        UPDATE INQUIRY
+        SET    TITLE = #{title},
+               CONTENTS = #{contents}
+        WHERE SEQ = #{seq}
+    </update>
+
 </mapper>
