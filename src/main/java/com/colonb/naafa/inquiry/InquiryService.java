@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -63,4 +64,8 @@ public class InquiryService {
         return new Result(HttpStatus.OK, true);
     }
 
+    public Result list(UserDetailsImpl userDetails) {
+        List<HashMap<String, Object>> result  = inquiryMapper.findByUser(userDetails.getUser().getSeq());
+        return new Result(HttpStatus.OK, result, true);
+    }
 }

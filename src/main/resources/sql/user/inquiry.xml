@@ -29,4 +29,11 @@
         WHERE SEQ = #{seq}
     </update>
 
+    <select id="findByUser" resultType="HashMap">
+        SELECT *
+        FROM INQUIRY
+        WHERE USER = #{user}
+        ORDER BY CREATED_AT
+    </select>
+
 </mapper>

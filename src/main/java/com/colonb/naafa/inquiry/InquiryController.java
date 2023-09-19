@@ -48,4 +48,10 @@ public class InquiryController {
         Result res = inquiryService.remove(seq, userDetails);
         return ResponseEntity.status(res.status()).body(res);
     }
+
+    @GetMapping("auth/list")
+    public ResponseEntity<Result> list(@AuthenticationPrincipal UserDetailsImpl userDetails) {
+        Result res = inquiryService.list(userDetails);
+        return ResponseEntity.status(res.status()).body(res);
+    }
 }

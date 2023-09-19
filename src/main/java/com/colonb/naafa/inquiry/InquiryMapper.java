@@ -3,6 +3,7 @@ package com.colonb.naafa.inquiry;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Optional;
 
 @Mapper
@@ -15,4 +16,6 @@ public interface InquiryMapper {
     Optional<HashMap<String, Object>> findBySeq(long seq);
 
     int updateInquiry(HashMap<String, Object> param);
+
+    List<HashMap<String, Object>> findByUser(long seq);
 }
