@@ -56,6 +56,14 @@ public class InquiryController {
         return ResponseEntity.status(res.status()).body(res);
     }
 
+    @GetMapping("auth/view/{seq}")
+    public ResponseEntity<Result> view(@PathVariable long seq,
+                                       @AuthenticationPrincipal UserDetailsImpl userDetails) {
+        Result res = inquiryService.view(seq, userDetails);
+        return ResponseEntity.status(res.status()).body(res);
+    }
+
+
     // TODO 기획에서 문의사항 답변하는 어드민페이지 생기면 패키저 이동 고민중
     @PostMapping("auth/answer/add/{seq}")
     public ResponseEntity<Result> answerAdd(@RequestBody @Valid InquiryAnswerDto req,

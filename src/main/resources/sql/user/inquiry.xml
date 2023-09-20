@@ -41,4 +41,18 @@
         values (#{contents}, #{user}, #{inquiry})
     </insert>
 
+    <select id="findWithAnswerBySeq" resultType="HashMap">
+        SELECT I.SEQ AS INQUIRY_SEQ,
+               TITLE,
+               I.CONTENTS AS INQUIRY_CONTENTS,
+               I.USER AS INQUIRY_WRITE_USER,
+               I.CREATED_AT AS INQUIRY_CREATED_AT,
+               IA.SEQ AS INQUIRY_ANSWER_SEQ,
+               IA.CONTENTS AS INQUIRY_ANSWER_CONTENTS,
+               IA.USER AS INQUIRY_ANSWER_WRITE_USER,
+               IA.CREATED_AT AS INQUIRY_ANSWER_REATED_AT
+        FROM INQUIRY I LEFT OUTER JOIN INQUIRY_ANSWER IA ON I.SEQ = IA.INQUIRY
+        WHERE I.SEQ = #{seq}
+    </select>
+
 </mapper>

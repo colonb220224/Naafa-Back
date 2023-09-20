@@ -38,6 +38,7 @@ public class InquiryService {
 
     @Transactional
     public Result modify(long seq, InquiryDto req, UserDetailsImpl userDetails) {
+        // TODO 답변이 완료되면 수정하기 막을건지 추후 기획 확인 후 변경 예정
         Optional<HashMap<String, Object>> data = inquiryMapper.findBySeq(seq);
         if(!data.isPresent()){
             return new Result("존재 하지 않는 seq 입니다.", HttpStatus.BAD_REQUEST, false);
@@ -84,5 +85,18 @@ public class InquiryService {
         param.put("user", userDetails.getUser().getSeq());
         inquiryMapper.insertInquiryAnswer(param);
         return new Result(HttpStatus.OK, true);
+    }
+
+    public Result view(long seq, UserDetailsImpl userDetails) {
+        Optional<HashMap<String, Object>> result  = inquiryMapper.findWithAnswerBySeq(seq);
+        if(!result.isPresent()){
+            return new Result("존재 하지 않는 seq 입니다.", HttpStatus.BAD_REQUEST, false);
+        }
+        if(userMapper.findHospitalRoleByUser(userDetails.getUser().getSeq()) == HospitalRole.PATIENT){
+            if(Long.parseLong(result.get().get("INQUIRY_WRITE_USER").toString()) != userDetails.getUser().getSeq()){
+                return new Result("본인의 상세보기만 확인이 가능합니다.", HttpStatus.BAD_REQUEST, false);
+            }
+        }
+        return new Result(HttpStatus.OK, result, true);
     }
 }

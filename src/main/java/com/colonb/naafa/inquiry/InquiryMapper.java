@@ -20,4 +20,6 @@ public interface InquiryMapper {
     List<HashMap<String, Object>> findByUser(long seq);
 
     int insertInquiryAnswer(HashMap<String, Object> param);
+
+    Optional<HashMap<String, Object>> findWithAnswerBySeq(long seq);
 }
