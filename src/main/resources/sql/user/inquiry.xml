@@ -36,4 +36,9 @@
         ORDER BY CREATED_AT
     </select>
 
+    <insert id="insertInquiryAnswer">
+        INSERT INTO INQUIRY_ANSWER (CONTENTS, USER, INQUIRY)
+        values (#{contents}, #{user}, #{inquiry})
+    </insert>
+
 </mapper>

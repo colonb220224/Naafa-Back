@@ -1,6 +1,7 @@
 package com.colonb.naafa.inquiry;
 
 import com.colonb.naafa.auth.UserDetailsImpl;
+import com.colonb.naafa.inquiry.dto.InquiryAnswerDto;
 import com.colonb.naafa.inquiry.dto.InquiryDto;
 import com.colonb.naafa.result.Result;
 import com.colonb.naafa.user.UserMapper;
@@ -67,5 +68,21 @@ public class InquiryService {
     public Result list(UserDetailsImpl userDetails) {
         List<HashMap<String, Object>> result  = inquiryMapper.findByUser(userDetails.getUser().getSeq());
         return new Result(HttpStatus.OK, result, true);
+    }
+
+    @Transactional
+    public Result answerAdd(InquiryAnswerDto req, long seq, UserDetailsImpl userDetails) {
+        if(userMapper.findHospitalRoleByUser(userDetails.getUser().getSeq()) == HospitalRole.PATIENT){
+            return new Result("병원 관계자만 문의 사항을 남길 수 있습니다.", HttpStatus.BAD_REQUEST, false);
+        }
+        Optional<HashMap<String, Object>> data = inquiryMapper.findBySeq(seq);
+        if(!data.isPresent()){
+            return new Result("존재 하지 않는 seq 입니다.", HttpStatus.BAD_REQUEST, false);
+        }
+        HashMap<String, Object> param = HashMapConverter.convert(req);
+        param.put("inquiry", seq);
+        param.put("user", userDetails.getUser().getSeq());
+        inquiryMapper.insertInquiryAnswer(param);
+        return new Result(HttpStatus.OK, true);
     }
 }
