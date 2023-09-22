@@ -3,6 +3,7 @@ package com.colonb.naafa.controller;
 import com.colonb.naafa.auth.oauth2.jwt.JwtTokenProvider;
 import com.colonb.naafa.user.UserMapper;
 import com.colonb.naafa.user.entity.User;
+import com.colonb.naafa.user.enums.HospitalRole;
 import com.colonb.naafa.util.AES256Encrypt;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.BeforeEach;
@@ -20,8 +21,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
 
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -48,11 +48,14 @@ public class UserControllerTest {
     void setup() {
         HashMap<String, Object> req = new HashMap<>();
         req.put("username", "setup@username.com");
-        req.put("password", passwordEncoder.encode("test"));
+        req.put("password", passwordEncoder.encode("testtest"));
         req.put("phone", "01012345678");
         userMapper.insertDefaultUser(req);
         setupUser = userMapper.findByUsername("setup@username.com").get();
         setupToken = jwtTokenProvider.createToken(setupUser);
+        req.put("user", setupUser.getSeq());
+        req.put("userRole", HospitalRole.PATIENT);
+        userMapper.insertUserRoleDetails(req);
     }
 
 
@@ -163,7 +166,7 @@ public class UserControllerTest {
         HashMap<String, Object> req = new HashMap<>();
         req.put("name", "테스트이름");
         req.put("relate", "SELF");
-        req.put("socialNumber","123456-1234567");
+        req.put("socialNumber", "123456-1234567");
         ResultActions ra = mockMvc.perform(post("/user/auth/patient/add")
                 .header("Authorization", setupToken)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -185,7 +188,7 @@ public class UserControllerTest {
         req.put("name", "테스트이름");
         req.put("relate", "SELF");
         req.put("socialNumber", AES256Encrypt.encrypt("123456-1234567"));
-        req.put("user",setupUser.getSeq());
+        req.put("user", setupUser.getSeq());
         userMapper.insertPatient(req);
         ResultActions ra = mockMvc.perform(post("/user/auth/patient/add")
                 .header("Authorization", setupToken)
@@ -206,10 +209,10 @@ public class UserControllerTest {
         HashMap<String, Object> req = new HashMap<>();
         req.put("name", "테스트이름");
         req.put("relate", "SELF");
-        req.put("socialNumber","123456-1234567");
-        req.put("user",setupUser.getSeq());
+        req.put("socialNumber", "123456-1234567");
+        req.put("user", setupUser.getSeq());
         userMapper.insertPatient(req);
-        req.replace("relate","SPOUSE");
+        req.replace("relate", "SPOUSE");
         ResultActions ra = mockMvc.perform(post("/user/auth/patient/add")
                 .header("Authorization", setupToken)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -229,8 +232,8 @@ public class UserControllerTest {
         HashMap<String, Object> req = new HashMap<>();
         req.put("name", "테스트이름");
         req.put("relate", "SPOUSE");
-        req.put("socialNumber","123456-1234567");
-        req.put("user",setupUser.getSeq());
+        req.put("socialNumber", "123456-1234567");
+        req.put("user", setupUser.getSeq());
         userMapper.insertPatient(req);
         ResultActions ra = mockMvc.perform(post("/user/auth/patient/add")
                 .header("Authorization", setupToken)
@@ -251,8 +254,8 @@ public class UserControllerTest {
         HashMap<String, Object> req = new HashMap<>();
         req.put("name", "테스트이름");
         req.put("relate", "SELF");
-        req.put("socialNumber","123456-1234567");
-        req.put("user",setupUser.getSeq());
+        req.put("socialNumber", "123456-1234567");
+        req.put("user", setupUser.getSeq());
         userMapper.insertPatient(req);
         ResultActions ra = mockMvc.perform(get("/user/auth/patient/list")
                 .header("Authorization", setupToken)
@@ -276,4 +279,120 @@ public class UserControllerTest {
                 .andExpect(jsonPath("message").value("로그인이 필요합니다."))
                 .andExpect(jsonPath("data").isEmpty());
     }
+
+    @Test
+    @Transactional
+    @DisplayName("구성원 삭제 - 성공")
+    void removePatientSuccess() throws Exception {
+        HashMap<String, Object> req = new HashMap<>();
+        req.put("name", "테스트이름");
+        req.put("relate", "SPOUSE");
+        req.put("socialNumber", "123456-1234567");
+        req.put("user", setupUser.getSeq());
+        userMapper.insertPatient(req);
+        ResultActions ra = mockMvc.perform(delete("/user/auth/patient/remove/" + req.get("seq"))
+                .header("Authorization", setupToken)
+                .accept(MediaType.APPLICATION_JSON)).andDo(print());
+        ra
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("success").value(true))
+                .andExpect(jsonPath("message").value("요청에 성공했습니다."))
+                .andExpect(jsonPath("data").isEmpty());
+    }
+
+    @Test
+    @Transactional
+    @DisplayName("구성원 삭제 - 실패_본인삭제시도")
+    void removePatientFailTrySelf() throws Exception {
+        HashMap<String, Object> req = new HashMap<>();
+        req.put("name", "테스트이름");
+        req.put("relate", "SELF");
+        req.put("socialNumber", "123456-1234567");
+        req.put("user", setupUser.getSeq());
+        userMapper.insertPatient(req);
+        ResultActions ra = mockMvc.perform(delete("/user/auth/patient/remove/" + req.get("seq"))
+                .header("Authorization", setupToken)
+                .accept(MediaType.APPLICATION_JSON)).andDo(print());
+        ra
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("success").value(false))
+                .andExpect(jsonPath("message").value("본인은 삭제하실 수 없습니다."))
+                .andExpect(jsonPath("data").isEmpty());
+    }
+
+    @Test
+    @Transactional
+    @DisplayName("구성원 수정 - 성공")
+    void modifyPatientSuccess() throws Exception {
+        HashMap<String, Object> req = new HashMap<>();
+        req.put("name", "테스트이름");
+        req.put("relate", "SELF");
+        req.put("socialNumber", "123456-1234567");
+        req.put("user", setupUser.getSeq());
+        userMapper.insertPatient(req);
+        req.remove("seq");
+        req.replace("relate","SPOUSE");
+        userMapper.insertPatient(req);
+        req.replace("name","테스트이름2");
+        ResultActions ra = mockMvc.perform(post("/user/auth/patient/modify/" + req.get("seq"))
+                .header("Authorization", setupToken)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(req))
+                .accept(MediaType.APPLICATION_JSON)).andDo(print());
+        ra
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("success").value(true))
+                .andExpect(jsonPath("message").value("요청에 성공했습니다."))
+                .andExpect(jsonPath("data").isEmpty());
+    }
+
+    @Test
+    @Transactional
+    @DisplayName("구성원 수정 - 실패_본인 관계 수정 시도")
+    void modifyPatientFailTrySelfRelate() throws Exception {
+        HashMap<String, Object> req = new HashMap<>();
+        req.put("name", "테스트이름");
+        req.put("relate", "SELF");
+        req.put("socialNumber", "123456-1234567");
+        req.put("user", setupUser.getSeq());
+        userMapper.insertPatient(req);
+        req.replace("relate","SPOUSE");
+        ResultActions ra = mockMvc.perform(post("/user/auth/patient/modify/" + req.get("seq"))
+                .header("Authorization", setupToken)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(req))
+                .accept(MediaType.APPLICATION_JSON)).andDo(print());
+        ra
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("success").value(false))
+                .andExpect(jsonPath("message").value("본인의 관계는 수정할 수 없습니다."))
+                .andExpect(jsonPath("data").isEmpty());
+    }
+
+    @Test
+    @Transactional
+    @DisplayName("구성원 수정 - 실패_구성원 본인 변경 시도")
+    void modifyPatientFailTryRelateToSelf() throws Exception {
+        HashMap<String, Object> req = new HashMap<>();
+        req.put("name", "테스트이름");
+        req.put("relate", "SELF");
+        req.put("socialNumber", "123456-1234567");
+        req.put("user", setupUser.getSeq());
+        userMapper.insertPatient(req);
+        req.replace("relate","SPOUSE");
+        userMapper.insertPatient(req);
+        req.replace("relate","SELF");
+        ResultActions ra = mockMvc.perform(post("/user/auth/patient/modify/" + req.get("seq"))
+                .header("Authorization", setupToken)
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsString(req))
+                .accept(MediaType.APPLICATION_JSON)).andDo(print());
+        ra
+                .andExpect(status().isBadRequest())
+                .andExpect(jsonPath("success").value(false))
+                .andExpect(jsonPath("message").value("구성원을 본인으로 변경 할 수 없습니다."))
+                .andExpect(jsonPath("data").isEmpty());
+    }
+
+
 }
