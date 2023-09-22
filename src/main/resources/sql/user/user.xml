@@ -126,5 +126,15 @@
         WHERE SEQ = #{seq}
     </update>
 
+    <select id="findHospitalRoleByUser" resultMap="HospitalRole">
+        SELECT USER_ROLE
+        FROM USER_ROLE_DETAILS
+        WHERE USER = #{user}
+    </select>
+
+    <resultMap id="HospitalRole" type="com.colonb.naafa.user.enums.HospitalRole">
+        <result property="hospitalRole" column="USER_ROLE" typeHandler="com.colonb.naafa.mybatis.HospitalRoleHandler"/>
+    </resultMap>
+
 
 </mapper>

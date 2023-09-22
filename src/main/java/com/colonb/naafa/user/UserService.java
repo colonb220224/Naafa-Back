@@ -17,6 +17,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.HashMap;
 import java.util.List;
@@ -32,12 +33,24 @@ public class UserService {
 
     public Result patientList(UserDetailsImpl userDetails) {
         List<HashMap<String, Object>> result = userMapper.findPatientByUser(userDetails.getUser().getSeq());
+        // TODO 주민등록번호 복호화
+        return new Result(HttpStatus.OK, result, true);
+    }
+
+    public Result patientView(UserDetailsImpl userDetails, long seq) {
+        Optional<HashMap<String, Object>> result  = userMapper.findPatientBySeq(seq);
+        if(Long.parseLong(result.get().get("USER").toString()) != userDetails.getUser().getSeq()){
+            return new Result("본인의 구성원만 상세보기 확인이 가능합니다.", HttpStatus.BAD_REQUEST, false);
+        }
+        // TODO 주민등록번호 복호화
         return new Result(HttpStatus.OK, result, true);
     }
 
     @Transactional
     public Result patientAdd(PatientDto req, UserDetailsImpl userDetails) throws Exception {
-        //TODO: UserRoleDetails 에서 Patient 여부 검사
+        if(!(userMapper.findHospitalRoleByUser(userDetails.getUser().getSeq()) == HospitalRole.PATIENT)){
+            return new Result("병원 관계자는 구성원을 추가할 수 없습니다.", HttpStatus.BAD_REQUEST, false);
+        }
         if (req.getRelate() != PatientRelate.SELF) {
             if (!userMapper.existSelfPatientByUser(userDetails.getUser().getSeq())) {
                 return new Result("본인 세부 정보를 먼저 작성해야 합니다.", HttpStatus.BAD_REQUEST, false);
