@@ -11,6 +11,7 @@ import com.colonb.naafa.user.enums.AccountStatus;
 import com.colonb.naafa.user.enums.HospitalRole;
 import com.colonb.naafa.user.enums.PatientRelate;
 import com.colonb.naafa.user.enums.SocialProvider;
+import com.colonb.naafa.util.AES256Encrypt;
 import com.colonb.naafa.util.HashMapConverter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -31,18 +32,23 @@ public class UserService {
     private final JwtTokenProvider jwtTokenProvider;
     private final PasswordEncoder passwordEncoder;
 
-    public Result patientList(UserDetailsImpl userDetails) {
+    public Result patientList(UserDetailsImpl userDetails) throws Exception{
         List<HashMap<String, Object>> result = userMapper.findPatientByUser(userDetails.getUser().getSeq());
-        // TODO 주민등록번호 복호화
+        for(HashMap<String, Object> data : result){
+            data.put("SOCIAL_NUMBER",  AES256Encrypt.decrypt(data.get("SOCIAL_NUMBER").toString()));
+        }
         return new Result(HttpStatus.OK, result, true);
     }
 
-    public Result patientView(UserDetailsImpl userDetails, long seq) {
+    public Result patientView(UserDetailsImpl userDetails, long seq) throws Exception {
         Optional<HashMap<String, Object>> result  = userMapper.findPatientBySeq(seq);
+        if (!result.isPresent()) {
+            return new Result("존재 하지 않는 seq 입니다.", HttpStatus.BAD_REQUEST, false);
+        }
         if(Long.parseLong(result.get().get("USER").toString()) != userDetails.getUser().getSeq()){
             return new Result("본인의 구성원만 상세보기 확인이 가능합니다.", HttpStatus.BAD_REQUEST, false);
         }
-        // TODO 주민등록번호 복호화
+        result.get().put("SOCIAL_NUMBER",  AES256Encrypt.decrypt(result.get().get("SOCIAL_NUMBER").toString()));
         return new Result(HttpStatus.OK, result, true);
     }
 

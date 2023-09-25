@@ -21,13 +21,13 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("auth/patient/list")
-    public ResponseEntity<Result> patientList(@AuthenticationPrincipal UserDetailsImpl userDetails) {
+    public ResponseEntity<Result> patientList(@AuthenticationPrincipal UserDetailsImpl userDetails) throws Exception {
         Result res = userService.patientList(userDetails);
         return ResponseEntity.status(res.status()).body(res);
     }
 
     @GetMapping("auth/patient/{seq}")
-    public ResponseEntity<Result> patientView(@AuthenticationPrincipal UserDetailsImpl userDetails, @PathVariable long seq) {
+    public ResponseEntity<Result> patientView(@AuthenticationPrincipal UserDetailsImpl userDetails, @PathVariable long seq) throws Exception {
         Result res = userService.patientView(userDetails, seq);
         return ResponseEntity.status(res.status()).body(res);
     }
