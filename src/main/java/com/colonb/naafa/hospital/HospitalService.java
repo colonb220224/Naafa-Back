@@ -22,6 +22,14 @@ public class HospitalService {
     private final UserMapper userMapper;
 
     @Transactional
+    public Result getHospitalDetail(long seq) {
+        // 병원 상세보기
+       HashMap<String, Object> result  = hospitalMapper.findHospitalByHospital(seq);
+
+        return new Result(HttpStatus.OK, result, true);
+    }
+
+    @Transactional
     public Result getHospitalList() {
         // 병원리스트 추가
         List<HashMap<String, Object>> result  = hospitalMapper.findHospitalList();

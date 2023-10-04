@@ -252,6 +252,17 @@
                 , #{HOSPITAL})
     </insert>
 
+    <select id="findHospitalByHospital" resultType="HashMap">
+        SELECT SEQ
+             , NAME
+             , ADDRESS
+             , COORDINATE
+             , CONTACT
+             , USER
+        FROM HOSPITAL H
+        WHERE H.SEQ = #{seq}
+    </select>
+
     <!--기획이 완성되지 않아 LIST에서 1개만 추출함-->
     <select id="findHospitalList" resultType="HashMap">
         SELECT SEQ

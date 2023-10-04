@@ -23,6 +23,7 @@ public interface HospitalMapper {
     int insertHospitalOperatingHourFriday(HashMap<String, Object> mappedReq);
     int insertHospitalOperatingHourSaturday(HashMap<String, Object> mappedReq);
     int insertHospitalOperatingHourSunday(HashMap<String, Object> mappedReq);
+    HashMap<String, Object> findHospitalByHospital(long seq);
     List<HashMap<String, Object>> findHospitalList();
     Optional<Integer> findUserByHospital(long hospital);
     int updateHospitalInfo(HashMap<String, Object> param);

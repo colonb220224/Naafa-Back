@@ -17,6 +17,12 @@ import javax.validation.Valid;
 public class HospitalController {
     private final HospitalService hospitalService;
 
+    @GetMapping("{seq}")
+    public ResponseEntity<Result> getHospitalDetail(@PathVariable long seq) {
+        Result res = hospitalService.getHospitalDetail(seq);
+        return ResponseEntity.status(res.status()).body(res);
+    }
+
     @GetMapping("list")
     public ResponseEntity<Result> getHospitalList() {
         Result res = hospitalService.getHospitalList();
