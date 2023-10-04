@@ -51,6 +51,20 @@ public class AdminHospitalService {
         hospitalMapper.updateHospitalOnlineReserveInfo(mappedReq);
         // 에약 서비스 제공 항목 - 왕진 예약 상담 수정
         hospitalMapper.updateHospitalHouseCallReserveInfo(mappedReq);
+        // 병원 운영시간 수정 - 월요일
+        hospitalMapper.updateHospitalOperatingHourMonday(mappedReq);
+        // 병원 운영시간 수정 - 화요일
+        hospitalMapper.updateHospitalOperatingHourTuesday(mappedReq);
+        // 병원 운영시간 수정 - 수요일
+        hospitalMapper.updateHospitalOperatingHourWednesday(mappedReq);
+        // 병원 운영시간 수정 - 목요일
+        hospitalMapper.updateHospitalOperatingHourThursday(mappedReq);
+        // 병원 운영시간 수정 - 금요일
+        hospitalMapper.updateHospitalOperatingHourFriday(mappedReq);
+        // 병원 운영시간 수정 - 토요일
+        hospitalMapper.updateHospitalOperatingHourSaturday(mappedReq);
+        // 병원 운영시간 수정 - 일요일
+        hospitalMapper.updateHospitalOperatingHourSunday(mappedReq);
 
         return new Result(HttpStatus.OK, true);
     }
