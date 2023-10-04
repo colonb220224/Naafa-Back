@@ -22,6 +22,13 @@ public interface HospitalMapper {
     int insertHospitalConsultationReserveInfo(HashMap<String, Object> mappedReq);
     int insertHospitalOnlineReserveInfo(HashMap<String, Object> mappedReq);
     int insertHospitalHouseCallReserveInfo(HashMap<String, Object> mappedReq);
+    int insertHospitalOperatingHourMonday(HashMap<String, Object> mappedReq);
+    int insertHospitalOperatingHourTuesday(HashMap<String, Object> mappedReq);
+    int insertHospitalOperatingHourWednesday(HashMap<String, Object> mappedReq);
+    int insertHospitalOperatingHourThursday(HashMap<String, Object> mappedReq);
+    int insertHospitalOperatingHourFriday(HashMap<String, Object> mappedReq);
+    int insertHospitalOperatingHourSaturday(HashMap<String, Object> mappedReq);
+    int insertHospitalOperatingHourSunday(HashMap<String, Object> mappedReq);
 
     int updateHospitalVisitReserveInfo(HashMap<String, Object> mappedReq);
     int updateHospitalConsultationReserveInfo(HashMap<String, Object> mappedReq);
