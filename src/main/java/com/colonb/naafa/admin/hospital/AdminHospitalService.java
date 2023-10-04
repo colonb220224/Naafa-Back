@@ -43,6 +43,14 @@ public class AdminHospitalService {
         hospitalMapper.updateUserHospitalHost(mappedReq);
         // 병원 INFO 수정
         hospitalMapper.updateHospitalInfo(mappedReq);
+        // 에약 서비스 제공 항목 - 방문 예약 수정
+        hospitalMapper.updateHospitalVisitReserveInfo(mappedReq);
+        // 에약 서비스 제공 항목 - 비대면 상담 수정
+        hospitalMapper.updateHospitalConsultationReserveInfo(mappedReq);
+        // 에약 서비스 제공 항목 - 온라인 접수 상담 수정
+        hospitalMapper.updateHospitalOnlineReserveInfo(mappedReq);
+        // 에약 서비스 제공 항목 - 왕진 예약 상담 수정
+        hospitalMapper.updateHospitalHouseCallReserveInfo(mappedReq);
 
         return new Result(HttpStatus.OK, true);
     }
@@ -71,6 +79,16 @@ public class AdminHospitalService {
         hospitalMapper.insertUserHospitalHost(mappedReq);
         // 병원 INFO 등록
         hospitalMapper.insertHospitalInfo(mappedReq);
+        // 에약 서비스 제공 항목 - 방문 예약 등록
+        hospitalMapper.insertHospitalVisitReserveInfo(mappedReq);
+        // 에약 서비스 제공 항목 - 비대면 상담 등록
+        hospitalMapper.insertHospitalConsultationReserveInfo(mappedReq);
+        // 에약 서비스 제공 항목 - 온라인 접수 상담 등록
+        hospitalMapper.insertHospitalOnlineReserveInfo(mappedReq);
+        // 에약 서비스 제공 항목 - 왕진 예약 상담 등록
+        hospitalMapper.insertHospitalHouseCallReserveInfo(mappedReq);
+
+
 
         return new Result(HttpStatus.OK, true);
     }

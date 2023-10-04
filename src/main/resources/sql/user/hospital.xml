@@ -86,4 +86,73 @@
         values (#{name}, #{address}, POINT(${coordinate}), #{contact}, #{seq})
     </insert>
 
+    <insert id="insertHospitalVisitReserveInfo">
+        INSERT INTO HOSPITAL_VISIT_RESERVE_INFO (ENABLE, START_AT, END_AT, CANCELLATION_PERIOD, RESERVE_PER_HOUR, WEEKEND, HOSPITAL)
+        values (#{visitReserveEnable}, #{visitReserveStartAt}, #{visitReserveEndAt}, #{visitReserveCancellationPeriod}, #{visitReserveRerHour},
+                #{visitReserveWeekend}, #{HOSPITAL})
+    </insert>
+
+    <insert id="insertHospitalConsultationReserveInfo">
+        INSERT INTO HOSPITAL_CONSULTATION_RESERVE_INFO (ENABLE, START_AT, END_AT, CANCELLATION_PERIOD, RESERVE_PER_HOUR, WEEKEND, HOSPITAL)
+        values (#{consultationReserveEnable}, #{consultationReserveStartAt}, #{consultationReserveEndAt}, #{consultationReserveCancellationPeriod}, #{consultationReserveRerHour},
+                #{consultationReserveWeekend}, #{HOSPITAL})
+    </insert>
+
+    <insert id="insertHospitalOnlineReserveInfo">
+        INSERT INTO HOSPITAL_ONLINE_RESERVE_INFO (ENABLE, START_AT, END_AT, CANCELLATION_PERIOD, RESERVE_PER_HOUR, WEEKEND, HOSPITAL)
+        values (#{onlineReserveEnable}, #{onlineReserveStartAt}, #{onlineReserveEndAt}, #{onlineReserveCancellationPeriod}, #{onlineReserveRerHour},
+                #{onlineReserveWeekend}, #{HOSPITAL})
+    </insert>
+
+    <insert id="insertHospitalHouseCallReserveInfo">
+        INSERT INTO HOSPITAL_HOUSE_CALL_RESERVE_INFO (ENABLE, START_AT, END_AT, CANCELLATION_PERIOD, RESERVE_PER_HOUR, WEEKEND, HOSPITAL)
+        values (#{houseCallReserveEnable}, #{houseCallReserveStartAt}, #{houseCallReserveEndAt}, #{houseCallReserveCancellationPeriod}, #{houseCallReserveRerHour},
+                #{houseCallReserveWeekend}, #{HOSPITAL})
+    </insert>
+
+    <update id="=updateHospitalVisitReserveInfo">
+        UPDATE HOSPITAL_VISIT_RESERVE_INFO
+        SET    ENABLE = #{visitReserveEnable},
+               START_AT = #{visitReserveStartAt},
+               END_AT = #{visitReserveEndAt},
+               CANCELLATION_PERIOD = #{visitReserveCancellationPeriod},
+               RESERVE_PER_HOUR = #{visitReserveRerHour},
+               WEEKEND = #{visitReserveWeekend}
+        WHERE HOSPITAL = #{hospital}
+    </update>
+
+    <update id="=updateHospitalConsultationReserveInfo">
+        UPDATE HOSPITAL_CONSULTATION_RESERVE_INFO
+        SET    ENABLE = #{consultationReserveEnable},
+               START_AT = #{consultationReserveStartAt},
+               END_AT = #{consultationReserveEndAt},
+               CANCELLATION_PERIOD = #{consultationReserveCancellationPeriod},
+               RESERVE_PER_HOUR = #{consultationReserveRerHour},
+               WEEKEND = #{consultationReserveWeekend}
+        WHERE HOSPITAL = #{hospital}
+    </update>
+
+    <update id="=updateHospitalOnlineReserveInfo">
+        UPDATE HOSPITAL_ONLINE_RESERVE_INFO
+        SET    ENABLE = #{onlineReserveEnable},
+               START_AT = #{onlineReserveStartAt},
+               END_AT = #{onlineReserveEndAt},
+               CANCELLATION_PERIOD = #{onlineReserveCancellationPeriod},
+               RESERVE_PER_HOUR = #{onlineReserveRerHour},
+               WEEKEND = #{onlineReserveWeekend}
+        WHERE HOSPITAL = #{hospital}
+    </update>
+
+    <update id="=updateHospitalHouseCallReserveInfo">
+        UPDATE HOSPITAL_HOUSE_CALL_RESERVE_INFO
+        SET    ENABLE = #{houseCallReserveEnable},
+               START_AT = #{houseCallReserveStartAt},
+               END_AT = #{houseCallReserveEndAt},
+               CANCELLATION_PERIOD = #{houseCallReserveCancellationPeriod},
+               RESERVE_PER_HOUR = #{houseCallReserveRerHour},
+               WEEKEND = #{houseCallReserveWeekend}
+        WHERE HOSPITAL = #{hospital}
+    </update>
+
+
 </mapper>

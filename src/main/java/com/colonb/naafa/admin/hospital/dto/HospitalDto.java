@@ -1,5 +1,6 @@
 package com.colonb.naafa.admin.hospital.dto;
 
+import com.colonb.naafa.admin.hospital.enums.CancellationPeriod;
 import com.colonb.naafa.hospital.enums.ChiefCategory;
 import com.colonb.naafa.hospital.enums.Gender;
 import lombok.Getter;
@@ -43,5 +44,62 @@ public class HospitalDto {
     private String details;
     @NotBlank(message = "병원 주차정보가 누락되었습니다.")
     private String parking;
+
+    @NotNull(message = "방문 예약 가능 여부가 누락되었습니다.")
+    private Boolean visitReserveEnable;
+    @NotNull(message = "방문 예약 운영 시간이 누락되었습니다.")
+    private Integer visitReserveStartAt;
+    @NotNull(message = "방문 예약 운영 시간이 누락되었습니다.")
+    private Integer visitReserveEndAt;
+    @NotBlank(message = "시간당 방문 예약 가능 인원 수가 누락되었습니다.")
+    private Integer visitReserveRerHour;
+    @NotNull(message = "방문 예약 취소 가능 시간이 누락되었습니다.")
+    private CancellationPeriod visitReserveCancellationPeriod;
+    @NotNull(message = "방문 예약 주말 가능 여부가 누락되었습니다.")
+    private Boolean visitReserveWeekend;
+
+    @NotNull(message = "비대면 상담 가능 여부가 누락되었습니다.")
+    private Boolean consultationReserveEnable;
+    @NotNull(message = "비대면 상담 운영 시간이 누락되었습니다.")
+    private Integer consultationReserveStartAt;
+    @NotNull(message = "비대면 상담 운영 시간이 누락되었습니다.")
+    private Integer consultationReserveEndAt;
+    @NotBlank(message = "시간당 비대면 상담 가능 인원 수가 누락되었습니다.")
+    private Integer consultationReserveRerHour;
+    @NotNull(message = "비대면 상담 취소 가능 시간이 누락되었습니다.")
+    private CancellationPeriod consultationReserveCancellationPeriod;
+    @NotNull(message = "비대면 상담 주말 가능 여부가 누락되었습니다.")
+    private Boolean consultationReserveWeekend;
+
+    @NotNull(message = "온라인 접수 가능 여부가 누락되었습니다.")
+    private Boolean onlineReserveEnable;
+    @NotNull(message = "온라인 접수 운영 시간이 누락되었습니다.")
+    private Integer onlineReserveStartAt;
+    @NotNull(message = "온라인 접수 운영 시간이 누락되었습니다.")
+    private Integer onlineReserveEndAt;
+    @NotBlank(message = "시간당 온라인 접수 가능 인원 수가 누락되었습니다.")
+    private Integer onlineReserveRerHour;
+    @NotNull(message = "온라인 접수 취소 가능 시간이 누락되었습니다.")
+    private CancellationPeriod onlineReserveCancellationPeriod;
+    @NotNull(message = "온라인 접수 주말 가능 여부가 누락되었습니다.")
+    private Boolean onlineReserveWeekend;
+
+    @NotNull(message = "왕진 예약 가능 여부가 누락되었습니다.")
+    private Boolean houseCallReserveEnable;
+    @NotNull(message = "왕진 예약 운영 시간이 누락되었습니다.")
+    private Integer houseCallReserveStartAt;
+    @NotNull(message = "왕진 예약 운영 시간이 누락되었습니다.")
+    private Integer houseCallReserveEndAt;
+    @NotBlank(message = "시간당 왕진 예약 가능 인원 수가 누락되었습니다.")
+    private Integer houseCallReserveRerHour;
+    @NotNull(message = "왕진 예약 취소 가능 시간이 누락되었습니다.")
+    private CancellationPeriod houseCallReserveCancellationPeriod;
+    @NotNull(message = "왕진 예약 주말 가능 여부가 누락되었습니다.")
+    private Boolean houseCallReserveWeekend;
+
+
+
+
+
 
 }
