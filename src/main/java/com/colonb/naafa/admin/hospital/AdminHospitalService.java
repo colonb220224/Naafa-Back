@@ -15,25 +15,30 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.HashMap;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
-public class HospitalService {
+public class AdminHospitalService {
     private final HospitalMapper hospitalMapper;
     private final UserMapper userMapper;
 
     @Transactional
-    public Result hospitalModify(HospitalDto req, long hospitalSeq, long userSeq, UserDetailsImpl userDetails) throws Exception {
+    public Result hospitalModify(HospitalDto req, long hospitalSeq, UserDetailsImpl userDetails) throws Exception {
         HashMap<String, Object> mappedReq = HashMapConverter.convert(req);
         // 병원 고유번호 삽입
         mappedReq.put("hospital", hospitalSeq);
+        // 대표관리자 고유번호
+        Optional<Integer> userSeq = hospitalMapper.findUserByHospital((Long) mappedReq.get("hospital"));
+        if(!userSeq.isPresent()){
+            return new Result("병원 대표관리자 정보가 존재하지 않습니다.",HttpStatus.BAD_REQUEST, false);
+        }
         mappedReq.put("user", userSeq);
-        // 대표관리자가 동일인이라면 update
         userMapper.updateDefaultUser(mappedReq);
         // 병원 테이블 수정
         hospitalMapper.updateHospital(mappedReq);
-//        // 병원장 테이블 수정 HOSPITAL_CHIEF 테이블에 HOSPITAL 외래키가 필요함
-//        hospitalMapper.updateHospitalChief(mappedReq);
+        // 병원장 테이블 수정 HOSPITAL_CHIEF 테이블에 HOSPITAL 외래키가 필요함
+        hospitalMapper.updateHospitalChief(mappedReq);
         // 병원 대표관리자 수정
         hospitalMapper.updateUserHospitalHost(mappedReq);
         // 병원 INFO 수정

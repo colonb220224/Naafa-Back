@@ -15,16 +15,16 @@ import javax.validation.Valid;
 @RestController
 @RequestMapping("admin/hospital")
 @RequiredArgsConstructor
-public class HospitalController {
-    private final HospitalService hospitalService;
+public class AdminHospitalController {
+    private final AdminHospitalService adminHospitalService;
 
     @PostMapping("modify/{hospitalSeq}/{userSeq}")
     public ResponseEntity<Result> hospitalModify(@RequestBody @Valid HospitalDto req,
-            BindingResult bindingResult, @PathVariable long hospitalSeq,@PathVariable long userSeq, @AuthenticationPrincipal UserDetailsImpl userDetails) throws Exception {
+            BindingResult bindingResult, @PathVariable long hospitalSeq, @AuthenticationPrincipal UserDetailsImpl userDetails) throws Exception {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>(new Result(bindingResult.getAllErrors().get(0).getDefaultMessage(), HttpStatus.BAD_REQUEST, false), HttpStatus.BAD_REQUEST);
         }
-        Result res = hospitalService.hospitalModify(req, hospitalSeq, userSeq,userDetails);
+        Result res = adminHospitalService.hospitalModify(req, hospitalSeq, userDetails);
         return ResponseEntity.status(res.status()).body(res);
     }
 
@@ -34,7 +34,7 @@ public class HospitalController {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>(new Result(bindingResult.getAllErrors().get(0).getDefaultMessage(), HttpStatus.BAD_REQUEST, false), HttpStatus.BAD_REQUEST);
         }
-        Result res = hospitalService.hospitalAdd(req, userDetails);
+        Result res = adminHospitalService.hospitalAdd(req, userDetails);
         return ResponseEntity.status(res.status()).body(res);
     }
 }
