@@ -273,7 +273,7 @@
 
     <update id="updateHospitalInfo">
         UPDATE HOSPITAL_INFO
-        SET  INFO_SIMPLE = #{simple}
+        SET  INFO_TREATMENT = #{treatment}
           ,  INFO_DETAILS = #{details}
           ,  INFO_PARKING = #{parking}
         WHERE HOSPITAL = #{hospital}
@@ -305,8 +305,8 @@
     </update>
 
     <insert id="insertHospitalInfo">
-        INSERT INTO HOSPITAL_INFO (HOSPITAL, INFO_SIMPLE, INFO_DETAILS, INFO_PARKING)
-        values (#{HOSPITAL}, #{simple}, #{details}, #{parking})
+        INSERT INTO HOSPITAL_INFO (HOSPITAL, INFO_TREATMENT, INFO_DETAILS, INFO_PARKING)
+        values (#{HOSPITAL}, #{treatment}, #{details}, #{parking})
     </insert>
 
     <insert id="insertUserHospitalHost">

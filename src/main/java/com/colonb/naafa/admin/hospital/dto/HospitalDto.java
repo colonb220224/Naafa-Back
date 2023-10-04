@@ -37,9 +37,9 @@ public class HospitalDto {
     private String password;
     @NotBlank(message = "전화번호는 공백이 될 수 없습니다.")
     private String phone;
-    // 병원 INFO 정보(SIMPLE, DETAILS, PARKING)
+    // 병원 INFO 정보(treatment, DETAILS, PARKING)
     @NotBlank(message = "병원소개가 누락되었습니다.")
-    private String simple;
+    private String treatment;
     @NotBlank(message = "병원 상세소개가 누락되었습니다.")
     private String details;
     @NotBlank(message = "병원 주차정보가 누락되었습니다.")
@@ -51,10 +51,10 @@ public class HospitalDto {
     private Integer visitReserveStartAt;
     @NotNull(message = "방문 예약 운영 시간이 누락되었습니다.")
     private Integer visitReserveEndAt;
-    @NotBlank(message = "시간당 방문 예약 가능 인원 수가 누락되었습니다.")
+    @NotNull(message = "시간당 방문 예약 가능 인원 수가 누락되었습니다.")
     private Integer visitReserveRerHour;
-    @NotNull(message = "방문 예약 취소 가능 시간이 누락되었습니다.")
-    private CancellationPeriod visitReserveCancellationPeriod;
+    @NotBlank(message = "방문 예약 취소 가능 시간이 누락되었습니다.")
+    private String visitReserveCancellationPeriod;
     @NotNull(message = "방문 예약 주말 가능 여부가 누락되었습니다.")
     private Boolean visitReserveWeekend;
 
@@ -64,10 +64,10 @@ public class HospitalDto {
     private Integer consultationReserveStartAt;
     @NotNull(message = "비대면 상담 운영 시간이 누락되었습니다.")
     private Integer consultationReserveEndAt;
-    @NotBlank(message = "시간당 비대면 상담 가능 인원 수가 누락되었습니다.")
+    @NotNull(message = "시간당 비대면 상담 가능 인원 수가 누락되었습니다.")
     private Integer consultationReserveRerHour;
-    @NotNull(message = "비대면 상담 취소 가능 시간이 누락되었습니다.")
-    private CancellationPeriod consultationReserveCancellationPeriod;
+    @NotBlank(message = "비대면 상담 취소 가능 시간이 누락되었습니다.")
+    private String consultationReserveCancellationPeriod;
     @NotNull(message = "비대면 상담 주말 가능 여부가 누락되었습니다.")
     private Boolean consultationReserveWeekend;
 
@@ -77,10 +77,10 @@ public class HospitalDto {
     private Integer onlineReserveStartAt;
     @NotNull(message = "온라인 접수 운영 시간이 누락되었습니다.")
     private Integer onlineReserveEndAt;
-    @NotBlank(message = "시간당 온라인 접수 가능 인원 수가 누락되었습니다.")
+    @NotNull(message = "시간당 온라인 접수 가능 인원 수가 누락되었습니다.")
     private Integer onlineReserveRerHour;
-    @NotNull(message = "온라인 접수 취소 가능 시간이 누락되었습니다.")
-    private CancellationPeriod onlineReserveCancellationPeriod;
+    @NotBlank(message = "온라인 접수 취소 가능 시간이 누락되었습니다.")
+    private String onlineReserveCancellationPeriod;
     @NotNull(message = "온라인 접수 주말 가능 여부가 누락되었습니다.")
     private Boolean onlineReserveWeekend;
 
@@ -90,10 +90,10 @@ public class HospitalDto {
     private Integer houseCallReserveStartAt;
     @NotNull(message = "왕진 예약 운영 시간이 누락되었습니다.")
     private Integer houseCallReserveEndAt;
-    @NotBlank(message = "시간당 왕진 예약 가능 인원 수가 누락되었습니다.")
+    @NotNull(message = "시간당 왕진 예약 가능 인원 수가 누락되었습니다.")
     private Integer houseCallReserveRerHour;
-    @NotNull(message = "왕진 예약 취소 가능 시간이 누락되었습니다.")
-    private CancellationPeriod houseCallReserveCancellationPeriod;
+    @NotBlank(message = "왕진 예약 취소 가능 시간이 누락되었습니다.")
+    private String houseCallReserveCancellationPeriod;
     @NotNull(message = "왕진 예약 주말 가능 여부가 누락되었습니다.")
     private Boolean houseCallReserveWeekend;
 

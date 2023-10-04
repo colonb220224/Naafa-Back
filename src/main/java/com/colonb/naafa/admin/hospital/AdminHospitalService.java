@@ -89,7 +89,7 @@ public class AdminHospitalService {
         hospitalMapper.insertHospital(mappedReq);
         // 병원장 테이블 등록
         hospitalMapper.insertHospitalChief(mappedReq);
-        // 병원 대표관리자 등록
+        // 병원 대표관리자 등록 USER_HOSPITAL_RELATE
         hospitalMapper.insertUserHospitalHost(mappedReq);
         // 병원 INFO 등록
         hospitalMapper.insertHospitalInfo(mappedReq);
