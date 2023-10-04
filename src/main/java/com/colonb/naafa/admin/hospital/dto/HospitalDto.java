@@ -25,7 +25,7 @@ public class HospitalDto {
     private String licenseNumber;
     @NotNull(message = "원장성별이 누락되었습니다.")
     private Gender gender;
-    @NotNull(message = "원장의사분류가 ㅊ")
+    @NotNull(message = "원장의사분류가 누락되었습니다.")
     private ChiefCategory chiefCategory;
     // 관리자 정보
     @Email(message = "올바르지 않은 이메일 형식입니다.")
@@ -97,9 +97,122 @@ public class HospitalDto {
     @NotNull(message = "왕진 예약 주말 가능 여부가 누락되었습니다.")
     private Boolean houseCallReserveWeekend;
 
+    @NotNull(message = "월요일 운영여부가 누락되었습니다.")
+    private Boolean mondayOperatingEnable;
+    @NotNull(message = "월요일 운영 시작시간이 누락되었습니다.")
+    private Integer mondayOperatingStartAt;
+    @NotNull(message = "월요일 운영 마감시간이 누락되었습니다.")
+    private Integer mondayOperatingEndAt;
+    @NotNull(message = "월요일 점심시간 시작이 누락되었습니다.")
+    private Integer mondayBreakStartAt;
+    @NotNull(message = "월요일 점심시간 마감이 누락되었습니다.")
+    private Integer mondayBreakEndAt;
+    @NotNull(message = "월요일 야간진료 운영여부가 누락되었습니다.")
+    private Boolean mondayNightCareEnable;
+    @NotNull(message = "월요일 야간진료 시작시간이 누락되었습니다.")
+    private Integer mondayNightCareStartAt;
+    @NotNull(message = "월요일 야간진료 마감시간이 누락되었습니다.")
+    private Integer mondayNightCareEndAt;
 
+    @NotNull(message = "화요일 운영여부가 누락되었습니다.")
+    private Boolean tuesdayOperatingEnable;
+    @NotNull(message = "화요일 운영 시작시간이 누락되었습니다.")
+    private Integer tuesdayOperatingStartAt;
+    @NotNull(message = "화요일 운영 마감시간이 누락되었습니다.")
+    private Integer tuesdayOperatingEndAt;
+    @NotNull(message = "화요일 점심시간 시작이 누락되었습니다.")
+    private Integer tuesdayBreakStartAt;
+    @NotNull(message = "화요일 점심시간 마감이 누락되었습니다.")
+    private Integer tuesdayBreakEndAt;
+    @NotNull(message = "화요일 야간진료 운영여부가 누락되었습니다.")
+    private Boolean tuesdayNightCareEnable;
+    @NotNull(message = "화요일 야간진료 시작시간이 누락되었습니다.")
+    private Integer tuesdayNightCareStartAt;
+    @NotNull(message = "화요일 야간진료 마감시간이 누락되었습니다.")
+    private Integer tuesdayNightCareEndAt;
 
+    @NotNull(message = "수요일 운영여부가 누락되었습니다.")
+    private Boolean wednesdayOperatingEnable;
+    @NotNull(message = "수요일 운영 시작시간이 누락되었습니다.")
+    private Integer wednesdayOperatingStartAt;
+    @NotNull(message = "수요일 운영 마감시간이 누락되었습니다.")
+    private Integer wednesdayOperatingEndAt;
+    @NotNull(message = "수요일 점심시간 시작이 누락되었습니다.")
+    private Integer wednesdayBreakStartAt;
+    @NotNull(message = "수요일 점심시간 마감이 누락되었습니다.")
+    private Integer wednesdayBreakEndAt;
+    @NotNull(message = "수요일 야간진료 운영여부가 누락되었습니다.")
+    private Boolean wednesdayNightCareEnable;
+    @NotNull(message = "수요일 야간진료 시작시간이 누락되었습니다.")
+    private Integer wednesdayNightCareStartAt;
+    @NotNull(message = "수요일 야간진료 마감시간이 누락되었습니다.")
+    private Integer wednesdayNightCareEndAt;
 
+    @NotNull(message = "목요일 운영여부가 누락되었습니다.")
+    private Boolean thursdayOperatingEnable;
+    @NotNull(message = "목요일 운영 시작시간이 누락되었습니다.")
+    private Integer thursdayOperatingStartAt;
+    @NotNull(message = "목요일 운영 마감시간이 누락되었습니다.")
+    private Integer thursdayOperatingEndAt;
+    @NotNull(message = "목요일 점심시간 시작이 누락되었습니다.")
+    private Integer thursdayBreakStartAt;
+    @NotNull(message = "목요일 점심시간 마감이 누락되었습니다.")
+    private Integer thursdayBreakEndAt;
+    @NotNull(message = "목요일 야간진료 운영여부가 누락되었습니다.")
+    private Boolean thursdayNightCareEnable;
+    @NotNull(message = "목요일 야간진료 시작시간이 누락되었습니다.")
+    private Integer thursdayNightCareStartAt;
+    @NotNull(message = "목요일 야간진료 마감시간이 누락되었습니다.")
+    private Integer thursdayNightCareEndAt;
 
+    @NotNull(message = "금요일 운영여부가 누락되었습니다.")
+    private Boolean fridayOperatingEnable;
+    @NotNull(message = "금요일 운영 시작시간이 누락되었습니다.")
+    private Integer fridayOperatingStartAt;
+    @NotNull(message = "금요일 운영 마감시간이 누락되었습니다.")
+    private Integer fridayOperatingEndAt;
+    @NotNull(message = "금요일 점심시간 시작이 누락되었습니다.")
+    private Integer fridayBreakStartAt;
+    @NotNull(message = "금요일 점심시간 마감이 누락되었습니다.")
+    private Integer fridayBreakEndAt;
+    @NotNull(message = "금요일 야간진료 운영여부가 누락되었습니다.")
+    private Boolean fridayNightCareEnable;
+    @NotNull(message = "금요일 야간진료 시작시간이 누락되었습니다.")
+    private Integer fridayNightCareStartAt;
+    @NotNull(message = "금요일 야간진료 마감시간이 누락되었습니다.")
+    private Integer fridayNightCareEndAt;
 
+    @NotNull(message = "토요일 운영여부가 누락되었습니다.")
+    private Boolean saturdayOperatingEnable;
+    @NotNull(message = "토요일 운영 시작시간이 누락되었습니다.")
+    private Integer saturdayOperatingStartAt;
+    @NotNull(message = "토요일 운영 마감시간이 누락되었습니다.")
+    private Integer saturdayOperatingEndAt;
+    @NotNull(message = "토요일 점심시간 시작이 누락되었습니다.")
+    private Integer saturdayBreakStartAt;
+    @NotNull(message = "토요일 점심시간 마감이 누락되었습니다.")
+    private Integer saturdayBreakEndAt;
+    @NotNull(message = "토요일 야간진료 운영여부가 누락되었습니다.")
+    private Boolean saturdayNightCareEnable;
+    @NotNull(message = "토요일 야간진료 시작시간이 누락되었습니다.")
+    private Integer saturdayNightCareStartAt;
+    @NotNull(message = "토요일 야간진료 마감시간이 누락되었습니다.")
+    private Integer saturdayNightCareEndAt;
+
+    @NotNull(message = "일요일 운영여부가 누락되었습니다.")
+    private Boolean sundayOperatingEnable;
+    @NotNull(message = "일요일 운영 시작시간이 누락되었습니다.")
+    private Integer sundayOperatingStartAt;
+    @NotNull(message = "일요일 운영 마감시간이 누락되었습니다.")
+    private Integer sundayOperatingEndAt;
+    @NotNull(message = "일요일 점심시간 시작이 누락되었습니다.")
+    private Integer sundayBreakStartAt;
+    @NotNull(message = "일요일 점심시간 마감이 누락되었습니다.")
+    private Integer sundayBreakEndAt;
+    @NotNull(message = "일요일 야간진료 운영여부가 누락되었습니다.")
+    private Boolean sundayNightCareEnable;
+    @NotNull(message = "일요일 야간진료 시작시간이 누락되었습니다.")
+    private Integer sundayNightCareStartAt;
+    @NotNull(message = "일요일 야간진료 마감시간이 누락되었습니다.")
+    private Integer sundayNightCareEndAt;
 }

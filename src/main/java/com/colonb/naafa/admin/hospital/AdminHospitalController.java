@@ -18,7 +18,7 @@ import javax.validation.Valid;
 public class AdminHospitalController {
     private final AdminHospitalService adminHospitalService;
 
-    @PostMapping("modify/{hospitalSeq}/{userSeq}")
+    @PostMapping("modify/{hospitalSeq}")
     public ResponseEntity<Result> hospitalModify(@RequestBody @Valid HospitalDto req,
             BindingResult bindingResult, @PathVariable long hospitalSeq, @AuthenticationPrincipal UserDetailsImpl userDetails) throws Exception {
         if (bindingResult.hasErrors()) {
