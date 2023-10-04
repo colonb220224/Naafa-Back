@@ -2,6 +2,20 @@ $(document).ready(function(){
     searchMain()
 })
 
+$(document).on('click', '.hospitalDetail', (e) =>{
+    axios({
+        method: 'get',
+        url: '/hospital/' + $(e.target).attr('seq'),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then((res) => {
+
+    }).catch((error) => {
+        console.log(error);
+    })
+})
+
 function searchMain(){
 
     axios({
@@ -12,7 +26,7 @@ function searchMain(){
         }
     }).then((res) => {
         if(res.data.success){
-            $('.item-append').empty();
+            $('.hospital-append').empty();
             hospitalSearchList(res.data.data)
         }
     }).catch((error) => {
@@ -26,7 +40,7 @@ function hospitalSearchList(data){
         const setHtml =
             `
             <li>
-                <a href="hospital/${data[i].SEQ}">
+                <a class="hospitalDetail" href="hospital/${data[i].SEQ}">
                     <div class="tags">
                         <div class="tag blue">접수</div>
                         <div class="tag sky">예약</div>
@@ -53,7 +67,7 @@ function hospitalSearchList(data){
                 </a>
             </li>
             `
-        $('.item-append').append(setHtml);
+        $('.hospital-append').append(setHtml);
     }
 
     if(data.length == 0){
@@ -87,6 +101,6 @@ function hospitalSearchList(data){
                     </a>
                 </li>
         `
-        $('.item-append').append(setHtml);
+        $('.hospital-append').append(setHtml);
     }
 }
