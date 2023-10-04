@@ -16,7 +16,7 @@
 
     <update id="updateHospitalOperatingHourMonday">
         UPDATE HOSPITAL_BUSINESS_HOURS_MONDAY
-        SET  ENALE = #{mondayOperatingEnable}
+        SET  ENABLE = #{mondayOperatingEnable}
           ,  START_AT = #{mondayOperatingStartAt}
           ,  END_AT = #{mondayOperatingEndAt}
           ,  BREAK_START_AT = #{mondayBreakStartAt}
@@ -29,7 +29,7 @@
 
     <update id="updateHospitalOperatingHourTuesday">
         UPDATE HOSPITAL_BUSINESS_HOURS_TUESDAY
-        SET  ENALE = #{tuesdayOperatingEnable}
+        SET  ENABLE = #{tuesdayOperatingEnable}
           ,  START_AT = #{tuesdayOperatingStartAt}
           ,  END_AT = #{tuesdayOperatingEndAt}
           ,  BREAK_START_AT = #{tuesdayBreakStartAt}
@@ -42,7 +42,7 @@
 
     <update id="updateHospitalOperatingHourWednesday">
         UPDATE HOSPITAL_BUSINESS_HOURS_WEDNESDAY
-        SET  ENALE = #{wednesdayOperatingEnable}
+        SET  ENABLE = #{wednesdayOperatingEnable}
           ,  START_AT = #{wednesdayOperatingStartAt}
           ,  END_AT = #{wednesdayOperatingEndAt}
           ,  BREAK_START_AT = #{wednesdayBreakStartAt}
@@ -55,7 +55,7 @@
 
     <update id="updateHospitalOperatingHourThursday">
         UPDATE HOSPITAL_BUSINESS_HOURS_THURSDAY
-        SET  ENALE = #{thursdayOperatingEnable}
+        SET  ENABLE = #{thursdayOperatingEnable}
           ,  START_AT = #{thursdayOperatingStartAt}
           ,  END_AT = #{thursdayOperatingEndAt}
           ,  BREAK_START_AT = #{thursdayBreakStartAt}
@@ -68,7 +68,7 @@
 
     <update id="updateHospitalOperatingHourFriday">
         UPDATE HOSPITAL_BUSINESS_HOURS_FRIDAY
-        SET  ENALE = #{fridayOperatingEnable}
+        SET  ENABLE = #{fridayOperatingEnable}
           ,  START_AT = #{fridayOperatingStartAt}
           ,  END_AT = #{fridayOperatingEndAt}
           ,  BREAK_START_AT = #{fridayBreakStartAt}
@@ -81,7 +81,7 @@
 
     <update id="updateHospitalOperatingHourSaturday">
         UPDATE HOSPITAL_BUSINESS_HOURS_SATURDAY
-        SET  ENALE = #{saturdayOperatingEnable}
+        SET  ENABLE = #{saturdayOperatingEnable}
           ,  START_AT = #{saturdayOperatingStartAt}
           ,  END_AT = #{saturdayOperatingEndAt}
           ,  BREAK_START_AT = #{saturdayBreakStartAt}
@@ -94,7 +94,7 @@
 
     <update id="updateHospitalOperatingHourSunday">
         UPDATE HOSPITAL_BUSINESS_HOURS_SUNDAY
-        SET  ENALE = #{sundayOperatingEnable}
+        SET  ENABLE = #{sundayOperatingEnable}
           ,  START_AT = #{sundayOperatingStartAt}
           ,  END_AT = #{sundayOperatingEndAt}
           ,  BREAK_START_AT = #{sundayBreakStartAt}
@@ -265,10 +265,10 @@
         LIMIT 1
     </select>
 
-    <select id="findHospitalByUser" resultType="Integer">
+    <select id="findUserByHospital" resultType="Integer">
         SELECT USER
         FROM HOSPITAL
-        WHERE HOSPITAL = #{hospital}
+        WHERE SEQ = #{hospital}
     </select>
 
     <update id="updateHospitalInfo">
@@ -348,7 +348,7 @@
                 #{houseCallReserveWeekend}, #{HOSPITAL})
     </insert>
 
-    <update id="=updateHospitalVisitReserveInfo">
+    <update id="updateHospitalVisitReserveInfo">
         UPDATE HOSPITAL_VISIT_RESERVE_INFO
         SET    ENABLE = #{visitReserveEnable},
                START_AT = #{visitReserveStartAt},
@@ -359,7 +359,7 @@
         WHERE HOSPITAL = #{hospital}
     </update>
 
-    <update id="=updateHospitalConsultationReserveInfo">
+    <update id="updateHospitalConsultationReserveInfo">
         UPDATE HOSPITAL_CONSULTATION_RESERVE_INFO
         SET    ENABLE = #{consultationReserveEnable},
                START_AT = #{consultationReserveStartAt},
@@ -370,7 +370,7 @@
         WHERE HOSPITAL = #{hospital}
     </update>
 
-    <update id="=updateHospitalOnlineReserveInfo">
+    <update id="updateHospitalOnlineReserveInfo">
         UPDATE HOSPITAL_ONLINE_RESERVE_INFO
         SET    ENABLE = #{onlineReserveEnable},
                START_AT = #{onlineReserveStartAt},
@@ -381,7 +381,7 @@
         WHERE HOSPITAL = #{hospital}
     </update>
 
-    <update id="=updateHospitalHouseCallReserveInfo">
+    <update id="updateHospitalHouseCallReserveInfo">
         UPDATE HOSPITAL_HOUSE_CALL_RESERVE_INFO
         SET    ENABLE = #{houseCallReserveEnable},
                START_AT = #{houseCallReserveStartAt},

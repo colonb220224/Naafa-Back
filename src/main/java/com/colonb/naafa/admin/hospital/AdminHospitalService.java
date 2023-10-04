@@ -11,6 +11,7 @@ import com.colonb.naafa.user.enums.UserRole;
 import com.colonb.naafa.util.HashMapConverter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,6 +23,7 @@ import java.util.Optional;
 public class AdminHospitalService {
     private final HospitalMapper hospitalMapper;
     private final UserMapper userMapper;
+    private final PasswordEncoder passwordEncoder;
 
     @Transactional
     public Result hospitalModify(HospitalDto req, long hospitalSeq, UserDetailsImpl userDetails) throws Exception {
@@ -33,7 +35,7 @@ public class AdminHospitalService {
         if(!userSeq.isPresent()){
             return new Result("병원 대표관리자 정보가 존재하지 않습니다.",HttpStatus.BAD_REQUEST, false);
         }
-        mappedReq.put("user", userSeq);
+        mappedReq.put("user", userSeq.get());
         userMapper.updateDefaultUser(mappedReq);
         // 병원 테이블 수정
         hospitalMapper.updateHospital(mappedReq);
@@ -78,6 +80,7 @@ public class AdminHospitalService {
         // 대표관리자 유저정보 등록
         HashMap<String, Object> mappedReq = HashMapConverter.convert(req);
         mappedReq.put("role", UserRole.ROLE_USER);
+        mappedReq.replace("password", passwordEncoder.encode(mappedReq.get("password").toString()));
         userMapper.insertDefaultUser(mappedReq);
         // todo 소속팀/직급/회원분류(운영관리 기획서 6p)에 대한 테이블 및 기획이 필요
         userMapper.insertUserCreatedAt(mappedReq);
