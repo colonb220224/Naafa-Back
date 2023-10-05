@@ -253,13 +253,16 @@
     </insert>
 
     <select id="findHospitalByHospital" resultType="HashMap">
-        SELECT SEQ
-             , NAME
-             , ADDRESS
-             , COORDINATE
-             , CONTACT
-             , USER
+        SELECT H.SEQ
+             , H.NAME
+             , H.ADDRESS
+             , H.COORDINATE
+             , H.CONTACT
+             , H.USER
+             , HI.INFO_TREATMENT
+             , HI.INFO_DETAILS
         FROM HOSPITAL H
+        INNER JOIN HOSPITAL_INFO HI on H.SEQ = HI.HOSPITAL
         WHERE H.SEQ = #{seq}
     </select>
 

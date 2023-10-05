@@ -48,26 +48,26 @@ function hospitalSearchList(data){
     for (const i in data) {
         const setHtml =
             `
-            <li class="hospitalDetail" seq="${data[i].SEQ}">
-                <a href="hospital/${data[i].SEQ}" seq="${data[i].SEQ}">
-                    <div class="tags" seq="${data[i].SEQ}">
+            <li class="hospitalDetail">
+                <a href="hospital/${data[i].SEQ}">
+                    <div class="tags">
                         <div class="tag blue">접수</div>
                         <div class="tag sky">예약</div>
                         <div class="tag green">비대면</div>
                     </div>
                     <h3>${data[i].NAME}</h3>
-                    <div class="star" seq="${data[i].SEQ}">
+                    <div class="star">
                         <i>
                             <img th:src="@{/user/images/star.png}" alt="">
                         </i>
-                        <p seq="${data[i].SEQ}">5.0 <span>(재방문 90%)</span></p>
+                        <p>5.0 <span>(재방문 90%)</span></p>
                     </div>
-                    <div class="info" seq="${data[i].SEQ}">
+                    <div class="info">
                         <h5>금요일 09:00~16:00</h5>
                         <div class="line"></div>
                         <span>이비인후과</span>
                     </div>
-                    <div class="info" seq="${data[i].SEQ}">
+                    <div class="info">
                         <i><img th:src="@{/user/images/loca.png}" alt=""></i>
                         <h5>6Km</h5>
                         <div class="line"></div>
