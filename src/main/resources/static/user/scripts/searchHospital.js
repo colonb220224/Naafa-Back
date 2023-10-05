@@ -2,15 +2,25 @@ $(document).ready(function(){
     searchMain()
 })
 
-$(document).on('click', '.hospitalDetail', (e) =>{
+$(document).on('click', '.hospital_list li', (e) =>{
+    const param = {
+        seq : $(e.target).attr('seq')
+    }
+
+    if(param.seq == undefined){
+        param.seq = $(e.target).parents().attr('seq')
+    }
+    console.log(param.seq)
     axios({
-        method: 'get',
-        url: '/hospital/' + $(e.target).attr('seq'),
+        method: 'post',
+        url: 'user/hospital',
+        data: param.seq,
         headers: {
             'Content-Type': 'application/json'
         }
     }).then((res) => {
-        reload()
+        console.log(res.data)
+        // details(res.data)
     }).catch((error) => {
         console.log(error);
     })
@@ -39,26 +49,26 @@ function hospitalSearchList(data){
     for (const i in data) {
         const setHtml =
             `
-            <li>
-                <a class="hospitalDetail" href="hospital">
-                    <div class="tags">
+            <li class="hospitalDetail" seq="${data[i].SEQ}">
+                <a seq="${data[i].SEQ}">
+                    <div class="tags" seq="${data[i].SEQ}">
                         <div class="tag blue">접수</div>
                         <div class="tag sky">예약</div>
                         <div class="tag green">비대면</div>
                     </div>
                     <h3>${data[i].NAME}</h3>
-                    <div class="star">
+                    <div class="star" seq="${data[i].SEQ}">
                         <i>
                             <img th:src="@{/user/images/star.png}" alt="">
                         </i>
-                        <p>5.0 <span>(재방문 90%)</span></p>
+                        <p seq="${data[i].SEQ}">5.0 <span>(재방문 90%)</span></p>
                     </div>
-                    <div class="info">
+                    <div class="info" seq="${data[i].SEQ}">
                         <h5>금요일 09:00~16:00</h5>
                         <div class="line"></div>
                         <span>이비인후과</span>
                     </div>
-                    <div class="info">
+                    <div class="info" seq="${data[i].SEQ}">
                         <i><img th:src="@{/user/images/loca.png}" alt=""></i>
                         <h5>6Km</h5>
                         <div class="line"></div>
@@ -105,4 +115,21 @@ function hospitalSearchList(data){
     }
 }
 
+function details(){
 
+    axios({
+        method: 'get',
+        url: '/user/hospital/list',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    }).then((res) => {
+        if(res.data.success){
+            $('.item-append').empty();
+            hospitalSearchList(res.data.data)
+        }
+    }).catch((error) => {
+        console.log(error);
+    })
+
+}
