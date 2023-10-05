@@ -253,16 +253,79 @@
     </insert>
 
     <select id="findHospitalByHospital" resultType="HashMap">
-        SELECT H.SEQ
+        SELECT H.SEQ SEQ
              , H.NAME
              , H.ADDRESS
              , H.COORDINATE
              , H.CONTACT
              , H.USER
-             , HI.INFO_TREATMENT
-             , HI.INFO_DETAILS
+             , HI.*
+             , M.ENABLE as mEnable
+             , M.START_AT as mStartAt
+             , M.END_AT as mEndAt
+             , M.BREAK_START_AT as mBreakStartAt
+             , M.BREAK_END_AT as mBreakEndAt
+             , M.NIGHT_CARE_ENABLE as mNightCareEnable
+             , M.NIGHT_CARE_START_AT as mNightCareStartAt
+             , M.NIGHT_CARE_END_AT as mNightCareEndAt
+             , TE.ENABLE as teEnable
+             , TE.START_AT as teStartAt
+             , TE.END_AT as teEndAt
+             , TE.BREAK_START_AT as teBreakStartAt
+             , TE.BREAK_END_AT as teBreakEndAt
+             , TE.NIGHT_CARE_ENABLE as teNightCareEnable
+             , TE.NIGHT_CARE_START_AT as teNightCareStartAt
+             , TE.NIGHT_CARE_END_AT as teNightCareEndAt
+             , W.ENABLE as weEnable
+             , W.START_AT as weStartAt
+             , W.END_AT as weEndAt
+             , W.BREAK_START_AT as weBreakStartAt
+             , W.BREAK_END_AT as weBreakEndAt
+             , W.NIGHT_CARE_ENABLE as weNightCareEnable
+             , W.NIGHT_CARE_START_AT as weNightCareStartAt
+             , W.NIGHT_CARE_END_AT as weNightCareEndAt
+             , TH.ENABLE as thEnable
+             , TH.START_AT as thStartAt
+             , TH.END_AT as thEndAt
+             , TH.BREAK_START_AT as thBreakStartAt
+             , TH.BREAK_END_AT as thBreakEndAt
+             , TH.NIGHT_CARE_ENABLE as thNightCareEnable
+             , TH.NIGHT_CARE_START_AT as thNightCareStartAt
+             , TH.NIGHT_CARE_END_AT as thNightCareEndAt
+             , F.ENABLE as fEnable
+             , F.START_AT as fStartAt
+             , F.END_AT as fEndAt
+             , F.BREAK_START_AT as fBreakStartAt
+             , F.BREAK_END_AT as fBreakEndAt
+             , F.NIGHT_CARE_ENABLE as fNightCareEnable
+             , F.NIGHT_CARE_START_AT as fNightCareStartAt
+             , F.NIGHT_CARE_END_AT as fNightCareEndAt
+             , SA.ENABLE as saEnable
+             , SA.START_AT as saStartAt
+             , SA.END_AT as saEndAt
+             , SA.BREAK_START_AT as saBreakStartAt
+             , SA.BREAK_END_AT as saBreakEndAt
+             , SA.NIGHT_CARE_ENABLE as saNightCareEnable
+             , SA.NIGHT_CARE_START_AT as saNightCareStartAt
+             , SA.NIGHT_CARE_END_AT as saNightCareEndAt
+             , SU.ENABLE as suEnable
+             , SU.START_AT as suStartAt
+             , SU.END_AT as suEndAt
+             , SU.BREAK_START_AT as suBreakStartAt
+             , SU.BREAK_END_AT as suBreakEndAt
+             , SU.NIGHT_CARE_ENABLE as suNightCareEnable
+             , SU.NIGHT_CARE_START_AT as suNightCareStartAt
+             , SU.NIGHT_CARE_END_AT as suNightCareEndAt
         FROM HOSPITAL H
-        INNER JOIN HOSPITAL_INFO HI on H.SEQ = HI.HOSPITAL
+            INNER JOIN HOSPITAL_INFO HI on H.SEQ = HI.HOSPITAL
+            INNER JOIN HOSPITAL_BUSINESS_HOURS_MONDAY M on H.SEQ = M.HOSPITAL
+            INNER JOIN HOSPITAL_BUSINESS_HOURS_TUESDAY TE on H.SEQ = TE.HOSPITAL
+            INNER JOIN HOSPITAL_BUSINESS_HOURS_WEDNESDAY W on H.SEQ = W.HOSPITAL
+            INNER JOIN HOSPITAL_BUSINESS_HOURS_THURSDAY TH on H.SEQ = TH.HOSPITAL
+            INNER JOIN HOSPITAL_BUSINESS_HOURS_FRIDAY F on H.SEQ = F.HOSPITAL
+            INNER JOIN HOSPITAL_BUSINESS_HOURS_SATURDAY SA on H.SEQ = SA.HOSPITAL
+            INNER JOIN HOSPITAL_BUSINESS_HOURS_SUNDAY SU on H.SEQ = SU.HOSPITAL
+            INNER JOIN HOSPITAL_INFO I ON H.SEQ = I.HOSPITAL
         WHERE H.SEQ = #{seq}
     </select>
 

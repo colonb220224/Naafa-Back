@@ -25,11 +25,11 @@ public class HospitalService {
     private final UserMapper userMapper;
 
     @Transactional
-    public Result getHospitalDetail(long seq) {
+    public HashMap<String, Object> getHospitalDetail(long seq) {
         // 병원 상세보기
         HashMap<String, Object> result  = hospitalMapper.findHospitalByHospital(seq);
 
-        return new Result(HttpStatus.OK, result, true);
+        return result;
     }
 
     @Transactional

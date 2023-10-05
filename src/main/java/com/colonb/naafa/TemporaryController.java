@@ -30,9 +30,9 @@ public class TemporaryController {
     @GetMapping("hospital/{seq}")
     public String getHospitalList(@PathVariable long seq, Model model) {
 
-//        List<HashMap<String, Object>> res = hospitalService.getHospitalDetail(seq);
+        HashMap<String, Object> res = hospitalService.getHospitalDetail(seq);
 
-//        model.addAttribute("res", res);
+        model.addAttribute("res", res);
 
         return "user/hospital";
     }
