@@ -11,9 +11,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.thymeleaf.util.MapUtils;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -24,8 +27,8 @@ public class HospitalService {
     @Transactional
     public Result getHospitalDetail(long seq) {
         // 병원 상세보기
-       HashMap<String, Object> result  = hospitalMapper.findHospitalByHospital(seq);
-
+        HashMap<String, Object> result  = hospitalMapper.findHospitalByHospital(seq);
+        System.out.println(result);
         return new Result(HttpStatus.OK, result, true);
     }
 

@@ -9,8 +9,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class TemporaryController {
 
-    @RequestMapping("{var}")
+    @RequestMapping("{var}/{seq}")
     String tempMapping(@PathVariable String var){
+        return "user/"  +var;
+    }
+
+    @RequestMapping("{var}")
+    String tempMapping1(@PathVariable String var){
         return "user/"  +var;
     }
 

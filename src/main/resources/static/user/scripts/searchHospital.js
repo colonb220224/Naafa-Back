@@ -2,29 +2,28 @@ $(document).ready(function(){
     searchMain()
 })
 
-$(document).on('click', '.hospital_list li', (e) =>{
-    const param = {
-        seq : $(e.target).attr('seq')
-    }
-
-    if(param.seq == undefined){
-        param.seq = $(e.target).parents().attr('seq')
-    }
-    console.log(param.seq)
-    axios({
-        method: 'post',
-        url: 'user/hospital',
-        data: param.seq,
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    }).then((res) => {
-        console.log(res.data)
-        // details(res.data)
-    }).catch((error) => {
-        console.log(error);
-    })
-})
+// $(document).on('click', '.hospital_list li', (e) =>{
+//     const param = {
+//         seq : $(e.target).attr('seq')
+//     }
+//
+//     if(param.seq == undefined){
+//         param.seq = $(e.target).parents().attr('seq')
+//     }
+//     console.log(param.seq)
+//     axios({
+//         method: 'get',
+//         url: 'user/hospital/'+param.seq,
+//         data: param.seq,
+//         headers: {
+//             'Content-Type': 'application/json'
+//         }
+//     }).then((res) => {
+//         console.log(res.data.data)
+//     }).catch((error) => {
+//         console.log(error);
+//     })
+// })
 
 function searchMain(){
 
@@ -50,7 +49,7 @@ function hospitalSearchList(data){
         const setHtml =
             `
             <li class="hospitalDetail" seq="${data[i].SEQ}">
-                <a seq="${data[i].SEQ}">
+                <a href="hospital/${data[i].SEQ}" seq="${data[i].SEQ}">
                     <div class="tags" seq="${data[i].SEQ}">
                         <div class="tag blue">접수</div>
                         <div class="tag sky">예약</div>
@@ -113,23 +112,4 @@ function hospitalSearchList(data){
         `
         $('.item-append').append(setHtml);
     }
-}
-
-function details(){
-
-    axios({
-        method: 'get',
-        url: '/user/hospital/list',
-        headers: {
-            'Content-Type': 'application/json',
-        }
-    }).then((res) => {
-        if(res.data.success){
-            $('.item-append').empty();
-            hospitalSearchList(res.data.data)
-        }
-    }).catch((error) => {
-        console.log(error);
-    })
-
 }
