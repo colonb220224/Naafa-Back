@@ -108,7 +108,7 @@
             <ul class="hospital_list mb-150">
                 <th:block th:if="${#lists.size(res) != 0}" th:each="i, n : ${res}">
                     <li>
-                        <a href="hospital">
+                        <a th:href="@{/hospital/{id}(id=${i.SEQ})}">
                             <div class="tags">
                                 <div class="tag blue">접수</div>
                                 <div class="tag sky">예약</div>

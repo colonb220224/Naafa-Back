@@ -27,6 +27,16 @@ public class TemporaryController {
         return "admin/"+var;
     }
 
+    @GetMapping("hospital/{seq}")
+    public String getHospitalList(@PathVariable long seq, Model model) {
+
+//        List<HashMap<String, Object>> res = hospitalService.getHospitalDetail(seq);
+
+//        model.addAttribute("res", res);
+
+        return "user/hospital";
+    }
+
     @GetMapping("search_hospital")
     public String getHospitalList(Model model) {
 
