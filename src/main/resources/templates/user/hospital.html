@@ -120,31 +120,38 @@
                             <div class="time_info2">
                                 <div class="info">
                                     <h5>월요일</h5>
-                                    <p>10:00 ~ 19:00</p>
+                                    <p th:if="${res.mEnable != false}" th:text="${res.mStartAt}+':00'+' ~ '+${res.mEndAt}+':00'">10:00 ~ 19:00</p>
+                                    <p th:if="${res.mEnable == false}" th:text="'휴진'">10:00 ~ 19:00</p>
                                 </div>
                                 <div class="info">
                                     <h5>화요일</h5>
-                                    <p>10:00 ~ 19:00</p>
+                                    <p th:if="${res.teEnable != false}" th:text="${res.teStartAt}+':00'+' ~ '+${res.teEndAt}+':00'">10:00 ~ 19:00</p>
+                                    <p th:if="${res.teEnable == false}" th:text="'휴진'">10:00 ~ 19:00</p>
                                 </div>
                                 <div class="info">
                                     <h5>수요일</h5>
-                                    <p>10:00 ~ 19:00</p>
+                                    <p th:if="${res.weEnable != false}" th:text="${res.weStartAt}+':00'+' ~ '+${res.weEndAt}+':00'">10:00 ~ 19:00</p>
+                                    <p th:if="${res.weEnable == false}" th:text="'휴진'">10:00 ~ 19:00</p>
                                 </div>
                                 <div class="info">
                                     <h5>목요일</h5>
-                                    <p>10:00 ~ 19:00</p>
+                                    <p th:if="${res.thEnable != false}" th:text="${res.thStartAt}+':00'+' ~ '+${res.thEndAt}+':00'">10:00 ~ 19:00</p>
+                                    <p th:if="${res.thEnable == false}" th:text="'휴진'">10:00 ~ 19:00</p>
                                 </div>
                                 <div class="info">
                                     <h5>금요일</h5>
-                                    <p>10:00 ~ 19:00</p>
+                                    <p th:if="${res.fEnable != false}" th:text="${res.fStartAt}+':00'+' ~ '+${res.fEndAt}+':00'">10:00 ~ 19:00</p>
+                                    <p th:if="${res.fEnable == false}" th:text="'휴진'">10:00 ~ 19:00</p>
                                 </div>
                                 <div class="info blue">
                                     <h5>토요일</h5>
-                                    <p>10:00 ~ 19:00</p>
+                                    <p th:if="${res.saEnable != false}" th:text="${res.saStartAt}+':00'+' ~ '+${res.saEndAt}+':00'">10:00 ~ 19:00</p>
+                                    <p th:if="${res.saEnable == false}" th:text="'휴진'">10:00 ~ 19:00</p>
                                 </div>
                                 <div class="info red">
                                     <h5>일요일</h5>
-                                    <p>휴진</p>
+                                    <p th:if="${res.suEnable != false}" th:text="${res.suStartAt}+':00'+' ~ '+${res.suEndAt}+':00'">10:00 ~ 19:00</p>
+                                    <p th:if="${res.suEnable == false}" th:text="'휴진'">10:00 ~ 19:00</p>
                                 </div>
                                 <div class="info red">
                                     <h5>공휴일</h5>
