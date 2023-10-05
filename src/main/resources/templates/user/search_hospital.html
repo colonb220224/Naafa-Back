@@ -106,7 +106,7 @@
                 </div>
             </div>
             <ul class="hospital_list mb-150">
-                <div class="item-append">
+                <th:block th:if="${#lists.size(res) != 0}" th:each="i, n : ${res}">
                     <li>
                         <a href="hospital">
                             <div class="tags">
@@ -114,7 +114,7 @@
                                 <div class="tag sky">예약</div>
                                 <div class="tag green">비대면</div>
                             </div>
-                            <h3>연세 이비인후과의원</h3>
+                            <h3 th:text="${i.NAME}"></h3>
                             <div class="star">
                                 <i>
                                     <img th:src="@{/user/images/star.png}" alt="">
@@ -130,11 +130,11 @@
                                 <i><img th:src="@{/user/images/loca.png}" alt=""></i>
                                 <h5>6Km</h5>
                                 <div class="line"></div>
-                                <span>서울시 강남구 신사동</span>
+                                <span th:text="${i.ADDRESS}"></span>
                             </div>
                         </a>
                     </li>
-                </div>
+                </th:block>
 <!--                <li>-->
 <!--                    <a href="hospital">-->
 <!--                        <div class="tags">-->
