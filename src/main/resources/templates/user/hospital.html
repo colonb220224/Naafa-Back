@@ -2,6 +2,7 @@
 <head>
 
     <th:block th:include="common/library_header"></th:block>
+    <script type="module" th:src="@{/user/scripts/hospital.js}"></script>
 
 </head>
 <body class="suit">
@@ -17,7 +18,7 @@
                 </div>
                 <div class="header_center">
                     <div class="txt">
-                        <h5>연세 이비인후과의원</h5>
+                        <h5 th:text="${res.NAME}"></h5>
                     </div>
                 </div>
                 <div class="header_right">
@@ -52,16 +53,79 @@
                         </div>
                     </div>
                     <div class="tit">
-                        <h2>연세 이비인후과의원</h2>
+                        <h2 th:text="${res.NAME}"></h2>
                     </div>
                     <ul class="info_list">
                         <li>
                             <i><img th:src="@{/user/images/loca.png}" alt=""></i>
-                            서울시 강남구 강남로 123 강남타워 4층 405호
+                            <div th:text="${res.ADDRESS}">
+                            </div>
                         </li>
                         <li>
                             <i><img th:src="@{/user/images/time.png}" alt=""></i>
-                            목요일 09:00 ~ 19:00  |  점심시간 13:00 ~ 14:00
+                            <th:block th:if="${#dates.format(#dates.createNow(), 'E') == '월'}">
+                                <div th:if=" ${res.mEnable} != false">
+                                    <p th:text="'월요일 '+ ${res.mStartAt}+':00'+' ~ '+${res.mEndAt}+':00' + ' | 점심시간 ' + ${res.mBreakStartAt}+':00'+ ' ~ '+${res.mBreakEndAt}+':00'">
+                                    </p>
+                                </div>
+                                <div th:if=" ${res.mEnable} == false" >
+                                    <p th:text="'휴진'"></p>
+                                </div>
+                            </th:block>
+                            <th:block th:if="${#dates.format(#dates.createNow(), 'E') == '화'}">
+                                <div th:if=" ${res.teEnable} != false">
+                                    <p th:text="'화요일 '+ ${res.teStartAt}+':00'+' ~ '+${res.teEndAt}+':00' + ' | 점심시간 ' + ${res.teBreakStartAt}+':00'+ ' ~ '+${res.teBreakEndAt}+':00'">
+                                    </p>
+                                </div>
+                                <div th:if=" ${res.teEnable} == false" >
+                                    <p th:text="'휴진'"></p>
+                                </div>
+                            </th:block>
+                            <th:block th:if="${#dates.format(#dates.createNow(), 'E') == '수'}">
+                                <div th:if=" ${res.weEnable} != false">
+                                    <p th:text="'수요일 '+ ${res.weStartAt}+':00'+' ~ '+${res.weEndAt}+':00' + ' | 점심시간 ' + ${res.weBreakStartAt}+':00'+ ' ~ '+${res.weBreakEndAt}+':00'">
+                                    </p>
+                                </div>
+                                <div th:if=" ${res.weEnable} == false" >
+                                    <p th:text="'휴진'"></p>
+                                </div>
+                            </th:block>
+                            <th:block th:if="${#dates.format(#dates.createNow(), 'E') == '목'}">
+                                <div th:if=" ${res.thEnable} != false">
+                                    <p th:text="'목요일 '+ ${res.thStartAt}+':00'+' ~ '+${res.thEndAt}+':00' + ' | 점심시간 ' + ${res.thBreakStartAt}+':00'+ ' ~ '+${res.thBreakEndAt}+':00'">
+                                    </p>
+                                </div>
+                                <div th:if=" ${res.thEnable} == false" >
+                                    <p th:text="'휴진'"></p>
+                                </div>
+                            </th:block>
+                            <th:block th:if="${#dates.format(#dates.createNow(), 'E') == '금'}">
+                                <div th:if=" ${res.fEnable} != false">
+                                    <p th:text="'금요일 '+ ${res.fStartAt}+':00'+' ~ '+${res.fEndAt}+':00' + ' | 점심시간 ' + ${res.fBreakStartAt}+':00'+ ' ~ '+${res.fBreakEndAt}+':00'">
+                                    </p>
+                                </div>
+                                <div th:if=" ${res.fEnable} == false" >
+                                    <p th:text="'휴진'"></p>
+                                </div>
+                            </th:block>
+                            <th:block th:if="${#dates.format(#dates.createNow(), 'E') == '토'}">
+                                <div th:if=" ${res.saEnable} != false">
+                                    <p th:text="'토요일 '+ ${res.saStartAt}+':00'+' ~ '+${res.saEndAt}+':00' + ' | 점심시간 ' + ${res.saBreakStartAt}+':00'+ ' ~ '+${res.saBreakEndAt}+':00'">
+                                    </p>
+                                </div>
+                                <div th:if=" ${res.saEnable} == false" >
+                                    <p th:text="'휴진'"></p>
+                                </div>
+                            </th:block>
+                            <th:block th:if="${#dates.format(#dates.createNow(), 'E') == '일'}">
+                                <div th:if=" ${res.suEnable} != false">
+                                    <p th:text="'일요일 '+ ${res.suStartAt}+':00'+' ~ '+${res.suEndAt}+':00' + ' | 점심시간 ' + ${res.suBreakStartAt}+':00'+ ' ~ '+${res.suBreakEndAt}+':00'">
+                                    </p>
+                                </div>
+                                <div th:if=" ${res.suEnable} == false" >
+                                    <p th:text="'휴진'"></p>
+                                </div>
+                            </th:block>
                         </li>
                     </ul>
                 </div>
@@ -83,11 +147,11 @@
                 <div class="hospital_intro tab-content current" id="tab-1">
                     <div class="wrap">
                         <h5>병원소개</h5>
-                        <h2>
+                        <h2 th:text="${res.INFO_TREATMENT}">
                             강남 강남역 대표 이비인후과,<br/>
                             강남역 10번 출구                        
                         </h2>
-                        <p>
+                        <p th:text="${res.INFO_DETAILS}">
                             강남역 10번 출구 바로 앞에 위치하고 있습니다.<br/>
                             *수술센터* 이비인후과클리닉* 수액클리닉 등을 <br/>
                             운영하고있습니다.<br/>
@@ -118,31 +182,38 @@
                             <div class="time_info2">
                                 <div class="info">
                                     <h5>월요일</h5>
-                                    <p>10:00 ~ 19:00</p>
+                                    <p th:if="${res.mEnable != false}" th:text="${res.mStartAt}+':00'+' ~ '+${res.mEndAt}+':00'">10:00 ~ 19:00</p>
+                                    <p th:if="${res.mEnable == false}" th:text="'휴진'">10:00 ~ 19:00</p>
                                 </div>
                                 <div class="info">
                                     <h5>화요일</h5>
-                                    <p>10:00 ~ 19:00</p>
+                                    <p th:if="${res.teEnable != false}" th:text="${res.teStartAt}+':00'+' ~ '+${res.teEndAt}+':00'">10:00 ~ 19:00</p>
+                                    <p th:if="${res.teEnable == false}" th:text="'휴진'">10:00 ~ 19:00</p>
                                 </div>
                                 <div class="info">
                                     <h5>수요일</h5>
-                                    <p>10:00 ~ 19:00</p>
+                                    <p th:if="${res.weEnable != false}" th:text="${res.weStartAt}+':00'+' ~ '+${res.weEndAt}+':00'">10:00 ~ 19:00</p>
+                                    <p th:if="${res.weEnable == false}" th:text="'휴진'">10:00 ~ 19:00</p>
                                 </div>
                                 <div class="info">
                                     <h5>목요일</h5>
-                                    <p>10:00 ~ 19:00</p>
+                                    <p th:if="${res.thEnable != false}" th:text="${res.thStartAt}+':00'+' ~ '+${res.thEndAt}+':00'">10:00 ~ 19:00</p>
+                                    <p th:if="${res.thEnable == false}" th:text="'휴진'">10:00 ~ 19:00</p>
                                 </div>
                                 <div class="info">
                                     <h5>금요일</h5>
-                                    <p>10:00 ~ 19:00</p>
+                                    <p th:if="${res.fEnable != false}" th:text="${res.fStartAt}+':00'+' ~ '+${res.fEndAt}+':00'">10:00 ~ 19:00</p>
+                                    <p th:if="${res.fEnable == false}" th:text="'휴진'">10:00 ~ 19:00</p>
                                 </div>
                                 <div class="info blue">
                                     <h5>토요일</h5>
-                                    <p>10:00 ~ 19:00</p>
+                                    <p th:if="${res.saEnable != false}" th:text="${res.saStartAt}+':00'+' ~ '+${res.saEndAt}+':00'">10:00 ~ 19:00</p>
+                                    <p th:if="${res.saEnable == false}" th:text="'휴진'">10:00 ~ 19:00</p>
                                 </div>
                                 <div class="info red">
                                     <h5>일요일</h5>
-                                    <p>휴진</p>
+                                    <p th:if="${res.suEnable != false}" th:text="${res.suStartAt}+':00'+' ~ '+${res.suEndAt}+':00'">10:00 ~ 19:00</p>
+                                    <p th:if="${res.suEnable == false}" th:text="'휴진'">10:00 ~ 19:00</p>
                                 </div>
                                 <div class="info red">
                                     <h5>공휴일</h5>
@@ -205,7 +276,7 @@
                                 </h5>
                             </div>
                             <div class="addr_info">
-                                <div class="txt">
+                                <div class="txt" th:text="${res.ADDRESS}">
                                     서울시 강남구 강남로 123 강남타워 <br/>
                                     4층 405호 연세이비인후과
                                 </div>
@@ -225,7 +296,7 @@
                                     </i>
                                     주차정보
                                 </div>
-                                <div class="txt">
+                                <div class="txt" th:text="${res.INFO_PARKING}">
                                     20대 주차가능(무료)<br/>
                                     기본 진료시 30분 무료주차 제공합니다.
                                 </div>

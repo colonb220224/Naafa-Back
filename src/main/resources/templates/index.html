@@ -2,7 +2,8 @@
 <head>
 
     <th:block th:include="common/library_header"></th:block>
-    
+    <script type="module" th:src="@{/user/scripts/index.js}"></script>
+
 </head>
 <body class="suit">
     <div class="content">
@@ -89,13 +90,12 @@
                             <div class="sub_tit">
                                 <h5>가까운 병원이 있어요  ></h5>
                             </div>
-                            <div class="banner_con">
-                                <!--작업시작부분-->
+                            <th:block th:if="${#lists.size(res) != 0}" th:each="i, n : ${res}">
+                                <div class="banner_con">
                                 <div class="txt">
                                     <div class="item-append">
-<!--                                        <h5>-->
-<!--                                            연세 이비인후과의원-->
-<!--                                        </h5>-->
+                                        <h5 th:text="${i.NAME}">
+                                        </h5>
                                     </div>
                                     <ul class="txt_p">
                                         <li>
@@ -121,6 +121,7 @@
                                     <img th:src="@{/user/images/icon2.png}" alt="">
                                 </div>
                             </div>
+                            </th:block>
                         </a>
                     </div>
                 </div>
@@ -141,19 +142,19 @@
                 </div>
                 <!-- 팝업 리스트 -->
                 <ul class="alert_list">
-                    <li>
-                        <a href="">
-                            <div class="txt">
-                                <p>
-                                    <i><img th:src="@{/user/images/chk2.png}" alt=""></i>
-                                    다가오고 있는 예약이 있어요!
-                                </p>
-                            </div>
-                            <div class="num">
-                                7 건
-                            </div>
-                        </a>
-                    </li>
+<!--                    <li>-->
+<!--                        <a href="">-->
+<!--                            <div class="txt">-->
+<!--                                <p>-->
+<!--                                    <i><img th:src="@{/user/images/chk2.png}" alt=""></i>-->
+<!--                                    다가오고 있는 예약이 있어요!-->
+<!--                                </p>-->
+<!--                            </div>-->
+<!--                            <div class="num">-->
+<!--                                7 건-->
+<!--                            </div>-->
+<!--                        </a>-->
+<!--                    </li>-->
                     <li>
                         <a href="">
                             <div class="txt">

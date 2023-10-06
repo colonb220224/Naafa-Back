@@ -14,6 +14,321 @@
 <!--        <result property="role" column="ROLE"/>-->
 <!--    </resultMap>-->
 
+    <update id="updateHospitalOperatingHourMonday">
+        UPDATE HOSPITAL_BUSINESS_HOURS_MONDAY
+        SET  ENABLE = #{mondayOperatingEnable}
+          ,  START_AT = #{mondayOperatingStartAt}
+          ,  END_AT = #{mondayOperatingEndAt}
+          ,  BREAK_START_AT = #{mondayBreakStartAt}
+          ,  BREAK_END_AT = #{mondayBreakEndAt}
+          ,  NIGHT_CARE_ENABLE = #{mondayNightCareEnable}
+          ,  NIGHT_CARE_START_AT = #{mondayNightCareStartAt}
+          ,  NIGHT_CARE_END_AT = #{mondayNightCareEndAt}
+        WHERE HOSPITAL = #{hospital}
+    </update>
+
+    <update id="updateHospitalOperatingHourTuesday">
+        UPDATE HOSPITAL_BUSINESS_HOURS_TUESDAY
+        SET  ENABLE = #{tuesdayOperatingEnable}
+          ,  START_AT = #{tuesdayOperatingStartAt}
+          ,  END_AT = #{tuesdayOperatingEndAt}
+          ,  BREAK_START_AT = #{tuesdayBreakStartAt}
+          ,  BREAK_END_AT = #{tuesdayBreakEndAt}
+          ,  NIGHT_CARE_ENABLE = #{tuesdayNightCareEnable}
+          ,  NIGHT_CARE_START_AT = #{tuesdayNightCareStartAt}
+          ,  NIGHT_CARE_END_AT = #{tuesdayNightCareEndAt}
+        WHERE HOSPITAL = #{hospital}
+    </update>
+
+    <update id="updateHospitalOperatingHourWednesday">
+        UPDATE HOSPITAL_BUSINESS_HOURS_WEDNESDAY
+        SET  ENABLE = #{wednesdayOperatingEnable}
+          ,  START_AT = #{wednesdayOperatingStartAt}
+          ,  END_AT = #{wednesdayOperatingEndAt}
+          ,  BREAK_START_AT = #{wednesdayBreakStartAt}
+          ,  BREAK_END_AT = #{wednesdayBreakEndAt}
+          ,  NIGHT_CARE_ENABLE = #{wednesdayNightCareEnable}
+          ,  NIGHT_CARE_START_AT = #{wednesdayNightCareStartAt}
+          ,  NIGHT_CARE_END_AT = #{wednesdayNightCareEndAt}
+        WHERE HOSPITAL = #{hospital}
+    </update>
+
+    <update id="updateHospitalOperatingHourThursday">
+        UPDATE HOSPITAL_BUSINESS_HOURS_THURSDAY
+        SET  ENABLE = #{thursdayOperatingEnable}
+          ,  START_AT = #{thursdayOperatingStartAt}
+          ,  END_AT = #{thursdayOperatingEndAt}
+          ,  BREAK_START_AT = #{thursdayBreakStartAt}
+          ,  BREAK_END_AT = #{thursdayBreakEndAt}
+          ,  NIGHT_CARE_ENABLE = #{thursdayNightCareEnable}
+          ,  NIGHT_CARE_START_AT = #{thursdayNightCareStartAt}
+          ,  NIGHT_CARE_END_AT = #{thursdayNightCareEndAt}
+        WHERE HOSPITAL = #{hospital}
+    </update>
+
+    <update id="updateHospitalOperatingHourFriday">
+        UPDATE HOSPITAL_BUSINESS_HOURS_FRIDAY
+        SET  ENABLE = #{fridayOperatingEnable}
+          ,  START_AT = #{fridayOperatingStartAt}
+          ,  END_AT = #{fridayOperatingEndAt}
+          ,  BREAK_START_AT = #{fridayBreakStartAt}
+          ,  BREAK_END_AT = #{fridayBreakEndAt}
+          ,  NIGHT_CARE_ENABLE = #{fridayNightCareEnable}
+          ,  NIGHT_CARE_START_AT = #{fridayNightCareStartAt}
+          ,  NIGHT_CARE_END_AT = #{fridayNightCareEndAt}
+        WHERE HOSPITAL = #{hospital}
+    </update>
+
+    <update id="updateHospitalOperatingHourSaturday">
+        UPDATE HOSPITAL_BUSINESS_HOURS_SATURDAY
+        SET  ENABLE = #{saturdayOperatingEnable}
+          ,  START_AT = #{saturdayOperatingStartAt}
+          ,  END_AT = #{saturdayOperatingEndAt}
+          ,  BREAK_START_AT = #{saturdayBreakStartAt}
+          ,  BREAK_END_AT = #{saturdayBreakEndAt}
+          ,  NIGHT_CARE_ENABLE = #{saturdayNightCareEnable}
+          ,  NIGHT_CARE_START_AT = #{saturdayNightCareStartAt}
+          ,  NIGHT_CARE_END_AT = #{saturdayNightCareEndAt}
+        WHERE HOSPITAL = #{hospital}
+    </update>
+
+    <update id="updateHospitalOperatingHourSunday">
+        UPDATE HOSPITAL_BUSINESS_HOURS_SUNDAY
+        SET  ENABLE = #{sundayOperatingEnable}
+          ,  START_AT = #{sundayOperatingStartAt}
+          ,  END_AT = #{sundayOperatingEndAt}
+          ,  BREAK_START_AT = #{sundayBreakStartAt}
+          ,  BREAK_END_AT = #{sundayBreakEndAt}
+          ,  NIGHT_CARE_ENABLE = #{sundayNightCareEnable}
+          ,  NIGHT_CARE_START_AT = #{sundayNightCareStartAt}
+          ,  NIGHT_CARE_END_AT = #{sundayNightCareEndAt}
+        WHERE HOSPITAL = #{hospital}
+    </update>
+
+    <insert id="insertHospitalOperatingHourMonday">
+        INSERT INTO HOSPITAL_BUSINESS_HOURS_MONDAY (ENABLE
+                                                    , START_AT
+                                                    , END_AT
+                                                    , BREAK_START_AT
+                                                    , BREAK_END_AT
+                                                    , NIGHT_CARE_ENABLE
+                                                    , NIGHT_CARE_START_AT
+                                                    , NIGHT_CARE_END_AT
+                                                    , HOSPITAL)
+        values (#{mondayOperatingEnable}
+                , #{mondayOperatingStartAt}
+                , #{mondayOperatingEndAt}
+                , #{mondayBreakStartAt}
+                , #{mondayBreakEndAt}
+                , #{mondayNightCareEnable}
+                , #{mondayNightCareStartAt}
+                , #{mondayNightCareEndAt}
+                , #{HOSPITAL})
+    </insert>
+
+    <insert id="insertHospitalOperatingHourTuesday">
+        INSERT INTO HOSPITAL_BUSINESS_HOURS_TUESDAY (ENABLE
+                                                    , START_AT
+                                                    , END_AT
+                                                    , BREAK_START_AT
+                                                    , BREAK_END_AT
+                                                    , NIGHT_CARE_ENABLE
+                                                    , NIGHT_CARE_START_AT
+                                                    , NIGHT_CARE_END_AT
+                                                    , HOSPITAL)
+        values (#{tuesdayOperatingEnable}
+               , #{tuesdayOperatingStartAt}
+               , #{tuesdayOperatingEndAt}
+               , #{tuesdayBreakStartAt}
+               , #{tuesdayBreakEndAt}
+               , #{tuesdayNightCareEnable}
+               , #{tuesdayNightCareStartAt}
+               , #{tuesdayNightCareEndAt}
+               , #{HOSPITAL})
+    </insert>
+
+    <insert id="insertHospitalOperatingHourWednesday">
+        INSERT INTO HOSPITAL_BUSINESS_HOURS_WEDNESDAY (ENABLE
+                                                    , START_AT
+                                                    , END_AT
+                                                    , BREAK_START_AT
+                                                    , BREAK_END_AT
+                                                    , NIGHT_CARE_ENABLE
+                                                    , NIGHT_CARE_START_AT
+                                                    , NIGHT_CARE_END_AT
+                                                    , HOSPITAL)
+        values (#{wednesdayOperatingEnable}
+                , #{wednesdayOperatingStartAt}
+                , #{wednesdayOperatingEndAt}
+                , #{wednesdayBreakStartAt}
+                , #{wednesdayBreakEndAt}
+                , #{wednesdayNightCareEnable}
+                , #{wednesdayNightCareStartAt}
+                , #{wednesdayNightCareEndAt}
+                , #{HOSPITAL})
+    </insert>
+
+    <insert id="insertHospitalOperatingHourThursday">
+        INSERT INTO HOSPITAL_BUSINESS_HOURS_THURSDAY (ENABLE
+                                                    , START_AT
+                                                    , END_AT
+                                                    , BREAK_START_AT
+                                                    , BREAK_END_AT
+                                                    , NIGHT_CARE_ENABLE
+                                                    , NIGHT_CARE_START_AT
+                                                    , NIGHT_CARE_END_AT
+                                                    , HOSPITAL)
+        values (#{thursdayOperatingEnable}
+                , #{thursdayOperatingStartAt}
+                , #{thursdayOperatingEndAt}
+                , #{thursdayBreakStartAt}
+                , #{thursdayBreakEndAt}
+                , #{thursdayNightCareEnable}
+                , #{thursdayNightCareStartAt}
+                , #{thursdayNightCareEndAt}
+                , #{HOSPITAL})
+    </insert>
+
+    <insert id="insertHospitalOperatingHourFriday">
+        INSERT INTO HOSPITAL_BUSINESS_HOURS_FRIDAY (ENABLE
+                                                    , START_AT
+                                                    , END_AT
+                                                    , BREAK_START_AT
+                                                    , BREAK_END_AT
+                                                    , NIGHT_CARE_ENABLE
+                                                    , NIGHT_CARE_START_AT
+                                                    , NIGHT_CARE_END_AT
+                                                    , HOSPITAL)
+        values (#{fridayOperatingEnable}
+                , #{fridayOperatingStartAt}
+                , #{fridayOperatingEndAt}
+                , #{fridayBreakStartAt}
+                , #{fridayBreakEndAt}
+                , #{fridayNightCareEnable}
+                , #{fridayNightCareStartAt}
+                , #{fridayNightCareEndAt}
+                , #{HOSPITAL})
+    </insert>
+
+    <insert id="insertHospitalOperatingHourSaturday">
+        INSERT INTO HOSPITAL_BUSINESS_HOURS_SATURDAY (ENABLE
+                                                    , START_AT
+                                                    , END_AT
+                                                    , BREAK_START_AT
+                                                    , BREAK_END_AT
+                                                    , NIGHT_CARE_ENABLE
+                                                    , NIGHT_CARE_START_AT
+                                                    , NIGHT_CARE_END_AT
+                                                    , HOSPITAL)
+        values (#{saturdayOperatingEnable}
+                , #{saturdayOperatingStartAt}
+                , #{saturdayOperatingEndAt}
+                , #{saturdayBreakStartAt}
+                , #{saturdayBreakEndAt}
+                , #{saturdayNightCareEnable}
+                , #{saturdayNightCareStartAt}
+                , #{saturdayNightCareEndAt}
+                , #{HOSPITAL})
+    </insert>
+
+    <insert id="insertHospitalOperatingHourSunday">
+        INSERT INTO HOSPITAL_BUSINESS_HOURS_SUNDAY (ENABLE
+                                                    , START_AT
+                                                    , END_AT
+                                                    , BREAK_START_AT
+                                                    , BREAK_END_AT
+                                                    , NIGHT_CARE_ENABLE
+                                                    , NIGHT_CARE_START_AT
+                                                    , NIGHT_CARE_END_AT
+                                                    , HOSPITAL)
+        values (#{sundayOperatingEnable}
+                , #{sundayOperatingStartAt}
+                , #{sundayOperatingEndAt}
+                , #{sundayBreakStartAt}
+                , #{sundayBreakEndAt}
+                , #{sundayNightCareEnable}
+                , #{sundayNightCareStartAt}
+                , #{sundayNightCareEndAt}
+                , #{HOSPITAL})
+    </insert>
+
+    <select id="findHospitalByHospital" resultType="HashMap">
+        SELECT H.SEQ SEQ
+             , H.NAME
+             , H.ADDRESS
+             , H.COORDINATE
+             , H.CONTACT
+             , H.USER
+             , HI.*
+             , M.ENABLE as mEnable
+             , M.START_AT as mStartAt
+             , M.END_AT as mEndAt
+             , M.BREAK_START_AT as mBreakStartAt
+             , M.BREAK_END_AT as mBreakEndAt
+             , M.NIGHT_CARE_ENABLE as mNightCareEnable
+             , M.NIGHT_CARE_START_AT as mNightCareStartAt
+             , M.NIGHT_CARE_END_AT as mNightCareEndAt
+             , TE.ENABLE as teEnable
+             , TE.START_AT as teStartAt
+             , TE.END_AT as teEndAt
+             , TE.BREAK_START_AT as teBreakStartAt
+             , TE.BREAK_END_AT as teBreakEndAt
+             , TE.NIGHT_CARE_ENABLE as teNightCareEnable
+             , TE.NIGHT_CARE_START_AT as teNightCareStartAt
+             , TE.NIGHT_CARE_END_AT as teNightCareEndAt
+             , W.ENABLE as weEnable
+             , W.START_AT as weStartAt
+             , W.END_AT as weEndAt
+             , W.BREAK_START_AT as weBreakStartAt
+             , W.BREAK_END_AT as weBreakEndAt
+             , W.NIGHT_CARE_ENABLE as weNightCareEnable
+             , W.NIGHT_CARE_START_AT as weNightCareStartAt
+             , W.NIGHT_CARE_END_AT as weNightCareEndAt
+             , TH.ENABLE as thEnable
+             , TH.START_AT as thStartAt
+             , TH.END_AT as thEndAt
+             , TH.BREAK_START_AT as thBreakStartAt
+             , TH.BREAK_END_AT as thBreakEndAt
+             , TH.NIGHT_CARE_ENABLE as thNightCareEnable
+             , TH.NIGHT_CARE_START_AT as thNightCareStartAt
+             , TH.NIGHT_CARE_END_AT as thNightCareEndAt
+             , F.ENABLE as fEnable
+             , F.START_AT as fStartAt
+             , F.END_AT as fEndAt
+             , F.BREAK_START_AT as fBreakStartAt
+             , F.BREAK_END_AT as fBreakEndAt
+             , F.NIGHT_CARE_ENABLE as fNightCareEnable
+             , F.NIGHT_CARE_START_AT as fNightCareStartAt
+             , F.NIGHT_CARE_END_AT as fNightCareEndAt
+             , SA.ENABLE as saEnable
+             , SA.START_AT as saStartAt
+             , SA.END_AT as saEndAt
+             , SA.BREAK_START_AT as saBreakStartAt
+             , SA.BREAK_END_AT as saBreakEndAt
+             , SA.NIGHT_CARE_ENABLE as saNightCareEnable
+             , SA.NIGHT_CARE_START_AT as saNightCareStartAt
+             , SA.NIGHT_CARE_END_AT as saNightCareEndAt
+             , SU.ENABLE as suEnable
+             , SU.START_AT as suStartAt
+             , SU.END_AT as suEndAt
+             , SU.BREAK_START_AT as suBreakStartAt
+             , SU.BREAK_END_AT as suBreakEndAt
+             , SU.NIGHT_CARE_ENABLE as suNightCareEnable
+             , SU.NIGHT_CARE_START_AT as suNightCareStartAt
+             , SU.NIGHT_CARE_END_AT as suNightCareEndAt
+        FROM HOSPITAL H
+            INNER JOIN HOSPITAL_INFO HI on H.SEQ = HI.HOSPITAL
+            INNER JOIN HOSPITAL_BUSINESS_HOURS_MONDAY M on H.SEQ = M.HOSPITAL
+            INNER JOIN HOSPITAL_BUSINESS_HOURS_TUESDAY TE on H.SEQ = TE.HOSPITAL
+            INNER JOIN HOSPITAL_BUSINESS_HOURS_WEDNESDAY W on H.SEQ = W.HOSPITAL
+            INNER JOIN HOSPITAL_BUSINESS_HOURS_THURSDAY TH on H.SEQ = TH.HOSPITAL
+            INNER JOIN HOSPITAL_BUSINESS_HOURS_FRIDAY F on H.SEQ = F.HOSPITAL
+            INNER JOIN HOSPITAL_BUSINESS_HOURS_SATURDAY SA on H.SEQ = SA.HOSPITAL
+            INNER JOIN HOSPITAL_BUSINESS_HOURS_SUNDAY SU on H.SEQ = SU.HOSPITAL
+            INNER JOIN HOSPITAL_INFO I ON H.SEQ = I.HOSPITAL
+        WHERE H.SEQ = #{seq}
+    </select>
+
     <!--기획이 완성되지 않아 LIST에서 1개만 추출함-->
     <select id="findHospitalList" resultType="HashMap">
         SELECT SEQ
@@ -24,18 +339,17 @@
              , USER
         FROM HOSPITAL
         ORDER BY SEQ DESC
-        LIMIT 1
     </select>
 
-    <select id="findHospitalByUser" resultType="Integer">
+    <select id="findUserByHospital" resultType="Integer">
         SELECT USER
         FROM HOSPITAL
-        WHERE HOSPITAL = #{hospital}
+        WHERE SEQ = #{hospital}
     </select>
 
     <update id="updateHospitalInfo">
         UPDATE HOSPITAL_INFO
-        SET  INFO_SIMPLE = #{simple}
+        SET  INFO_TREATMENT = #{treatment}
           ,  INFO_DETAILS = #{details}
           ,  INFO_PARKING = #{parking}
         WHERE HOSPITAL = #{hospital}
@@ -67,8 +381,8 @@
     </update>
 
     <insert id="insertHospitalInfo">
-        INSERT INTO HOSPITAL_INFO (HOSPITAL, INFO_SIMPLE, INFO_DETAILS, INFO_PARKING)
-        values (#{HOSPITAL}, #{simple}, #{details}, #{parking})
+        INSERT INTO HOSPITAL_INFO (HOSPITAL, INFO_TREATMENT, INFO_DETAILS, INFO_PARKING)
+        values (#{HOSPITAL}, #{treatment}, #{details}, #{parking})
     </insert>
 
     <insert id="insertUserHospitalHost">
@@ -85,5 +399,74 @@
         INSERT INTO HOSPITAL (NAME, ADDRESS, COORDINATE, CONTACT, USER)
         values (#{name}, #{address}, POINT(${coordinate}), #{contact}, #{seq})
     </insert>
+
+    <insert id="insertHospitalVisitReserveInfo">
+        INSERT INTO HOSPITAL_VISIT_RESERVE_INFO (ENABLE, START_AT, END_AT, CANCELLATION_PERIOD, RESERVE_PER_HOUR, WEEKEND, HOSPITAL)
+        values (#{visitReserveEnable}, #{visitReserveStartAt}, #{visitReserveEndAt}, #{visitReserveCancellationPeriod}, #{visitReserveRerHour},
+                #{visitReserveWeekend}, #{HOSPITAL})
+    </insert>
+
+    <insert id="insertHospitalConsultationReserveInfo">
+        INSERT INTO HOSPITAL_CONSULTATION_RESERVE_INFO (ENABLE, START_AT, END_AT, CANCELLATION_PERIOD, RESERVE_PER_HOUR, WEEKEND, HOSPITAL)
+        values (#{consultationReserveEnable}, #{consultationReserveStartAt}, #{consultationReserveEndAt}, #{consultationReserveCancellationPeriod}, #{consultationReserveRerHour},
+                #{consultationReserveWeekend}, #{HOSPITAL})
+    </insert>
+
+    <insert id="insertHospitalOnlineReserveInfo">
+        INSERT INTO HOSPITAL_ONLINE_RESERVE_INFO (ENABLE, START_AT, END_AT, CANCELLATION_PERIOD, RESERVE_PER_HOUR, WEEKEND, HOSPITAL)
+        values (#{onlineReserveEnable}, #{onlineReserveStartAt}, #{onlineReserveEndAt}, #{onlineReserveCancellationPeriod}, #{onlineReserveRerHour},
+                #{onlineReserveWeekend}, #{HOSPITAL})
+    </insert>
+
+    <insert id="insertHospitalHouseCallReserveInfo">
+        INSERT INTO HOSPITAL_HOUSE_CALL_RESERVE_INFO (ENABLE, START_AT, END_AT, CANCELLATION_PERIOD, RESERVE_PER_HOUR, WEEKEND, HOSPITAL)
+        values (#{houseCallReserveEnable}, #{houseCallReserveStartAt}, #{houseCallReserveEndAt}, #{houseCallReserveCancellationPeriod}, #{houseCallReserveRerHour},
+                #{houseCallReserveWeekend}, #{HOSPITAL})
+    </insert>
+
+    <update id="updateHospitalVisitReserveInfo">
+        UPDATE HOSPITAL_VISIT_RESERVE_INFO
+        SET    ENABLE = #{visitReserveEnable},
+               START_AT = #{visitReserveStartAt},
+               END_AT = #{visitReserveEndAt},
+               CANCELLATION_PERIOD = #{visitReserveCancellationPeriod},
+               RESERVE_PER_HOUR = #{visitReserveRerHour},
+               WEEKEND = #{visitReserveWeekend}
+        WHERE HOSPITAL = #{hospital}
+    </update>
+
+    <update id="updateHospitalConsultationReserveInfo">
+        UPDATE HOSPITAL_CONSULTATION_RESERVE_INFO
+        SET    ENABLE = #{consultationReserveEnable},
+               START_AT = #{consultationReserveStartAt},
+               END_AT = #{consultationReserveEndAt},
+               CANCELLATION_PERIOD = #{consultationReserveCancellationPeriod},
+               RESERVE_PER_HOUR = #{consultationReserveRerHour},
+               WEEKEND = #{consultationReserveWeekend}
+        WHERE HOSPITAL = #{hospital}
+    </update>
+
+    <update id="updateHospitalOnlineReserveInfo">
+        UPDATE HOSPITAL_ONLINE_RESERVE_INFO
+        SET    ENABLE = #{onlineReserveEnable},
+               START_AT = #{onlineReserveStartAt},
+               END_AT = #{onlineReserveEndAt},
+               CANCELLATION_PERIOD = #{onlineReserveCancellationPeriod},
+               RESERVE_PER_HOUR = #{onlineReserveRerHour},
+               WEEKEND = #{onlineReserveWeekend}
+        WHERE HOSPITAL = #{hospital}
+    </update>
+
+    <update id="updateHospitalHouseCallReserveInfo">
+        UPDATE HOSPITAL_HOUSE_CALL_RESERVE_INFO
+        SET    ENABLE = #{houseCallReserveEnable},
+               START_AT = #{houseCallReserveStartAt},
+               END_AT = #{houseCallReserveEndAt},
+               CANCELLATION_PERIOD = #{houseCallReserveCancellationPeriod},
+               RESERVE_PER_HOUR = #{houseCallReserveRerHour},
+               WEEKEND = #{houseCallReserveWeekend}
+        WHERE HOSPITAL = #{hospital}
+    </update>
+
 
 </mapper>
