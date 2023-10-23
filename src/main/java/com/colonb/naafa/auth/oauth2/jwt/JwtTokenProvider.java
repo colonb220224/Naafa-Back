@@ -1,7 +1,6 @@
 package com.colonb.naafa.auth.oauth2.jwt;
 
 
-
 import com.colonb.naafa.user.entity.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
@@ -66,11 +65,11 @@ public class JwtTokenProvider {
 
     public String resolveTokenFromCookie(HttpServletRequest request) {
         Cookie[] cookies = request.getCookies();
-        if (Objects.isNull(cookies)){
+        if (Objects.isNull(cookies)) {
             return null;
         }
-        for (Cookie cookie : cookies){
-            if (cookie.getName().equals("JWT")){
+        for (Cookie cookie : cookies) {
+            if (cookie.getName().equals("JWT")) {
                 return cookie.getValue();
             }
         }

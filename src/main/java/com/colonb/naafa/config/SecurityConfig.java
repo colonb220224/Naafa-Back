@@ -55,6 +55,7 @@ public class SecurityConfig {
                 .authorizeRequests()
                 .antMatchers("/user/auth/**").authenticated()
                 .antMatchers("/inquiry/auth/**").authenticated()
+                //추후 해당부분 전체적인 수정필요
                 .and()
                 .addFilterBefore(new JwtFilterChain(jwtTokenProvider), UsernamePasswordAuthenticationFilter.class);
         http.oauth2Login()

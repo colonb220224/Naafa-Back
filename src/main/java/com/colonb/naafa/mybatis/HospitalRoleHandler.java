@@ -11,7 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 @MappedTypes(HospitalRole.class)
-public class HospitalRoleHandler extends BaseTypeHandler<HospitalRole> {
+public class
+HospitalRoleHandler extends BaseTypeHandler<HospitalRole> {
 
     @Override
     public void setNonNullParameter(PreparedStatement ps, int i, HospitalRole parameter, JdbcType jdbcType) throws SQLException {

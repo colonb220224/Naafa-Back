@@ -20,7 +20,7 @@ public class JwtFilterChain extends GenericFilterBean {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest httpRequest = (HttpServletRequest) request;
         String token = jwtTokenProvider.resolveToken(httpRequest);
-        if (token == null){
+        if (token == null) {
             token = jwtTokenProvider.resolveTokenFromCookie(httpRequest);
         }
         if (token != null && jwtTokenProvider.validateToken(token)) {

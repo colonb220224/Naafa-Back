@@ -25,6 +25,7 @@ public class InquiryService {
     private final UserMapper userMapper;
 
 
+
     @Transactional
     public Result add(InquiryDto req, UserDetailsImpl userDetails) {
         if(!(userMapper.findHospitalRoleByUser(userDetails.getUser().getSeq()) == HospitalRole.PATIENT)){

@@ -30,11 +30,11 @@ public class OAuth2SuccessHandler extends SimpleUrlAuthenticationSuccessHandler 
                                         Authentication authentication) throws IOException {
         DefaultOAuth2UserExtend oAuth2User = (DefaultOAuth2UserExtend) authentication.getPrincipal();
         Optional<User> data = userMapper.findByProviderAndSocialId(oAuth2User.getProvider(), oAuth2User.getSocialId());
-        if (data.isEmpty()){
+        if (data.isEmpty()) {
             throw new RuntimeException("유저 데이터 존재하지 않음");
         }
         UserDetailsImpl userDetails = new UserDetailsImpl(data.get());
-        authentication = new UsernamePasswordAuthenticationToken(userDetails,"",userDetails.getAuthorities());
+        authentication = new UsernamePasswordAuthenticationToken(userDetails, "", userDetails.getAuthorities());
         SecurityContextHolder.getContext().setAuthentication(authentication);
         Cookie jwtCookie = new Cookie("JWT", jwtTokenProvider.createToken(userDetails.getUser()));
         jwtCookie.setPath("/");

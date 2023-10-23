@@ -38,7 +38,7 @@ public class UserController {
                                              BindingResult bindingResul,
                                              @AuthenticationPrincipal UserDetailsImpl userDetails) throws Exception {
         if (bindingResul.hasErrors()) {
-            return new ResponseEntity<>(new Result(bindingResul.getAllErrors().get(0).getDefaultMessage(), HttpStatus.BAD_REQUEST , false), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new Result(bindingResul.getAllErrors().get(0).getDefaultMessage(), HttpStatus.BAD_REQUEST, false), HttpStatus.BAD_REQUEST);
         }
         Result res = userService.patientAdd(req, userDetails);
         return ResponseEntity.status(res.status()).body(res);
@@ -50,7 +50,7 @@ public class UserController {
                                                 @PathVariable long seq,
                                                 @AuthenticationPrincipal UserDetailsImpl userDetails) throws Exception {
         if (bindingResul.hasErrors()) {
-            return new ResponseEntity<>(new Result(bindingResul.getAllErrors().get(0).getDefaultMessage(), HttpStatus.BAD_REQUEST , false), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new Result(bindingResul.getAllErrors().get(0).getDefaultMessage(), HttpStatus.BAD_REQUEST, false), HttpStatus.BAD_REQUEST);
         }
         Result res = userService.patientModify(seq, req, userDetails);
         return ResponseEntity.status(res.status()).body(res);

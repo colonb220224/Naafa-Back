@@ -32,8 +32,8 @@ public class AdminHospitalService {
         mappedReq.put("hospital", hospitalSeq);
         // 대표관리자 고유번호
         Optional<Integer> userSeq = hospitalMapper.findUserByHospital((Long) mappedReq.get("hospital"));
-        if(!userSeq.isPresent()){
-            return new Result("병원 대표관리자 정보가 존재하지 않습니다.",HttpStatus.BAD_REQUEST, false);
+        if (!userSeq.isPresent()) {
+            return new Result("병원 대표관리자 정보가 존재하지 않습니다.", HttpStatus.BAD_REQUEST, false);
         }
         mappedReq.put("user", userSeq.get());
         userMapper.updateDefaultUser(mappedReq);
@@ -74,8 +74,8 @@ public class AdminHospitalService {
 
     @Transactional
     public Result hospitalAdd(HospitalDto req, UserDetailsImpl userDetails) throws Exception {
-        if(userMapper.existByUsername(req.getUsername())){
-            return new Result("이미 존재하는 이메일입니다.",HttpStatus.BAD_REQUEST, false);
+        if (userMapper.existByUsername(req.getUsername())) {
+            return new Result("이미 존재하는 이메일입니다.", HttpStatus.BAD_REQUEST, false);
         }
         // 대표관리자 유저정보 등록
         HashMap<String, Object> mappedReq = HashMapConverter.convert(req);

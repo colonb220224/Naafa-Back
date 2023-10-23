@@ -50,6 +50,7 @@ public class Result {
         this.success = success;
     }
 
+
     public Result(HttpStatus status, boolean success) {
         if (success) {
             this.message = "요청에 성공했습니다.";

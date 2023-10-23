@@ -1,24 +1,15 @@
 package com.colonb.naafa.hospital;
 
-import com.colonb.naafa.hospital.HospitalService;
-import com.colonb.naafa.admin.hospital.dto.HospitalDto;
-import com.colonb.naafa.auth.UserDetailsImpl;
-import com.colonb.naafa.hospital.dto.HospitalSeqDto;
-import com.colonb.naafa.result.Result;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
-import java.util.HashMap;
-import java.util.Objects;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("user/hospital")
 @RequiredArgsConstructor
 public class HospitalController {
     private final HospitalService hospitalService;
+
 
 //    @GetMapping("{seq}")
 //    public ResponseEntity<Result> getHospitalDetail(@PathVariable long seq) {

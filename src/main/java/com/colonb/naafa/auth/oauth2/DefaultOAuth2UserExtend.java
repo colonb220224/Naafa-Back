@@ -49,7 +49,7 @@ public class DefaultOAuth2UserExtend extends DefaultOAuth2User {
                 }
                 return naverData.get("email").toString();
             default:
-                throw new RuntimeException("구현되지 않은 OAuth2 Provider 타입");
+                throw new RuntimeException("미구현 상태의 OAuth2 Provider 타입");
         }
     }
 }

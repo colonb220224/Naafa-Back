@@ -25,7 +25,7 @@ public class GlobalExceptionHandler {
         StackTraceElement[] stackTraceElements = e.getStackTrace();
         System.out.println("NPE 발생");
         System.out.println(stackTraceElements[0]);
-        System.out.println("----------------------");
+        System.out.println("-----------------------");
         return ResponseEntity.internalServerError().body(new Result("요청을 처리중 문제가 발생했습니다.", HttpStatus.INTERNAL_SERVER_ERROR, false));
     }
 

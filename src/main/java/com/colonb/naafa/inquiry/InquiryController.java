@@ -22,10 +22,10 @@ public class InquiryController {
 
     @PostMapping("auth/add")
     public ResponseEntity<Result> add(@RequestBody @Valid InquiryDto req,
-                                             BindingResult bindingResul,
-                                             @AuthenticationPrincipal UserDetailsImpl userDetails) {
+                                      BindingResult bindingResul,
+                                      @AuthenticationPrincipal UserDetailsImpl userDetails) {
         if (bindingResul.hasErrors()) {
-            return new ResponseEntity<>(new Result(bindingResul.getAllErrors().get(0).getDefaultMessage(), HttpStatus.BAD_REQUEST , false), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new Result(bindingResul.getAllErrors().get(0).getDefaultMessage(), HttpStatus.BAD_REQUEST, false), HttpStatus.BAD_REQUEST);
         }
         Result res = inquiryService.add(req, userDetails);
         return ResponseEntity.status(res.status()).body(res);
@@ -33,11 +33,11 @@ public class InquiryController {
 
     @PostMapping("auth/modify/{seq}")
     public ResponseEntity<Result> modify(@RequestBody @Valid InquiryDto req,
-                                                BindingResult bindingResul,
-                                                @PathVariable long seq,
-                                                @AuthenticationPrincipal UserDetailsImpl userDetails) {
+                                         BindingResult bindingResul,
+                                         @PathVariable long seq,
+                                         @AuthenticationPrincipal UserDetailsImpl userDetails) {
         if (bindingResul.hasErrors()) {
-            return new ResponseEntity<>(new Result(bindingResul.getAllErrors().get(0).getDefaultMessage(), HttpStatus.BAD_REQUEST , false), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new Result(bindingResul.getAllErrors().get(0).getDefaultMessage(), HttpStatus.BAD_REQUEST, false), HttpStatus.BAD_REQUEST);
         }
         Result res = inquiryService.modify(seq, req, userDetails);
         return ResponseEntity.status(res.status()).body(res);
@@ -45,7 +45,7 @@ public class InquiryController {
 
     @DeleteMapping("auth/remove/{seq}")
     public ResponseEntity<Result> remove(@PathVariable long seq,
-                                                @AuthenticationPrincipal UserDetailsImpl userDetails) {
+                                         @AuthenticationPrincipal UserDetailsImpl userDetails) {
         Result res = inquiryService.remove(seq, userDetails);
         return ResponseEntity.status(res.status()).body(res);
     }
@@ -67,10 +67,10 @@ public class InquiryController {
     // TODO 기획에서 문의사항 답변하는 어드민페이지 생기면 패키저 이동 고민중
     @PostMapping("auth/answer/add/{seq}")
     public ResponseEntity<Result> answerAdd(@RequestBody @Valid InquiryAnswerDto req,
-                                      BindingResult bindingResul, @PathVariable long seq,
-                                      @AuthenticationPrincipal UserDetailsImpl userDetails) {
+                                            BindingResult bindingResul, @PathVariable long seq,
+                                            @AuthenticationPrincipal UserDetailsImpl userDetails) {
         if (bindingResul.hasErrors()) {
-            return new ResponseEntity<>(new Result(bindingResul.getAllErrors().get(0).getDefaultMessage(), HttpStatus.BAD_REQUEST , false), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new Result(bindingResul.getAllErrors().get(0).getDefaultMessage(), HttpStatus.BAD_REQUEST, false), HttpStatus.BAD_REQUEST);
         }
         Result res = inquiryService.answerAdd(req, seq, userDetails);
         return ResponseEntity.status(res.status()).body(res);

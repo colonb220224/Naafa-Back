@@ -20,7 +20,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         Optional<User> data = userMapper.findByUsername(username);
         if (data.isEmpty()) {
-            throw new UsernameNotFoundException("이메일 " + username + " 을 찾을수 없음");
+            throw new UsernameNotFoundException("이메일(유저명) " + username + " 을 찾을수 없음");
         }
         return new UserDetailsImpl(data.get());
     }

@@ -8,7 +8,7 @@ public class HashMapConverter<T> {
 
     private static ObjectMapper objectMapper = new ObjectMapper();
 
-    public static HashMap<String,Object> convert(Object object){
-        return objectMapper.convertValue(object,HashMap.class);
+    public static HashMap<String, Object> convert(Object object) {
+        return objectMapper.convertValue(object, HashMap.class);
     }
 }

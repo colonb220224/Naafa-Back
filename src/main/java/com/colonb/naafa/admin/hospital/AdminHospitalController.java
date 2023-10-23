@@ -20,7 +20,7 @@ public class AdminHospitalController {
 
     @PostMapping("modify/{hospitalSeq}")
     public ResponseEntity<Result> hospitalModify(@RequestBody @Valid HospitalDto req,
-            BindingResult bindingResult, @PathVariable long hospitalSeq, @AuthenticationPrincipal UserDetailsImpl userDetails) throws Exception {
+                                                 BindingResult bindingResult, @PathVariable long hospitalSeq, @AuthenticationPrincipal UserDetailsImpl userDetails) throws Exception {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>(new Result(bindingResult.getAllErrors().get(0).getDefaultMessage(), HttpStatus.BAD_REQUEST, false), HttpStatus.BAD_REQUEST);
         }
@@ -30,7 +30,7 @@ public class AdminHospitalController {
 
     @PostMapping("add")
     public ResponseEntity<Result> hospitalAdd(@RequestBody @Valid HospitalDto req,
-            BindingResult bindingResult, @AuthenticationPrincipal UserDetailsImpl userDetails) throws Exception {
+                                              BindingResult bindingResult, @AuthenticationPrincipal UserDetailsImpl userDetails) throws Exception {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity<>(new Result(bindingResult.getAllErrors().get(0).getDefaultMessage(), HttpStatus.BAD_REQUEST, false), HttpStatus.BAD_REQUEST);
         }

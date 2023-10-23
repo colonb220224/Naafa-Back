@@ -19,6 +19,7 @@ public class PatientDto {
     @NotNull(message = "본인과의 관계가 누락되었습니다.")
     private PatientRelate relate;
 
+
     public void encryptSocialNumber() throws Exception {
         this.socialNumber = AES256Encrypt.encrypt(socialNumber);
     }

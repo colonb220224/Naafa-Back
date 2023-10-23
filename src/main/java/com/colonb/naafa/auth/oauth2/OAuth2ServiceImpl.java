@@ -39,7 +39,7 @@ public class OAuth2ServiceImpl implements OAuth2UserService<OAuth2UserRequest, O
     protected void processOAuth2User(DefaultOAuth2UserExtend oAuth2User) {
         Optional<User> data = userMapper.findByProviderAndSocialId(oAuth2User.getProvider(), oAuth2User.getSocialId());
         if (!data.isPresent()) {
-            if (userMapper.existByUsername(oAuth2User.getEmail())){
+            if (userMapper.existByUsername(oAuth2User.getEmail())) {
                 throw new UsernameNotFoundException("동일한 이메일의 소셜 계정 혹은 일반 계정이 존재합니다."); // 해당 예외 발생시 oauth2 에서 자동적으로 페이지에 메세지를 띄워줌
             }
             HashMap<String, Object> param = new HashMap<>();

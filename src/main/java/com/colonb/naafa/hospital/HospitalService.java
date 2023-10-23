@@ -1,22 +1,12 @@
 package com.colonb.naafa.hospital;
 
-import com.colonb.naafa.auth.UserDetailsImpl;
-import com.colonb.naafa.result.Result;
 import com.colonb.naafa.user.UserMapper;
-import com.colonb.naafa.user.enums.AccountStatus;
-import com.colonb.naafa.user.enums.HospitalRole;
-import com.colonb.naafa.user.enums.UserRole;
-import com.colonb.naafa.util.HashMapConverter;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.thymeleaf.util.MapUtils;
 
 import java.util.HashMap;
 import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -27,7 +17,7 @@ public class HospitalService {
     @Transactional
     public HashMap<String, Object> getHospitalDetail(long seq) {
         // 병원 상세보기
-        HashMap<String, Object> result  = hospitalMapper.findHospitalByHospital(seq);
+        HashMap<String, Object> result = hospitalMapper.findHospitalByHospital(seq);
 
         return result;
     }
@@ -35,7 +25,7 @@ public class HospitalService {
     @Transactional
     public List<HashMap<String, Object>> getHospitalList() {
         // 병원리스트 추가
-        List<HashMap<String, Object>> result  = hospitalMapper.findHospitalList();
+        List<HashMap<String, Object>> result = hospitalMapper.findHospitalList();
 
         return result;
     }

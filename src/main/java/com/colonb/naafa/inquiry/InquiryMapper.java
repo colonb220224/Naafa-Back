@@ -21,5 +21,6 @@ public interface InquiryMapper {
 
     int insertInquiryAnswer(HashMap<String, Object> param);
 
+
     Optional<HashMap<String, Object>> findWithAnswerBySeq(long seq);
 }

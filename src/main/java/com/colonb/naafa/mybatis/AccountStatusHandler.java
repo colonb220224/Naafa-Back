@@ -18,6 +18,7 @@ public class AccountStatusHandler extends BaseTypeHandler<AccountStatus> {
         ps.setString(i, parameter.name());
     }
 
+
     @Override
     public AccountStatus getNullableResult(ResultSet rs, String columnName) throws SQLException {
         String value = rs.getString(columnName);
